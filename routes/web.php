@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\Dashboard\Dashboard;
+use App\Livewire\Profile\EditProfile;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,5 +30,6 @@ Route::middleware([
     // })->name('dashboard');
     
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
+    Route::get('/edit-profile', EditProfile::class)->name('edit-profile');
     
 });
