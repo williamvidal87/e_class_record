@@ -337,8 +337,14 @@
                                     Inbox</a><a class="dropdown-item" href="project-summary.html"><i
                                         class="ft-check-square"></i> Task</a><a class="dropdown-item"
                                     href="chat-application.html"><i class="ft-message-square"></i> Chats</a>
-                                <div class="dropdown-divider"></div><a class="dropdown-item" href="login.html"><i
-                                        class="ft-power"></i> Logout</a>
+                                <div class="dropdown-divider">
+                                </div>
+                                <form method="POST" action="{{ route('logout') }}" x-data>
+                                    @csrf
+                                    <a class="dropdown-item" href="{{ route('logout') }}" @click.prevent="$root.submit();">
+                                        <i class="ft-power"></i> Logout
+                                    </a>
+                                </form>
                             </div>
                         </div>
                     </li>
