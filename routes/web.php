@@ -1,6 +1,8 @@
 <?php
 
+use App\Livewire\AdminPanel\ManageUser\AdminTable;
 use App\Livewire\Dashboard\Dashboard;
+use App\Livewire\Profile\EditPassword;
 use App\Livewire\Profile\EditProfile;
 use Illuminate\Support\Facades\Route;
 
@@ -31,5 +33,7 @@ Route::middleware([
     
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
     Route::get('/edit-profile', EditProfile::class)->name('edit-profile');
+    Route::get('/edit-password', EditPassword::class)->name('edit-password');
+    Route::get('/admin-table', AdminTable::class)->name('admin-table')->middleware('checkadmin');
     
 });

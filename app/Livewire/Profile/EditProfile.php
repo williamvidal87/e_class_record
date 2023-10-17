@@ -70,7 +70,7 @@ class EditProfile extends Component
             // return redirect()->route('profile.show');
         }
 
-        $this->emit('saved');
+        $this->dispatch('saved');
 
         // $this->emit('refresh-navigation-menu');
     }
