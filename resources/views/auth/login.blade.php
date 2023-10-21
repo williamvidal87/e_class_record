@@ -77,8 +77,8 @@
                                         <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                                             @csrf
                                             <fieldset class="form-group position-relative has-icon-left">
-                                                <input type="email" class="form-control round" id="user-name"
-                                                    placeholder="Your Email" name="email" :value="old('email')" required
+                                                <input type="text" class="form-control round" id="user-name"
+                                                    placeholder="Your ID Number" name="id_number" :value="old('id_number')" required
                                                     autofocus autocomplete="username">
                                                 <div class="form-control-position">
                                                     <i class="ft-user">
