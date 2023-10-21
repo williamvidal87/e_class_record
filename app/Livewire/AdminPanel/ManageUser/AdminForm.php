@@ -10,4 +10,12 @@ class AdminForm extends Component
     {
         return view('livewire.admin-panel.manage-user.admin-form');
     }
+    
+    public function CloseAdminForm()
+    {   
+        $this->dispatch('CloseAdminModal');
+        $this->dispatch('refresh_admin_table');
+        $this->dispatch('EmitTable');
+        
+    }
 }

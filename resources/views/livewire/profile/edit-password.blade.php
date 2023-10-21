@@ -5,7 +5,7 @@
             <div class="content-wrapper-before"></div>
             <div class="content-header row">
                 <div class="content-header-left col-md-4 col-12 mb-2">
-                    <h3 class="content-header-title">Manage Profile</h3>
+                    <h3 class="content-header-title">Manage Password</h3>
                 </div>
             </div>
             <div class="content-body"><!-- Zero configuration table -->
@@ -13,10 +13,6 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title">Zero configuration</h4>
-                                    <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
-                                </div>
                                 <div class="card-content collapse show">
                                     <div class="card-body card-dashboard">
                                         <x-form-section submit="updatePassword">
