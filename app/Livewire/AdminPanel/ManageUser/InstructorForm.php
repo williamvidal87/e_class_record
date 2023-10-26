@@ -5,7 +5,7 @@ namespace App\Livewire\AdminPanel\ManageUser;
 use App\Models\User;
 use Livewire\Component;
 
-class AdminForm extends Component
+class InstructorForm extends Component
 {
     public  $id_number,
             $name,
@@ -13,10 +13,10 @@ class AdminForm extends Component
             $password,
             $confirm_password;
     public  $UserID;
-    public  $rule_id = 1;
+    public  $rule_id = 2;
     
     protected $listeners = [
-        'CloseAdminForm',
+        'CloseInstructorForm',
         'UserID'
     ];
     
@@ -30,7 +30,7 @@ class AdminForm extends Component
     
     public function render()
     {
-        return view('livewire.admin-panel.manage-user.admin-form');
+        return view('livewire.admin-panel.manage-user.instructor-form');
     }
     
     public function Store()
@@ -43,7 +43,7 @@ class AdminForm extends Component
             'confirm_password'      => 'required_without:UserID|same:password',
         ]);
         
-        $this->dispatch('CloseAdminModal');
+        $this->dispatch('CloseInstructorModal');
         
         $data = ([
             'id_number'             => $this->id_number,
@@ -70,14 +70,14 @@ class AdminForm extends Component
 			return back();
         }
         
-        $this->dispatch('CloseAdminForm');
+        $this->dispatch('CloseInstructorForm');
     
     }
     
-    public function CloseAdminForm()
+    public function CloseInstructorForm()
     {   
-        $this->dispatch('CloseAdminModal');
-        $this->dispatch('refresh_admin_table');
+        $this->dispatch('CloseInstructorModal');
+        $this->dispatch('refresh_instructor_table');
         $this->resetValidation();
         $this->reset();
         

@@ -30,12 +30,12 @@
             }, 1);
         });
         
-        @this.on('OpenAdminModal', (event) => {
-            $('#AdminModal').modal('show');
+        @this.on('OpenInstructorModal', (event) => {
+            $('#InstructorModal').modal('show');
         });
         
-        @this.on('CloseAdminModal', (event) => {
-            $('#AdminModal').modal('hide');
+        @this.on('CloseInstructorModal', (event) => {
+            $('#InstructorModal').modal('hide');
         });
         
         @this.on('DeleteConfirm', (UserID) => {

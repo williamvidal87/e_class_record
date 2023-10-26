@@ -1,8 +1,8 @@
 <div>
     <div class="modal-content">
         <div class="modal-header bg-info white">
-            <h4 class="modal-title white" id="myModalLabel11">Admin</h4>
-            <button wire:click="CloseAdminForm" type="button" class="btn close" aria-label="Close">
+            <h4 class="modal-title white" id="myModalLabel11">Instructor</h4>
+            <button wire:click="CloseInstructorForm" type="button" class="btn close" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="modal-footer justify-content-between">
-            <button wire:click="CloseAdminForm" type="button" class="btn grey btn-secondary"><i class="ft-x"></i> Close</button>
+            <button wire:click="CloseInstructorForm" type="button" class="btn grey btn-secondary"><i class="ft-x"></i> Close</button>
             <button wire:click="Store" type="button" class="btn btn-primary"><i class="la la-check-square-o"></i> Save</button>
         </div>
     </div>
