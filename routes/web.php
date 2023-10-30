@@ -10,6 +10,7 @@ use App\Livewire\Profile\EditPassword;
 use App\Livewire\Profile\EditProfile;
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,8 +23,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-    // return redirect()->route('login');
+    // return view('welcome');
+    return redirect()->route('login');
 });
 
 Route::middleware([
