@@ -2,6 +2,7 @@
 
 use App\Livewire\AdminPanel\ManageUser\AdminTable;
 use App\Livewire\AdminPanel\ManageUser\InstructorTable;
+use App\Livewire\AdminPanel\ManageUser\StudentTable;
 use App\Livewire\Dashboard\Dashboard;
 use App\Livewire\Profile\EditPassword;
 use App\Livewire\Profile\EditProfile;
@@ -39,5 +40,6 @@ Route::middleware([
     // admin panel
     Route::get('/admin-table', AdminTable::class)->name('admin-table')->middleware('checkadmin');
     Route::get('/instructor-table', InstructorTable::class)->name('instructor-table')->middleware('checkadmin');
+    Route::get('/student-table', StudentTable::class)->name('student-table')->middleware('checkadmin');
     
 });

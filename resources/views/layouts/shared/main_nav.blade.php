@@ -42,7 +42,7 @@
                         <a class="menu-item" href="instructor-table">Instructor</a>
                     </li>
                     <li>
-                        <a class="menu-item" href="dashboard-analytics.html">Teacher</a>
+                        <a class="menu-item" href="student-table">Students</a>
                     </li>
                 </ul>
             </li>
