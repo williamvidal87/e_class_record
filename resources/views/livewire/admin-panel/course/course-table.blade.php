@@ -24,7 +24,7 @@
                                             <table id="multi-ordering" class="table table-striped table-bordered multi-ordering dataTable no-footer">
                                                 <thead>
                                                     <tr>
-                                                        <th>Subject No</th>
+                                                        <th>Course No</th>
                                                         <th>Abbreviation</th>
                                                         <th>Description</th>
                                                         <th>Action</th>

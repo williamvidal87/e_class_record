@@ -54,7 +54,7 @@
                 </a>
             </li>
             <li class=" nav-item">
-                <a href="https://themeselection.com/support">
+                <a href="subject-table">
                     <i class="ft-book">
                     </i>
                     <span class="menu-title" data-i18n="">Subject</span>
