@@ -47,10 +47,17 @@
                 </ul>
             </li>
             <li class=" nav-item">
-                <a href="https://themeselection.com/support">
-                    <i class="ft-life-buoy">
+                <a href="course-table">
+                    <i class="icon-docs">
                     </i>
-                    <span class="menu-title" data-i18n="">Raise Support</span>
+                    <span class="menu-title" data-i18n="">Course</span>
+                </a>
+            </li>
+            <li class=" nav-item">
+                <a href="https://themeselection.com/support">
+                    <i class="ft-book">
+                    </i>
+                    <span class="menu-title" data-i18n="">Subject</span>
                 </a>
             </li>
         </ul>

@@ -27,6 +27,7 @@
                                                         <th>ID Number</th>
                                                         <th>Name</th>
                                                         <th>Email</th>
+                                                        <th>Phone Number</th>
                                                         <th>Status</th>
                                                         <th>Action</th>
                                                 </thead>
@@ -36,6 +37,7 @@
                                                             <td>{{ $data->id_number }}</td>
                                                             <td>{{ $data->name }}</td>
                                                             <td>{{ $data->email }}</td>
+                                                            <td>{{ $data->phone_number }}</td>
                                                             <td>
                                                                 @if(Cache::has('user-online' . $data->id))
                                                                     <span class="badge badge-pill badge-success">Online</span>
@@ -43,7 +45,7 @@
                                                                     <span class="badge badge-pill badge-secondary">Offline</span>
                                                                 @endif
                                                             </td>
-                                                            <td>
+                                                            <td style="min-width:165px;">
                                                                 <button wire:click="EditInstructor({{$data->id}})" type="button" class="btn btn-glow btn-bg-gradient-x-purple-blue btn-sm"><i class="ft-edit"></i> Edit</button>
                                                                 <button wire:click="DeleteInstructor({{$data->id}})" type="button" class="btn btn-glow btn-bg-gradient-x-red-pink btn-sm"><i class="ft-trash-2"></i> Delete</button>
                                                             </td>

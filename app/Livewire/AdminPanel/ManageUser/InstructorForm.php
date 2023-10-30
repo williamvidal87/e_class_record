@@ -10,6 +10,7 @@ class InstructorForm extends Component
     public  $id_number,
             $name,
             $email,
+            $phone_number,
             $password,
             $confirm_password;
     public  $UserID;
@@ -26,6 +27,7 @@ class InstructorForm extends Component
         $this->id_number = $data['id_number'];
         $this->name = $data['name'];
         $this->email = $data['email'];
+        $this->phone_number = $data['phone_number'];
     }
     
     public function render()
@@ -39,6 +41,7 @@ class InstructorForm extends Component
             'id_number'             => 'required||min:7||unique:users,id_number,'.$this->UserID,
             'name'                  => 'required',
             'email'                 => 'required|email|unique:users,email,'.$this->UserID,
+            'phone_number'          => 'required|digits:10|numeric',
             'password'              => 'required_without:UserID',
             'confirm_password'      => 'required_without:UserID|same:password',
         ]);
@@ -49,6 +52,7 @@ class InstructorForm extends Component
             'id_number'             => $this->id_number,
             'name'                  => $this->name,
             'email'                 => $this->email,
+            'phone_number'          => $this->phone_number,
             'rule_id'               => $this->rule_id
         ]);
         try {

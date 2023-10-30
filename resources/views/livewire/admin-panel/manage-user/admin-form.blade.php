@@ -26,6 +26,11 @@
                             <div class="font-small-2 danger">@error('email') {{ $message }} @enderror</div>
                         </div>
                         <div class="form-group">
+                            <label for="phone_number">Phone Number</label>
+                            <input type="phone_number" wire:model="phone_number" id="phone_number" class="form-control" placeholder="Phone Number">
+                            <div class="font-small-2 danger">@error('phone_number') {{ $message }} @enderror</div>
+                        </div>
+                        <div class="form-group">
                             <label for="password">Password</label>
                             <input type="password" wire:model="password" id="password" class="form-control" placeholder="Password">
                             <div class="font-small-2 danger">@error('password') {{ $message }} @enderror</div>

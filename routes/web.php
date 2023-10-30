@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\AdminPanel\Course\CourseTable;
 use App\Livewire\AdminPanel\ManageUser\AdminTable;
 use App\Livewire\AdminPanel\ManageUser\InstructorTable;
 use App\Livewire\AdminPanel\ManageUser\StudentTable;
@@ -41,5 +42,6 @@ Route::middleware([
     Route::get('/admin-table', AdminTable::class)->name('admin-table')->middleware('checkadmin');
     Route::get('/instructor-table', InstructorTable::class)->name('instructor-table')->middleware('checkadmin');
     Route::get('/student-table', StudentTable::class)->name('student-table')->middleware('checkadmin');
+    Route::get('/course-table', CourseTable::class)->name('course-table')->middleware('checkadmin');
     
 });
