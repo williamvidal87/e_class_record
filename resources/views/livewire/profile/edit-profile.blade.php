@@ -26,6 +26,7 @@
                                         <div class="custom-file">
                                             <input wire:model="photo" type="file" class="custom-file-input" id="inputGroupFile01" style="width: 14rem">
                                             <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                            <input type="file">
                                         </div>
                                     </fieldset>
                                 </div>
