@@ -9,7 +9,7 @@ use Livewire\WithFileUploads;
 
 class EditProfile extends Component
 {
-    use WithFileUploads;
+    // use WithFileUploads;
     
     public  $id_number,
             $name,
