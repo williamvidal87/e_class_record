@@ -99,8 +99,7 @@
 
     <!-- BEGIN: Page Vendor JS-->
     <script src="{{ asset('app-assets/vendors/js/charts/chartist.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('app-assets/vendors/js/charts/chartist-plugin-tooltip.min.js') }}" type="text/javascript">
-    </script>
+    <script src="{{ asset('app-assets/vendors/js/charts/chartist-plugin-tooltip.min.js') }}" type="text/javascript"></script>
     <!-- END: Page Vendor JS-->
 
     <!-- BEGIN: Theme JS-->

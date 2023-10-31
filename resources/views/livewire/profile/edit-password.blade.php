@@ -1,5 +1,4 @@
 <div>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <div class="app-content content">
         <div class="content-wrapper">
             <div class="content-wrapper-before"></div>
@@ -8,60 +7,40 @@
                     <h3 class="content-header-title">Manage Password</h3>
                 </div>
             </div>
-            <div class="content-body"><!-- Zero configuration table -->
-                <section id="configuration">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-content collapse show">
-                                    <div class="card-body card-dashboard">
-                                        <x-form-section submit="updatePassword">
-                                            <x-slot name="title">
-                                                {{ __('Update Password') }}
-                                            </x-slot>
-                                        
-                                            <x-slot name="description">
-                                                {{ __('Ensure your account is using a long, random password to stay secure.') }}
-                                            </x-slot>
-                                        
-                                            <x-slot name="form">
-                                                <div class="col-span-6 sm:col-span-4">
-                                                    <x-label for="current_password" value="{{ __('Current Password') }}" />
-                                                    <x-input id="current_password" type="password" class="mt-1 block w-full" wire:model="state.current_password" autocomplete="current-password" />
-                                                    <x-input-error for="current_password" class="mt-2" />
-                                                </div>
-                                        
-                                                <div class="col-span-6 sm:col-span-4">
-                                                    <x-label for="password" value="{{ __('New Password') }}" />
-                                                    <x-input id="password" type="password" class="mt-1 block w-full" wire:model="state.password" autocomplete="new-password" />
-                                                    <x-input-error for="password" class="mt-2" />
-                                                </div>
-                                        
-                                                <div class="col-span-6 sm:col-span-4">
-                                                    <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                                                    <x-input id="password_confirmation" type="password" class="mt-1 block w-full" wire:model="state.password_confirmation" autocomplete="new-password" />
-                                                    <x-input-error for="password_confirmation" class="mt-2" />
-                                                </div>
-                                            </x-slot>
-                                        
-                                            <x-slot name="actions">
-                                                <x-action-message class="mr-3" on="saved">
-                                                    {{ __('Saved.') }}
-                                                </x-action-message>
-                                        
-                                                <x-button>
-                                                    {{ __('Save') }}
-                                                </x-button>
-                                            </x-slot>
-                                        </x-form-section>
-                                        <br><br><br>
-                                    </div>
+            <div class="content-body modal-footer justify-content-center">
+                <!-- Zero configuration table -->
+                    <!-- Predefined Views -->
+                    
+                    <div class="card col-xl-8 col-lg-6 col-md-12">
+                        <div class="card-body border-top-blue-grey border-top-lighten-5">
+                            <!-- contacts view -->
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="current">Current Password</label>
+                                    <input type="password" wire:model="current" id="current" class="form-control" placeholder="Current Password">
+                                    <div class="font-small-2 danger">@error('current') {{ $message }} @enderror</div>
                                 </div>
+                                <div class="form-group">
+                                    <label for="password">New Password</label>
+                                    <input type="password" wire:model="password" id="password" class="form-control" placeholder="New Password">
+                                    <div class="font-small-2 danger">@error('password') {{ $message }} @enderror</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirm_password">Confirm Password</label>
+                                    <input type="password" wire:model="confirm_password" id="confirm_password" class="form-control" placeholder="Confirm Password">
+                                    <div class="font-small-2 danger">@error('confirm_password') {{ $message }} @enderror</div>
+                                </div>
+                            <div class="modal-footer justify-content-between">
+                                <button wire:click="Store" type="button" class="btn btn-primary"><i class="la la-check-square-o"></i> Save</button>
                             </div>
                         </div>
                     </div>
-                </section>
+                    <!--/ Predefined Views -->
             </div>
         </div>
     </div>
 </div>
+
+@section('custom_script')
+    @include('layouts.scripts.edit-profile-scripts'); 
+@endsection

@@ -7,39 +7,65 @@
                     <h3 class="content-header-title">Manage Profile</h3>
                 </div>
             </div>
-            <div class="content-body">
+            <div class="content-body modal-footer justify-content-center">
                 <!-- Zero configuration table -->
-                <div class="sidebar-detached sidebar-left">
-                    <div class="sidebar">
-                        <div class="bug-list-sidebar-content">
-                            <!-- Predefined Views -->
-                            <div class="card">
-                                <div class="card-head">
-                                    <div class="align-self-center halfway-fab text-center p-1">
-                                        <span class="avatar avatar-lg avatar-online rounded-circle"><img src="../../../app-assets/images/portrait/small/avatar-s-1.png" alt="avatar"></span>
-                                    </div>
-                                    <div class="text-center">
-                                        <span class="font-medium-2 text-uppercase">Jose Diaz</span>
-                                        <p class="blue-grey font-small-2">Ninja Developer</p>
-                                    </div>
-                                </div>
-                                <div class="card-body border-top-blue-grey border-top-lighten-5">
-                                    <!-- contacts view -->
-                                    <div class="card-body">
-                                        <div class="list-group">
-                                            <a href="#" class="list-group-item active">All Contacts</a>
-                                            <a href="#" class="list-group-item list-group-item-action">Recently contacted</a>
-                                            <a href="#" class="list-group-item list-group-item-action">Favorite contacts</a>
-                                            <a href="#" class="list-group-item list-group-item-action info"><i class="mr-1 ft-plus"></i> Add Contacts </a>
+                    <!-- Predefined Views -->
+                    
+                    <div class="card col-xl-8 col-lg-6 col-md-12">
+                        <div class="card-head">
+                            <div class="align-self-center halfway-fab text-center p-1">
+                                @if($this->photo)
+                                    <span class="avatar avatar-lg avatar-online rounded-circle"><img src="{{ $this->photo->temporaryUrl() }}" alt="{{ Auth::user()->name }}"></span>
+                                @else
+                                    <span class="avatar avatar-lg avatar-online rounded-circle"><img src="/storage/{{ Auth::user()->profile_photo_path ?? 'default-profile/admin-profile.png' }}" alt="{{ Auth::user()->name }}"></span>
+                                @endif
+                            </div>
+                            <div class="align-self-center halfway-fab p-1">
+                                <div class="modal-footer justify-content-center">
+                                    <fieldset class="form-group">
+                                        <div class="custom-file">
+                                            <input wire:model="photo" type="file" class="custom-file-input" id="inputGroupFile01" style="width: 14rem">
+                                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                                         </div>
-                                    </div>
+                                    </fieldset>
                                 </div>
                             </div>
-                            <!--/ Predefined Views -->
+                        </div>
+                        <div class="card-body border-top-blue-grey border-top-lighten-5">
+                            <!-- contacts view -->
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="id_number">ID Number</label>
+                                    <input type="text" wire:model="id_number" id="id_number" class="form-control" placeholder="ID Number">
+                                    <div class=" font-small-2 danger">@error('id_number') {{ $message }} @enderror</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">Full Name</label>
+                                    <input type="text" wire:model="name" id="name" class="form-control" placeholder="Full Name">
+                                    <div class="font-small-2 danger">@error('name') {{ $message }} @enderror</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone_number">Phone Number</label>
+                                    <input type="phone_number" wire:model="phone_number" id="phone_number" class="form-control" placeholder="Phone Number">
+                                    <div class="font-small-2 danger">@error('phone_number') {{ $message }} @enderror</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">E-mail</label>
+                                    <input type="text" wire:model="email" id="email" class="form-control" placeholder="E-mail">
+                                    <div class=" font-small-2 danger">@error('email') {{ $message }} @enderror</div>
+                                </div>
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                                <button wire:click="Store" type="button" class="btn btn-primary"><i class="la la-check-square-o"></i> Save</button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <!--/ Predefined Views -->
             </div>
         </div>
     </div>
 </div>
+
+@section('custom_script')
+    @include('layouts.scripts.edit-profile-scripts'); 
+@endsection
