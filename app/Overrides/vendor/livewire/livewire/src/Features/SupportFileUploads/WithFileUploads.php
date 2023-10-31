@@ -2,7 +2,7 @@
 
 namespace Livewire\Features\SupportFileUploads;
 
-use Facades\Livewire\Features\SupportFileUploads\GenerateSignedUploadUrl;
+use Livewire\Features\SupportFileUploads\GenerateSignedUploadUrl;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Http\UploadedFile;
 

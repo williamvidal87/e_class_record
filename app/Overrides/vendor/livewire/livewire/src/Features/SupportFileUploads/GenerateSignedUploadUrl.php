@@ -8,14 +8,14 @@ use function Livewire\invade;
 
 class GenerateSignedUploadUrl
 {
-    public function forLocal()
+    public static function forLocal()
     {
         return URL::temporarySignedRoute(
             'livewire.upload-file', now()->addMinutes(FileUploadConfiguration::maxUploadTime())
         );
     }
 
-    public function forS3($file, $visibility = 'private')
+    public static function forS3($file, $visibility = 'private')
     {
         $driver = FileUploadConfiguration::storage()->getDriver();
 
