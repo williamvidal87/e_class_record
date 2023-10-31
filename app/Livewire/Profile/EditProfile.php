@@ -49,7 +49,7 @@ class EditProfile extends Component
         ]);
         try {
             if ($this->photo) {
-                // $data['profile_photo_path']=$this->photo->store('profile-photos');
+                $data['profile_photo_path']=$this->photo->store('profile-photos');
             }
             User::find(Auth::user()->id)->update($data);
             $this->dispatch('alert_update');

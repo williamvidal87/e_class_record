@@ -14,11 +14,11 @@
                     <div class="card col-xl-8 col-lg-6 col-md-12">
                         <div class="card-head">
                             <div class="align-self-center halfway-fab text-center p-1">
-                                @if($this->photo)
+                                {{-- @if($this->photo)
                                     <span class="avatar avatar-lg avatar-online rounded-circle"><img src="{{ $this->photo->temporaryUrl() }}" alt="{{ Auth::user()->name }}"></span>
                                 @else
                                     <span class="avatar avatar-lg avatar-online rounded-circle"><img src="/storage/{{ Auth::user()->profile_photo_path ?? 'default-profile/admin-profile.png' }}" alt="{{ Auth::user()->name }}"></span>
-                                @endif
+                                @endif --}}
                             </div>
                             <div class="align-self-center halfway-fab p-1">
                                 <div class="modal-footer justify-content-center">
