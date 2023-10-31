@@ -20,13 +20,15 @@
                                     <span class="avatar avatar-lg avatar-online rounded-circle"><img src="/storage/{{ Auth::user()->profile_photo_path ?? 'default-profile/admin-profile.png' }}" alt="{{ Auth::user()->name }}"></span>
                                 @endif --}}
                             </div>
+                            <label>Your Image File
+                                <input type="file" name="myImage" accept="image/png, image/gif, image/jpeg" />
+                            </label>
                             <div class="align-self-center halfway-fab p-1">
                                 <div class="modal-footer justify-content-center">
                                     <fieldset class="form-group">
                                         <div class="custom-file">
                                             <input wire:model="photo" type="file" class="custom-file-input" id="inputGroupFile01" style="width: 14rem">
                                             <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                                            <input type="file">
                                         </div>
                                     </fieldset>
                                 </div>
