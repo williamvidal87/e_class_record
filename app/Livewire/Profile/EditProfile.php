@@ -5,7 +5,7 @@ namespace App\Livewire\Profile;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
-use Livewire\Features\SupportFileUploads\WithFileUploads;
+use Livewire\WithFileUploads;
 
 class EditProfile extends Component
 {

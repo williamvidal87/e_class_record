@@ -27,9 +27,7 @@
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/",
-            "exclude-from-classmap": ["vendor/livewire/livewire/src/WithFileUploads.php", "vendor/livewire/livewire/src/GenerateSignedUploadUrl.php"],
-            "files": ["app/Overrides/WithFileUploads.php", "app/Overrides/GenerateSignedUploadUrl.php"]
+            "Database\\Seeders\\": "database/seeders/"
         }
     },
     "autoload-dev": {
