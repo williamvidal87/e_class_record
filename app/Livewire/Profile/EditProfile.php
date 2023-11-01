@@ -34,13 +34,11 @@ class EditProfile extends Component
     public function Store()
     {
         $this->validate([
-            'photo'                 => 'image|max:1024', // 1MB Max
             'id_number'             => 'required||min:7||unique:users,id_number,'.Auth::user()->id,
             'name'                  => 'required',
             'email'                 => 'required|email|unique:users,email,'.Auth::user()->id,
             'phone_number'          => 'required|digits:10|numeric',
         ]);
-        
         $data = ([
             'id_number'             => $this->id_number,
             'name'                  => $this->name,
