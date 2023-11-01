@@ -2,68 +2,43 @@
 
 namespace App\Livewire\Profile;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Fortify\Contracts\UpdatesUserPasswords;
 use Livewire\Component;
 
 class EditPassword extends Component
 {
-    /**
-     * The component's state.
-     *
-     * @var array
-     */
-    public $state = [
-        'current_password' => '',
-        'password' => '',
-        'password_confirmation' => '',
-    ];
-
-    /**
-     * Update the user's password.
-     *
-     * @param  \Laravel\Fortify\Contracts\UpdatesUserPasswords  $updater
-     * @return void
-     */
-    public function updatePassword(UpdatesUserPasswords $updater)
-    {
-        $this->resetErrorBag();
-
-        $updater->update(Auth::user(), $this->state);
-
-        if (request()->hasSession()) {
-            request()->session()->put([
-                'password_hash_'.Auth::getDefaultDriver() => Auth::user()->getAuthPassword(),
-            ]);
-        }
-
-        $this->state = [
-            'current_password' => '',
-            'password' => '',
-            'password_confirmation' => '',
-        ];
-
-        $this->dispatch('saved');
-        return redirect()->to('/dashboard');
-    }
-
-    /**
-     * Get the current user of the application.
-     *
-     * @return mixed
-     */
-    public function getUserProperty()
-    {
-        return Auth::user();
-    }
-
-    /**
-     * Render the component.
-     *
-     * @return \Illuminate\View\View
-     */
+    public  $current,
+            $new_password,
+            $confirm_password;
+    
     public function render()
     {
         return view('livewire.profile.edit-password');
+    }
+    
+    public function Store()
+    {
+        dd(Hash::check($this->current, Auth::user()->password));
+        $this->validate([
+            'current'               => 'required|password',
+            'new_password'          => 'required',
+            'confirm_password'      => 'required|confirmed|unique:users',
+        ]);
+        $data = ([
+            'new_password'          => $this->new_password,
+        ]);
+        try {
+            User::find(Auth::user()->id)->update($data);
+            $this->dispatch('alert_update');
+            return redirect()->to('/dashboard');
+            
+        } catch (\Exception $e) {
+			dd($e);
+			return back();
+        }
+    
     }
 }
