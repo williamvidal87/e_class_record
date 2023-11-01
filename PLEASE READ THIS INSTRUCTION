@@ -1,0 +1,8 @@
+1.change this $tmpFile = tmpfile(); 
+        
+        from "C:\xampp\htdocs\e_class_record\vendor\livewire\livewire\src\Features\SupportFileUploads\TemporaryUploadedFile.php"
+        
+        to this:
+        $tmpfname = tempnam(sys_get_temp_dir(), '');
+        $tmpFile = fopen($tmpfname, "w");
+        
