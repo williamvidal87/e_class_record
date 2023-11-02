@@ -19,7 +19,7 @@ class StudentTable extends Component
         $this->dispatch('DispatchTable');
         return view('livewire.admin-panel.manage-user.student-table',[
             'StudentData' =>   User::all()->where('rule_id',3)->whereNotIn('id',Auth::user()->id)
-            ]);
+            ])->with('getCourse');
     }
     
     public function OpenStudentForm()

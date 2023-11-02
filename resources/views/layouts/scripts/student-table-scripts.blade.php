@@ -28,6 +28,17 @@
                     }
                     //end restrict multi click
             }, 1);
+            $('#course_id').select2({
+            dropdownParent: $('#StudentModal'),
+            });
+            $('#course_id').on('change', function (e) {
+                var course_id = $('#course_id').select2("val");
+                Livewire.dispatch('Selected_course',({ course_id }));
+            });
+        });
+        
+        @this.on('Refresh_course_id', (course_id) => {
+            $("#course_id").select2("val", course_id);
         });
         
         @this.on('OpenStudentModal', (event) => {

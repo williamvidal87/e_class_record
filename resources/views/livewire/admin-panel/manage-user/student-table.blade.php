@@ -26,6 +26,7 @@
                                                     <tr>
                                                         <th>ID Number</th>
                                                         <th>Name</th>
+                                                        <th>Course</th>
                                                         <th>Email</th>
                                                         <th>Phone Number</th>
                                                         <th>Status</th>
@@ -36,6 +37,7 @@
                                                         <tr>
                                                             <td>{{ $data->id_number }}</td>
                                                             <td>{{ $data->name }}</td>
+                                                            <td>{{ $data->getCourse->abbreviation }}</td>
                                                             <td>{{ $data->email }}</td>
                                                             <td>{{ $data->phone_number }}</td>
                                                             <td>

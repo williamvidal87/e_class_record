@@ -2,12 +2,14 @@
 
 namespace App\Livewire\AdminPanel\ManageUser;
 
+use App\Models\Course;
 use App\Models\User;
 use Livewire\Component;
 
 class StudentForm extends Component
 {
     public  $id_number,
+            $course_id,
             $name,
             $email,
             $phone_number,
@@ -18,27 +20,41 @@ class StudentForm extends Component
     
     protected $listeners = [
         'CloseStudentForm',
-        'UserID'
+        'UserID',
+        'Selected_course'
     ];
     
     public function UserID($UserID){
         $this->UserID = $UserID;
         $data=User::find($UserID);
         $this->id_number = $data['id_number'];
+        $this->course_id = $data['course_id'];
         $this->name = $data['name'];
         $this->email = $data['email'];
         $this->phone_number = $data['phone_number'];
+        $this->dispatch('Refresh_course_id',$this->course_id);
+    }
+    
+    public function Selected_course($course_id)
+    {
+        $this->course_id=$course_id;
+        if ($this->course_id==0) {
+            $this->course_id=null;
+        }
     }
     
     public function render()
     {
-        return view('livewire.admin-panel.manage-user.student-form');
+        return view('livewire.admin-panel.manage-user.student-form',[
+            'CourseData' =>   Course::all()
+            ]);
     }
     
     public function Store()
     {
         $this->validate([
             'id_number'             => 'required||min:7||unique:users,id_number,'.$this->UserID,
+            'course_id'             => 'required',
             'name'                  => 'required',
             'email'                 => 'required|email|unique:users,email,'.$this->UserID,
             'phone_number'          => 'required|digits:10|numeric',
@@ -50,6 +66,7 @@ class StudentForm extends Component
         
         $data = ([
             'id_number'             => $this->id_number,
+            'course_id'             => $this->course_id,
             'name'                  => $this->name,
             'email'                 => $this->email,
             'phone_number'          => $this->phone_number,

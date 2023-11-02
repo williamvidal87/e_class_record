@@ -26,12 +26,17 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'id_number','name', 'email', 'password','rule_id','last_seen','course_name','phone_number','profile_photo_path'
+        'id_number','course_id','name', 'email', 'password','rule_id','last_seen','course_name','phone_number','profile_photo_path'
     ];
     
     public function getRule()
     {
         return $this->belongsTo(Rule::class,'rule_id');
+    }
+    
+    public function getCourse()
+    {
+        return $this->belongsTo(Course::class,'course_id');
     }
 
     /**

@@ -34,6 +34,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/charts/chartist.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/charts/chartist-plugin-tooltip.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/extensions/toastr.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/forms/selects/select2.min.css') }}">
     <!-- END: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/tables/datatable/datatables.min.css') }}">
 
@@ -97,11 +98,6 @@
     <script src="{{ asset('app-assets/js/scripts/forms/switch.min.js') }}" type="text/javascript"></script>
     <!-- BEGIN Vendor JS-->
 
-    <!-- BEGIN: Page Vendor JS-->
-    <script src="{{ asset('app-assets/vendors/js/charts/chartist.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('app-assets/vendors/js/charts/chartist-plugin-tooltip.min.js') }}" type="text/javascript"></script>
-    <!-- END: Page Vendor JS-->
-
     <!-- BEGIN: Theme JS-->
     <script src="{{ asset('app-assets/js/core/app-menu.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('app-assets/js/core/app.min.js') }}" type="text/javascript"></script>
@@ -109,22 +105,16 @@
     <script src="{{ asset('app-assets/vendors/js/jquery.sharrre.js') }}" type="text/javascript"></script>
     <!-- END: Theme JS-->
 
-    <!-- BEGIN: Page JS-->
-    <script src="{{ asset('app-assets/js/scripts/pages/dashboard-analytics.min.js') }}" type="text/javascript"></script>
-    <!-- END: Page JS-->
-
     <!-- BEGIN: Page Vendor JS-->
     <script src="{{ asset('app-assets/vendors/js/tables/datatable/datatables.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('app-assets/vendors/js/extensions/toastr.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('app-assets/vendors/js/animation/jquery.appear.js') }}" type="text/javascript"></script>
     <script src="{{ asset('app-assets/vendors/js/extensions/sweetalert2.all.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('app-assets/vendors/js/forms/select/select2.full.min.js') }}" type="text/javascript"></script>
     <!-- END: Page Vendor JS-->
 
     <!-- BEGIN: Page JS-->
-    {{-- <script src="{{ asset('app-assets/js/scripts/tables/datatables/datatable-basic.min.js') }}" type="text/javascript"></script> --}}
     <script src="{{ asset('app-assets/js/scripts/extensions/toastr.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('app-assets/js/scripts/animation/animation.js') }}" type="text/javascript"></script>
-    {{-- <script src="{{ asset('app-assets/js/scripts/extensions/sweet-alerts.min.js') }}" type="text/javascript"></script> --}}
+    <script src="{{ asset('app-assets/js/scripts/forms/select/form-select2.min.js') }}" type="text/javascript"></script>
     <!-- END: Page JS-->
 
     @stack('modals')
