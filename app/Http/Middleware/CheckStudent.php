@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class CheckAdmin
+class CheckStudent
 {
     /**
      * Handle an incoming request.
@@ -16,8 +16,8 @@ class CheckAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::user()->rule_id != 1) {
-            return redirect('instructor-dashboard');
+        if (Auth::user()->rule_id != 3) {
+            return redirect('dashboard');
         }
         return $next($request);
     }

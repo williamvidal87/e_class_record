@@ -21,15 +21,9 @@
                             </i>
                         </a>
                     </li>
-                    <li class="nav-item dropdown navbar-search">
-                        <a class="nav-link dropdown-toggle hide" data-toggle="dropdown" href="dashboard">
-                            <i class="ficon ft-search">
-                            </i>
-                        </a>
-                    </li>
                 </ul>
                 <ul class="nav navbar-nav float-right">
-                    <li class="dropdown dropdown-notification nav-item">
+                    {{-- <li class="dropdown dropdown-notification nav-item">
                         <a class="nav-link nav-link-label" href="#" data-toggle="dropdown">
                             <i class="ficon ft-mail"> </i>
                         </a>
@@ -135,9 +129,9 @@
                                 </li>
                             </div>
                         </ul>
-                    </li>
+                    </li> --}}
                     <li class="dropdown dropdown-user nav-item">
-                        <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
+                        <a class="dropdown-toggle nav-link dropdown-user-link" href="" data-toggle="dropdown">
                             <span class="avatar avatar-online">
                                 <img src="/storage/{{ Auth::user()->profile_photo_path ?? 'default-profile/admin-profile.png' }}"
                                     alt="{{ Auth::user()->name }}">
