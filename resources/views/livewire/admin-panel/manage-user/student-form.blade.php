@@ -15,7 +15,6 @@
                             <input type="text" wire:model="id_number" id="id_number" class="form-control" placeholder="ID Number">
                             <div class="font-small-2 danger">@error('id_number') {{ $message }} @enderror</div>
                         </div>
-                                
                         <div class="form-group">
                             <label for="course_id">Course</label>
                             <div wire:ignore>

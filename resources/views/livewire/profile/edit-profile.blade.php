@@ -39,6 +39,20 @@
                                     <input type="text" wire:model="id_number" id="id_number" class="form-control" placeholder="ID Number">
                                     <div class=" font-small-2 danger">@error('id_number') {{ $message }} @enderror</div>
                                 </div>
+                                @if(Auth::user()->rule_id==3)
+                                    <div class="form-group">
+                                        <label for="course_id">Course</label>
+                                        <div wire:ignore>
+                                            <select class="form-control" id="course_id" wire:model="course_id" style="width: 100%">
+                                                    <option value=0>Select Course</option>
+                                                    @foreach($CourseData as $data)
+                                                        <option value={{ $data->id }}>{{ $data->description }}</option>
+                                                    @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="font-small-2 danger">@error('course_id') {{ $message }} @enderror</div>
+                                    </div>
+                                @endif
                                 <div class="form-group">
                                     <label for="name">Full Name</label>
                                     <input type="text" wire:model="name" id="name" class="form-control" placeholder="Full Name">
