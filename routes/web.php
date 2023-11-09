@@ -7,6 +7,7 @@ use App\Livewire\AdminPanel\ManageUser\StudentTable;
 use App\Livewire\AdminPanel\Subject\SubjectTable;
 use App\Livewire\Dashboard\Dashboard;
 use App\Livewire\InstructorPanel\InstructorDashboard\InstructorDashboard;
+use App\Livewire\InstructorPanel\MyClass\MyClassTable;
 use App\Livewire\Profile\EditPassword;
 use App\Livewire\Profile\EditProfile;
 use App\Livewire\StudentPanel\StudentDashboard\StudentDashboard;
@@ -51,6 +52,9 @@ Route::middleware([
     
     // instructor panel
     Route::get('/instructor-dashboard', InstructorDashboard::class)->name('instructor-dashboard')->middleware('checkinstructor');
+    Route::get('/instructor-my-class-table', MyClassTable::class)->name('instructor-my-class-table')->middleware('checkinstructor');
+    Route::get('/instructor-student-table', StudentTable::class)->name('instructor-student-table')->middleware('checkinstructor');
+    Route::get('/instructor-subject-table', SubjectTable::class)->name('instructor-subject-table')->middleware('checkinstructor');
     
     // student panel
     Route::get('/student-dashboard', StudentDashboard::class)->name('student-dashboard')->middleware('checkstudent');
