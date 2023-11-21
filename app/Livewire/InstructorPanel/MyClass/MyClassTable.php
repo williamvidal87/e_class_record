@@ -32,6 +32,12 @@ class MyClassTable extends Component
         $this->dispatch('OpenMyClassModal');
     }
     
+    public function ViewMyClass($MyClassID)
+    {
+        $this->dispatch('ViewMyClassID',$MyClassID);
+        $this->dispatch('OpenViewMyClassModal');
+    }
+    
     public function DeleteMyClass($MyClassID)
     {
         $this->dispatch('DeleteConfirm',$MyClassID);

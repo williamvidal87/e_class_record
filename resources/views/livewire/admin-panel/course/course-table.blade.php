@@ -32,7 +32,7 @@
                                                 <tbody>
                                                     @foreach($CourseData as $data)
                                                         <tr>
-                                                            <td>{{ $data->id }}</td>
+                                                            <td>CRS{{ 320233+$data->id }}</td>
                                                             <td>{{ $data->abbreviation }}</td>
                                                             <td  style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:200px;">{{ $data->description }}</td>
                                                             <td style="min-width:165px;">

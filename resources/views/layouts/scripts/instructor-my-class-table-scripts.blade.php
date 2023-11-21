@@ -19,6 +19,9 @@
                     $('.multi-ordering').DataTable().destroy();
                     $(".multi-ordering").DataTable({
                     });
+                    $('.multi-ordering2').DataTable().destroy();
+                    $(".multi-ordering2").DataTable({
+                    });
                     //start restrict multi click
                     function submitPoll() {
                         $('button').prop('disabled', true);
@@ -27,7 +30,7 @@
                         document.getElementsByClassName("btn")[index].addEventListener("click", submitPoll);
                     }
                     //end restrict multi click
-            }, 1);
+            }, 1000);
             $('#semester_id').select2({
             dropdownParent: $('#MyClassModal'),
             });
@@ -58,6 +61,22 @@
         
         @this.on('CloseMyClassModal', (event) => {
             $('#MyClassModal').modal('hide');
+        });
+        
+        @this.on('OpenViewMyClassModal', (event) => {
+            $('#ViewMyClassModal').modal('show');
+        });
+        
+        @this.on('CloseViewMyClassModal', (event) => {
+            $('#ViewMyClassModal').modal('hide');
+        });
+        
+        @this.on('OpenAddStudentModal', (event) => {
+            $('#AddStudentModal').modal('show');
+        });
+        
+        @this.on('CloseAddStudentModal', (event) => {
+            $('#AddStudentModal').modal('hide');
         });
         
         @this.on('DeleteConfirm', (MyClassID) => {

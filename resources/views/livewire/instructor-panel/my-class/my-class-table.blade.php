@@ -18,7 +18,7 @@
                                 <div class="card-content collapse show">
                                     <div class="card-body card-dashboard">
                                         <div class="table-responsive">
-                                            <table id="multi-ordering" class="table table-striped table-bordered multi-ordering dataTable no-footer">
+                                            <table style="font-size: 8pt" id="multi-ordering" class="table table-striped table-bordered multi-ordering dataTable no-footer">
                                                 <thead>
                                                     <tr>
                                                         <th>Class No</th>
@@ -32,13 +32,14 @@
                                                 <tbody>
                                                     @foreach($MyClassData as $data)
                                                         <tr>
-                                                            <td>{{ $data->id }}</td>
-                                                            <td>{{ $data->getSemester->description }}</td>
+                                                            <td>CLS{{ 120231+$data->id }}</td>
+                                                            <td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:70px;">{{ $data->getSemester->description }}</td>
                                                             <td>{{ $data->school_year }}</td>
-                                                            <td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:190px;">{{ $data->getSubject->subject }} - {{ $data->getSubject->description }}</td>
+                                                            <td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:55px;">{{ $data->getSubject->subject }} - {{ $data->getSubject->description }}</td>
                                                             <td>{{ $data->section }}</td>
-                                                            <td>{{ $data->schedule }}</td>
-                                                            <td style="min-width:165px;">
+                                                            <td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:110px;">{{ $data->schedule }}</td>
+                                                            <td style="min-width:245px;">
+                                                                <button wire:click="ViewMyClass({{$data->id}})" type="button" class="btn btn-glow btn-bg-gradient-x-blue-green btn-sm"><i class="ft-eye"></i> View</button>
                                                                 <button wire:click="EditMyClass({{$data->id}})" type="button" class="btn btn-glow btn-bg-gradient-x-purple-blue btn-sm"><i class="ft-edit"></i> Edit</button>
                                                                 <button wire:click="DeleteMyClass({{$data->id}})" type="button" class="btn btn-glow btn-bg-gradient-x-red-pink btn-sm"><i class="ft-trash-2"></i> Delete</button>
                                                             </td>
@@ -65,8 +66,24 @@
         </div>
     </div>
     
+    
+    <!-- ViewMyClass Modal -->
+    <div class="modal fade text-left" id="ViewMyClassModal" tabindex="-1" role="dialog" aria-labelledby="ViewMyClassModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-xl" role="document">
+            <livewire:instructor-panel.my-class.view-my-class-form />
+        </div>
+    </div>
+    
+    
+    <!-- ViewMyClass Modal -->
+    <div class="modal fade text-left" id="AddStudentModal" tabindex="-1" role="dialog" aria-labelledby="AddStudentModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog" role="document">
+            <livewire:instructor-panel.my-class.my-class-form />
+        </div>
+    </div>
+    
 </div>
 
 @section('custom_script')
-    @include('layouts.scripts.instructor-my-class-table-scripts'); 
+    @include('layouts.scripts.instructor-my-class-table-scripts');
 @endsection

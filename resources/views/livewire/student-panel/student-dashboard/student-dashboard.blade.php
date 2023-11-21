@@ -6,6 +6,9 @@
         <div class="content-wrapper">
             <div class="content-wrapper-before"></div>
             <div class="content-header row">
+                <div class="content-header-left col-md-4 col-12 mb-2">
+                    <h3 class="content-header-title">Student Dashboard   </h3>
+                </div>
             </div>
             <div class="content-body"><!-- Revenue, Hit Rate & Deals -->
                 <div class="row">

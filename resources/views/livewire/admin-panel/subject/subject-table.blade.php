@@ -32,7 +32,7 @@
                                                 <tbody>
                                                     @foreach($SubjectData as $data)
                                                         <tr>
-                                                            <td>{{ $data->id }}</td>
+                                                            <td>SBJ{{ 220232+$data->id }}</td>
                                                             <td>{{ $data->subject }}</td>
                                                             <td  style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:200px;">{{ $data->description }}</td>
                                                             <td style="min-width:165px;">
