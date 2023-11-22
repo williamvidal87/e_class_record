@@ -45,6 +45,13 @@
                 var subject_id = $('#subject_id').select2("val");
                 Livewire.dispatch('Selected_subject',({ subject_id }));
             });
+            $('#student_id').select2({
+            dropdownParent: $('#AddStudentModal'),
+            });
+            $('#student_id').on('change', function (e) {
+                var student_id = $('#student_id').select2("val");
+                Livewire.dispatch('Selected_student',({ student_id }));
+            });
         });
         
         @this.on('Refresh_semester_id', (semester_id) => {
@@ -98,6 +105,25 @@
             }).catch(swal.noop)
         });
         
+        @this.on('KickConfirm', (ClassStudentID) => {
+        swal({
+            title: 'Are you sure?',
+            text: 'You won\'t be able to revert this!',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Kicked it!',
+            allowOutsideClick: false,
+            allowEscapeKey: false
+            }).then((result) => {
+                if (result.value) {
+                    Livewire.dispatch('Kicked',ClassStudentID),
+                    swal('Kicked!', 'Your student has been kicked!', 'success')
+                }
+            }).catch(swal.noop)
+        });
+        
         @this.on('alert_store', (event) => {
             toastr.success("successfully stored!");
         });
@@ -106,6 +132,9 @@
         });
         @this.on('alert_delete', (event) => {
             toastr.error("successfully deleted!");
+        });
+        @this.on('alert_kicked', (event) => {
+            toastr.error("successfully kicked!");
         });
     });
 </script>

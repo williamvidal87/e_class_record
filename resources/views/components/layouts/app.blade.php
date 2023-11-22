@@ -61,7 +61,12 @@
 
     <!-- Scripts -->
     {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
-
+    <style>
+        .swal2-container{
+            overflow-y: auto;
+            z-index: 100001 !important;
+        }
+    </style>
     <!-- Styles -->
     @livewireStyles
 </head>

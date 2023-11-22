@@ -68,17 +68,17 @@
     
     
     <!-- ViewMyClass Modal -->
-    <div class="modal fade text-left" id="ViewMyClassModal" tabindex="-1" role="dialog" aria-labelledby="ViewMyClassModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div style="overflow-y: auto;z-index: 100001 !important;" class="modal fade text-left" id="ViewMyClassModal" tabindex="-1" role="dialog" aria-labelledby="ViewMyClassModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-xl" role="document">
             <livewire:instructor-panel.my-class.view-my-class-form />
         </div>
     </div>
     
     
-    <!-- ViewMyClass Modal -->
-    <div class="modal fade text-left" id="AddStudentModal" tabindex="-1" role="dialog" aria-labelledby="AddStudentModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-        <div class="modal-dialog" role="document">
-            <livewire:instructor-panel.my-class.my-class-form />
+    <!-- AddClassStudent Modal -->
+    <div style="overflow-y: auto;z-index: 100001 !important;" class="modal fade text-left" id="AddStudentModal" tabindex="-1" role="dialog" aria-labelledby="AddStudentModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog" role="document" style="box-shadow: 0 0 500px 500px rgb(22, 22, 22, 0.185)">
+            <livewire:instructor-panel.my-class.add-student-form />
         </div>
     </div>
     
