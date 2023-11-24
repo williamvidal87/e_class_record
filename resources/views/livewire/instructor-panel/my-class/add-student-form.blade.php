@@ -1,7 +1,7 @@
 <div>
     <div class="modal-content">
-        <div class="modal-header bg-info white">
-            <h4 class="modal-title white" id="myModalLabel11">Add Student</h4>
+        <div class="modal-header bg-warning white">
+            <h4 class="modal-title white" id="myModalLabel11">Student</h4>
             <button wire:click="CloseAddStudentForm" type="button" class="btn close" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>

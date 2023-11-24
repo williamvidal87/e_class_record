@@ -2,6 +2,7 @@
 
 namespace App\Livewire\InstructorPanel\MyClass;
 
+use App\Models\ActivityCategory;
 use App\Models\ClassStudent;
 use App\Models\MyClass;
 use App\Models\User;
@@ -16,11 +17,13 @@ class ViewMyClassForm extends Component
             $schedule;
     public  $MyClassID;
     public  $ClassStudentID;
+    public  $ActivityCategoryID;
     public  $SubjectTitle;
     protected $listeners = [
         'ViewMyClassID',
         'refresh_view_my_class_table' => '$refresh',
-        'Kicked'
+        'Removed',
+        'RemovedActivityCategory'
     ];
     
     public function ViewMyClassID($MyClassID)
@@ -39,7 +42,9 @@ class ViewMyClassForm extends Component
     {
         $this->dispatch('DispatchTable');
         return view('livewire.instructor-panel.my-class.view-my-class-form',[
-            'ClassStudentData' =>   ClassStudent::where('my_class_id',$this->MyClassID)->get()
+            'ClassStudentData' =>   ClassStudent::where('my_class_id',$this->MyClassID)->get(),
+            'ActivityCategoryData' =>   ActivityCategory::where('my_class_id',$this->MyClassID)->get(),
+            'Percentage'  =>  ActivityCategory::where('my_class_id',$this->MyClassID)->sum('percentage')
             ])->with('getStudent');
     }
     
@@ -49,15 +54,38 @@ class ViewMyClassForm extends Component
         $this->dispatch('AddMyClassID',$this->MyClassID);
     }
     
-    public function Kick($ClassStudentID)
+    public function OpenAddActivityCategoryForm()
     {
-        $this->dispatch('KickConfirm',$ClassStudentID);
+        $this->dispatch('OpenAddActivityCategoryModal');
+        $this->dispatch('AddActivityCategoryMyClassID',$this->MyClassID);
     }
     
-    public function Kicked($ClassStudentID)
+    public function EditAddActivityCategoryForm($AddActivityCategoryID)
+    {
+        $this->dispatch('OpenAddActivityCategoryModal');
+        $this->dispatch('EditAddActivityCategory',$AddActivityCategoryID,$this->MyClassID);
+    }
+    
+    public function Remove($ClassStudentID)
+    {
+        $this->dispatch('RemoveConfirm',$ClassStudentID);
+    }
+    
+    public function Removed($ClassStudentID)
     {
         ClassStudent::destroy($ClassStudentID);
-        $this->dispatch('alert_kicked');
+        $this->dispatch('alert_removed');
+    }
+    
+    public function RemoveActivityCategory($ActivityCategoryID)
+    {
+        $this->dispatch('RemoveActivityCategoryConfirm',$ActivityCategoryID);
+    }
+    
+    public function RemovedActivityCategory($ActivityCategoryID)
+    {
+        ActivityCategory::destroy($ActivityCategoryID);
+        $this->dispatch('alert_removed');
     }
     
     public function CloseMyClassForm()

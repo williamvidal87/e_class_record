@@ -86,6 +86,14 @@
             $('#AddStudentModal').modal('hide');
         });
         
+        @this.on('OpenAddActivityCategoryModal', (event) => {
+            $('#AddActivityCategoryModal').modal('show');
+        });
+        
+        @this.on('CloseAddActivityCategoryModal', (event) => {
+            $('#AddActivityCategoryModal').modal('hide');
+        });
+        
         @this.on('DeleteConfirm', (MyClassID) => {
         swal({
             title: 'Are you sure?',
@@ -105,7 +113,7 @@
             }).catch(swal.noop)
         });
         
-        @this.on('KickConfirm', (ClassStudentID) => {
+        @this.on('RemoveConfirm', (ClassStudentID) => {
         swal({
             title: 'Are you sure?',
             text: 'You won\'t be able to revert this!',
@@ -113,13 +121,32 @@
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, Kicked it!',
+            confirmButtonText: 'Yes, Removed it!',
             allowOutsideClick: false,
             allowEscapeKey: false
             }).then((result) => {
                 if (result.value) {
-                    Livewire.dispatch('Kicked',ClassStudentID),
-                    swal('Kicked!', 'Your student has been kicked!', 'success')
+                    Livewire.dispatch('Removed',ClassStudentID),
+                    swal('Removed!', 'Your student has been removed!', 'success')
+                }
+            }).catch(swal.noop)
+        });
+        
+        @this.on('RemoveActivityCategoryConfirm', (ActivityCategoryID) => {
+        swal({
+            title: 'Are you sure?',
+            text: 'You won\'t be able to revert this!',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Removed it!',
+            allowOutsideClick: false,
+            allowEscapeKey: false
+            }).then((result) => {
+                if (result.value) {
+                    Livewire.dispatch('RemovedActivityCategory',ActivityCategoryID),
+                    swal('Removed!', 'This Activity category has been removed!', 'success')
                 }
             }).catch(swal.noop)
         });
@@ -133,8 +160,8 @@
         @this.on('alert_delete', (event) => {
             toastr.error("successfully deleted!");
         });
-        @this.on('alert_kicked', (event) => {
-            toastr.error("successfully kicked!");
+        @this.on('alert_removed', (event) => {
+            toastr.error("successfully removed!");
         });
     });
 </script>
