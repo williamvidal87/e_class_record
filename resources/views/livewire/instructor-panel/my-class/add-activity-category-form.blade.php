@@ -34,7 +34,7 @@
                                     <input type="number" wire:model="multiply" id="multiply" class="form-control" placeholder="multiply" onkeypress='return event.charCode >= 46 && event.charCode <= 57'>
                                 </div>
                                 <div class="col-md-4 mb-3">
-                                    <input type="number" wire:model="addition" id="addition" class="form-control" placeholder="addition" onkeypress='return event.charCode >= 46 && event.charCode <= 57'>
+                                    <input type="number" wire:model="addition" id="addition" class="form-control" placeholder="add" onkeypress='return event.charCode >= 46 && event.charCode <= 57'>
                                 </div>
                             </div>
                             <div class=" font-small-2 danger">@error('multiply') {{ $message }} @enderror</div>

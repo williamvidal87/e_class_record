@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Semester;
+use App\Models\Subject;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class SemesterSeeder extends Seeder
+class SubjectSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,13 +15,15 @@ class SemesterSeeder extends Seeder
     {
         $semester = [
             [
-            'description' => 'FIRST SEMESTER',
+            'subject' => 'COMP 100',
+            'description' => 'Computer Fundamentals',
             ],
             [
-            'description' => 'SECOND SEMESTER'
+            'subject' => 'COMP 301',
+            'description' => 'Computer Programming for Mobile Applications',
             ],
         ];
 
-        Semester::insert($semester);
+        Subject::insert($semester);
     }
 }

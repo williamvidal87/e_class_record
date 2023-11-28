@@ -24,10 +24,10 @@
                                                             <a class="nav-link active" id="baseIcon-tab1" data-toggle="tab" aria-controls="tabIcon1" href="#tabIcon1" aria-expanded="true"><i class="ft-users"></i> Your Students</a>
                                                         </li>
                                                         <li class="nav-item">
-                                                            <a class="nav-link" id="baseIcon-tab2" data-toggle="tab" aria-controls="tabIcon2" href="#tabIcon2" aria-expanded="false"><i class="ft-folder"></i> Activities Category</a>
+                                                            <a class="nav-link" id="baseIcon-tab2" data-toggle="tab" aria-controls="tabIcon2" href="#tabIcon2" aria-expanded="false"><i class="ft-file-minus"></i> Mid Term</a>
                                                         </li>
                                                         <li class="nav-item">
-                                                            <a class="nav-link" id="baseIcon-tab3" data-toggle="tab" aria-controls="tabIcon3" href="#tabIcon3" aria-expanded="false"><i class="ft-compass"></i> Tab 3</a>
+                                                            <a class="nav-link" id="baseIcon-tab3" data-toggle="tab" aria-controls="tabIcon3" href="#tabIcon3" aria-expanded="false"><i class="ft-file-text"></i> Final Term</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -57,7 +57,7 @@
                                                                                 <td>{{ $data->getStudent->id_number }}
                                                                                 </td>
                                                                                 <td>{{ $data->getStudent->name }}</td>
-                                                                                <td style="min-width:72px;">
+                                                                                <td style="min-width:97px;">
                                                                                     <button wire:click="Remove({{$data->id}})" type="button" class="btn btn-glow btn-bg-gradient-x-red-pink btn-sm"><i class="ft-user-x"></i> Remove</button>
                                                                                 </td>
                                                                             </tr>
@@ -74,9 +74,9 @@
                                                         
                                                         <div class="card-header d-flex justify-content-between">
                                                             <div>
-                                                                <h3 class="content-header-title">Activities Category</h3>
+                                                                <h3 class="content-header-title">Mid Term</h3>
                                                             </div>
-                                                            <button wire:click="OpenAddActivityCategoryForm" type="button" class="btn btn-bg-gradient-x-orange-yellow"><i class="ft-plus-circle"></i> Add Category</button>
+                                                            <button wire:click="OpenAddActivityCategoryForm" type="button" class="btn btn-bg-gradient-x-orange-yellow"><i class="ft-plus-circle"></i> Add Activity</button>
                                                         </div>
                                                         <div class="card-content collapse show">
                                                             <div class="card-body card-dashboard">
@@ -84,7 +84,7 @@
                                                                     <table style="font-size: 8pt" id="multi-ordering3" class="table table-bordered table-striped">
                                                                         <thead>
                                                                             <tr>
-                                                                                <th>Activity Category Name</th>
+                                                                                <th>Activity Name</th>
                                                                                 <th>Percentage</th>
                                                                                 <th>Computation</th>
                                                                                 <th>Action</th>
@@ -95,7 +95,8 @@
                                                                                 <td>{{ $data->activity_category }}</td>
                                                                                 <td>{{ $data->percentage }}%</td>
                                                                                 <td>x{{ $data->multiply }} + {{ $data->addition }}</td>
-                                                                                <td style="min-width:72px;">
+                                                                                <td style="min-width:349px;">
+                                                                                    <button wire:click="ClassWorkForm({{$data->id}})" type="button" class="btn btn-glow btn-bg-gradient-x-blue-green btn-sm"><i class="ft-eye"></i> Class Work</button>
                                                                                     <button wire:click="EditAddActivityCategoryForm({{$data->id}})" type="button" class="btn btn-glow btn-bg-gradient-x-purple-blue btn-sm"><i class="ft-edit"></i> Edit</button>
                                                                                     <button wire:click="RemoveActivityCategory({{$data->id}})" type="button" class="btn btn-glow btn-bg-gradient-x-red-pink btn-sm"><i class="ft-x-square"></i> Remove</button>
                                                                                 </td>

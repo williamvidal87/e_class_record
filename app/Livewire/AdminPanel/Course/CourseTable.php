@@ -12,7 +12,7 @@ class CourseTable extends Component
         'EditCourse',
         'Deleted'
     ];
-    
+
     public function render()
     {
         $this->dispatch('DispatchTable');
@@ -20,23 +20,23 @@ class CourseTable extends Component
             'CourseData' =>   Course::all()
             ]);
     }
-    
+
     public function OpenCourseForm()
     {
         $this->dispatch('OpenCourseModal');
     }
-    
+
     public function EditCourse($CourseID)
     {
         $this->dispatch('CourseID',$CourseID);
         $this->dispatch('OpenCourseModal');
     }
-    
+
     public function DeleteCourse($CourseID)
     {
         $this->dispatch('DeleteConfirm',$CourseID);
     }
-    
+
     public function Deleted($CourseID)
     {
         Course::destroy($CourseID);
