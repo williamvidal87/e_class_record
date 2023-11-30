@@ -90,6 +90,30 @@
         </div>
     </div>
     
+    
+    <!-- ClassWorkMidTermModal Modal -->
+    <div style="overflow-y: auto;z-index: 100001 !important;" class="modal fade text-left" id="ClassWorkMidTermModal" tabindex="-1" role="dialog" aria-labelledby="ClassWorkMidTermModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog  modal-xl" role="document" style="box-shadow: 0 0 500px 500px rgb(22, 22, 22, 0.185)">
+            <livewire:instructor-panel.my-class.class-work-mid-term-form />
+        </div>
+    </div>
+    
+    
+    <!-- MidTerm Activity Modal -->
+    <div style="overflow-y: auto;z-index: 100001 !important;" class="modal fade text-left" id="MidTermActivityModal" tabindex="-1" role="dialog" aria-labelledby="MidTermActivityModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog" role="document" style="box-shadow: 0 0 500px 500px rgb(22, 22, 22, 0.185)">
+            <livewire:instructor-panel.my-class.mid-term-activity-form />
+        </div>
+    </div>
+    
+    
+    <!-- View Midterm Activity Modal -->
+    <div style="overflow-y: auto;z-index: 100001 !important;" class="modal fade text-left" id="ViewMidtermActivityRecordModal" tabindex="-1" role="dialog" aria-labelledby="ViewMidtermActivityRecordModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-lg" role="document" style="box-shadow: 0 0 500px 500px rgb(22, 22, 22, 0.185)">
+            <livewire:instructor-panel.my-class.view-mid-term-activity-record-form />
+        </div>
+    </div>
+    
 </div>
 
 @section('custom_script')

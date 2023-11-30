@@ -60,6 +60,12 @@ class ViewMyClassForm extends Component
         $this->dispatch('AddActivityCategoryMyClassID',$this->MyClassID);
     }
     
+    public function OpenClassWorkMidTermForm($ClassWorkMidTermID)
+    {
+        $this->dispatch('OpenClassWorkMidTermModal');
+        $this->dispatch('ClassWorkMidTermID',$ClassWorkMidTermID,$this->MyClassID);
+    }
+
     public function EditAddActivityCategoryForm($AddActivityCategoryID)
     {
         $this->dispatch('OpenAddActivityCategoryModal');

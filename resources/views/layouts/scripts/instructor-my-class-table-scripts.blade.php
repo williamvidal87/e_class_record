@@ -94,6 +94,30 @@
             $('#AddActivityCategoryModal').modal('hide');
         });
         
+        @this.on('OpenClassWorkMidTermModal', (event) => {
+            $('#ClassWorkMidTermModal').modal('show');
+        });
+        
+        @this.on('CloseClassWorkMidTermModal', (event) => {
+            $('#ClassWorkMidTermModal').modal('hide');
+        });
+        
+        @this.on('OpenMidtermActivityModal', (event) => {
+            $('#MidTermActivityModal').modal('show');
+        });
+        
+        @this.on('CloseMidtermActivityModal', (event) => {
+            $('#MidTermActivityModal').modal('hide');
+        });
+        
+        @this.on('OpenViewMidtermActivityRecordModal', (event) => {
+            $('#ViewMidtermActivityRecordModal').modal('show');
+        });
+        
+        @this.on('CloseViewMidtermActivityRecordModal', (event) => {
+            $('#ViewMidtermActivityRecordModal').modal('hide');
+        });
+        
         @this.on('DeleteConfirm', (MyClassID) => {
         swal({
             title: 'Are you sure?',

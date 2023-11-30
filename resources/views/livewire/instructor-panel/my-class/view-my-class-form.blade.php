@@ -96,7 +96,7 @@
                                                                                 <td>{{ $data->percentage }}%</td>
                                                                                 <td>x{{ $data->multiply }} + {{ $data->addition }}</td>
                                                                                 <td style="min-width:349px;">
-                                                                                    <button wire:click="ClassWorkForm({{$data->id}})" type="button" class="btn btn-glow btn-bg-gradient-x-blue-green btn-sm"><i class="ft-eye"></i> Class Work</button>
+                                                                                    <button wire:click="OpenClassWorkMidTermForm({{$data->id}})" type="button" class="btn btn-glow btn-bg-gradient-x-blue-green btn-sm"><i class="ft-eye"></i> Manage</button>
                                                                                     <button wire:click="EditAddActivityCategoryForm({{$data->id}})" type="button" class="btn btn-glow btn-bg-gradient-x-purple-blue btn-sm"><i class="ft-edit"></i> Edit</button>
                                                                                     <button wire:click="RemoveActivityCategory({{$data->id}})" type="button" class="btn btn-glow btn-bg-gradient-x-red-pink btn-sm"><i class="ft-x-square"></i> Remove</button>
                                                                                 </td>
