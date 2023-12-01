@@ -116,10 +116,48 @@
                                                     </div>
                                                     
                                                     <div wire:ignore.self class="tab-pane" id="tabIcon3" aria-labelledby="baseIcon-tab3">
-                                                        <p>Biscuit ice cream halvah candy canes bear claw ice cream cake
-                                                            chocolate bar donut. Toffee cotton candy liquorice. Oat cake
-                                                            lemon drops gingerbread dessert caramels. Sweet dessert
-                                                            jujubes powder sweet sesame snaps.</p>
+                                                        
+                                                        <div class="card-header d-flex justify-content-between">
+                                                            <div>
+                                                                <h3 class="content-header-title">Final Term</h3>
+                                                            </div>
+                                                            <button wire:click="OpenAddFinalActivityCategoryForm" type="button" class="btn btn-bg-gradient-x-orange-yellow"><i class="ft-plus-circle"></i> Add Activity</button>
+                                                        </div>
+                                                        <div class="card-content collapse show">
+                                                            <div class="card-body card-dashboard">
+                                                                <div class="table-responsive">
+                                                                    <table style="font-size: 8pt" id="multi-ordering3" class="table table-bordered table-striped">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>Activity Name</th>
+                                                                                <th>Percentage</th>
+                                                                                <th>Computation</th>
+                                                                                <th>Action</th>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            @foreach($FinalActivityCategoryData as $data)
+                                                                            <tr>
+                                                                                <td>{{ $data->activity_category }}</td>
+                                                                                <td>{{ $data->percentage }}%</td>
+                                                                                <td>x{{ $data->multiply }} + {{ $data->addition }}</td>
+                                                                                <td style="min-width:349px;">
+                                                                                    <button wire:click="OpenClassWorkFinalTermForm({{$data->id}})" type="button" class="btn btn-glow btn-bg-gradient-x-blue-green btn-sm"><i class="ft-eye"></i> Manage</button>
+                                                                                    <button wire:click="EditAddFinalActivityCategoryForm({{$data->id}})" type="button" class="btn btn-glow btn-bg-gradient-x-purple-blue btn-sm"><i class="ft-edit"></i> Edit</button>
+                                                                                    <button wire:click="RemoveFinalActivityCategory({{$data->id}})" type="button" class="btn btn-glow btn-bg-gradient-x-red-pink btn-sm"><i class="ft-x-square"></i> Remove</button>
+                                                                                </td>
+                                                                            </tr>
+                                                                            @endforeach
+                                                                        </tbody>
+                                                                        <tfoot>
+                                                                            <tr>
+                                                                                <th class="d-flex justify-content-end"><span>TOTAL:</span></th>
+                                                                                <th colspan="3">{{ $FinalPercentage }}%</th>
+                                                                        </tfoot>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    
                                                     </div>
                                                 
                                                 </div>
@@ -135,11 +173,9 @@
 
             </div>
         </div>
-        <div class="modal-footer justify-content-between">
+        <div class="modal-footer justify-content-start">
             <button wire:click="CloseMyClassForm" type="button" class="btn grey btn-secondary"><i class="ft-x"></i>
                 Close</button>
-            <button wire:click="Store" type="button" class="btn btn-primary"><i class="la la-check-square-o"></i>
-                Save</button>
         </div>
     </div>
 </div>

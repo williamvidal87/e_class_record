@@ -118,6 +118,38 @@
             $('#ViewMidtermActivityRecordModal').modal('hide');
         });
         
+        @this.on('OpenAddFinalActivityCategoryModal', (event) => {
+            $('#AddFinalActivityCategoryModal').modal('show');
+        });
+        
+        @this.on('CloseAddFinalActivityCategoryModal', (event) => {
+            $('#AddFinalActivityCategoryModal').modal('hide');
+        });
+        
+        @this.on('OpenClassWorkFinalTermModal', (event) => {
+            $('#ClassWorkFinalTermModal').modal('show');
+        });
+        
+        @this.on('CloseClassWorkFinalTermModal', (event) => {
+            $('#ClassWorkFinalTermModal').modal('hide');
+        });
+        
+        @this.on('OpenFinaltermActivityModal', (event) => {
+            $('#FinalTermActivityModal').modal('show');
+        });
+        
+        @this.on('CloseFinaltermActivityModal', (event) => {
+            $('#FinalTermActivityModal').modal('hide');
+        });
+        
+        @this.on('OpenViewFinaltermActivityRecordModal', (event) => {
+            $('#ViewFinaltermActivityRecordModal').modal('show');
+        });
+        
+        @this.on('CloseViewFinaltermActivityRecordModal', (event) => {
+            $('#ViewFinaltermActivityRecordModal').modal('hide');
+        });
+        
         @this.on('DeleteConfirm', (MyClassID) => {
         swal({
             title: 'Are you sure?',
@@ -171,6 +203,63 @@
                 if (result.value) {
                     Livewire.dispatch('RemovedActivityCategory',ActivityCategoryID),
                     swal('Removed!', 'This Activity category has been removed!', 'success')
+                }
+            }).catch(swal.noop)
+        });
+        
+        @this.on('RemoveFinalActivityCategoryConfirm', (FinalActivityCategoryID) => {
+        swal({
+            title: 'Are you sure?',
+            text: 'You won\'t be able to revert this!',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Removed it!',
+            allowOutsideClick: false,
+            allowEscapeKey: false
+            }).then((result) => {
+                if (result.value) {
+                    Livewire.dispatch('RemovedFinalActivityCategory',FinalActivityCategoryID),
+                    swal('Removed!', 'This Activity category has been removed!', 'success')
+                }
+            }).catch(swal.noop)
+        });
+        
+        @this.on('DeleteConfirmMidtermActivity', (MidTermActivityID) => {
+        swal({
+            title: 'Are you sure?',
+            text: 'You won\'t be able to revert this!',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Removed it!',
+            allowOutsideClick: false,
+            allowEscapeKey: false
+            }).then((result) => {
+                if (result.value) {
+                    Livewire.dispatch('DeletedMidtermActivity',MidTermActivityID),
+                    swal('Removed!', 'This Activity has been removed!', 'success')
+                }
+            }).catch(swal.noop)
+        });
+        
+        @this.on('DeleteConfirmFinaltermActivity', (FinalTermActivityID) => {
+        swal({
+            title: 'Are you sure?',
+            text: 'You won\'t be able to revert this!',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Removed it!',
+            allowOutsideClick: false,
+            allowEscapeKey: false
+            }).then((result) => {
+                if (result.value) {
+                    Livewire.dispatch('DeletedFinaltermActivity',FinalTermActivityID),
+                    swal('Removed!', 'This Activity has been removed!', 'success')
                 }
             }).catch(swal.noop)
         });

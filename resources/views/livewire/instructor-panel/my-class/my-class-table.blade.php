@@ -113,6 +113,37 @@
             <livewire:instructor-panel.my-class.view-mid-term-activity-record-form />
         </div>
     </div>
+
+    <!-- AddFinalActivityCategory Modal -->
+    <div style="overflow-y: auto;z-index: 100001 !important;" class="modal fade text-left" id="AddFinalActivityCategoryModal" tabindex="-1" role="dialog" aria-labelledby="AddFinalActivityCategoryModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog" role="document" style="box-shadow: 0 0 500px 500px rgb(22, 22, 22, 0.185)">
+            <livewire:instructor-panel.my-class.add-final-activity-category-form />
+        </div>
+    </div>
+    
+    
+    <!-- ClassWorkFinalTermModal Modal -->
+    <div style="overflow-y: auto;z-index: 100001 !important;" class="modal fade text-left" id="ClassWorkFinalTermModal" tabindex="-1" role="dialog" aria-labelledby="ClassWorkFinalTermModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog  modal-xl" role="document" style="box-shadow: 0 0 500px 500px rgb(22, 22, 22, 0.185)">
+            <livewire:instructor-panel.my-class.class-work-final-term-form />
+        </div>
+    </div>
+    
+    
+    <!-- FinalTerm Activity Modal -->
+    <div style="overflow-y: auto;z-index: 100001 !important;" class="modal fade text-left" id="FinalTermActivityModal" tabindex="-1" role="dialog" aria-labelledby="FinalTermActivityModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog" role="document" style="box-shadow: 0 0 500px 500px rgb(22, 22, 22, 0.185)">
+            <livewire:instructor-panel.my-class.final-term-activity-form />
+        </div>
+    </div>
+    
+    
+    <!-- View Finalterm Activity Modal -->
+    <div style="overflow-y: auto;z-index: 100001 !important;" class="modal fade text-left" id="ViewFinaltermActivityRecordModal" tabindex="-1" role="dialog" aria-labelledby="ViewFinaltermActivityRecordModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-lg" role="document" style="box-shadow: 0 0 500px 500px rgb(22, 22, 22, 0.185)">
+            <livewire:instructor-panel.my-class.view-final-term-activity-record-form />
+        </div>
+    </div>
     
 </div>
 

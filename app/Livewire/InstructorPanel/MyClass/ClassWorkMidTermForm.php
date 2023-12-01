@@ -13,7 +13,8 @@ class ClassWorkMidTermForm extends Component
     public  $ClassWorkMidTermID;
     protected $listeners = [
         'ClassWorkMidTermID',
-        'refresh_class_work_mid_term_table' => '$refresh'
+        'refresh_class_work_mid_term_table' => '$refresh',
+        'DeletedMidtermActivity'
     ];
 
     public function ClassWorkMidTermID($ClassWorkMidTermID,$MyClassID)
@@ -38,6 +39,13 @@ class ClassWorkMidTermForm extends Component
         $this->dispatch('MidtermActivity',$this->ClassWorkMidTermID,$this->activity_category);
     }
 
+    public function EditMidtermActivityForm($MidTermActivityID)
+    {
+        $this->dispatch('OpenMidtermActivityModal');
+        $this->dispatch('MidtermActivity',$this->ClassWorkMidTermID,$this->activity_category);
+        $this->dispatch('EditMidtermActivity',$MidTermActivityID);
+    }
+
     public function OpenViewRecordMidtermActivityRecord($ActivityID)
     {
         $this->dispatch('OpenViewMidtermActivityRecordModal');
@@ -50,5 +58,16 @@ class ClassWorkMidTermForm extends Component
         $this->dispatch('refresh_view_my_class_table');
         $this->resetValidation();
         $this->reset();
+    }
+    
+    public function DeleteMidtermActivity($MidTermActivityID)
+    {
+        $this->dispatch('DeleteConfirmMidtermActivity',$MidTermActivityID);
+    }
+    
+    public function DeletedMidtermActivity($MidTermActivityID)
+    {
+        MidTermActivity::destroy($MidTermActivityID);
+        $this->dispatch('alert_delete');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Livewire\InstructorPanel\MyClass;
 
 use App\Models\ActivityCategory;
 use App\Models\ClassStudent;
+use App\Models\FinalActivityCategory;
 use App\Models\MyClass;
 use App\Models\User;
 use Livewire\Component;
@@ -23,7 +24,8 @@ class ViewMyClassForm extends Component
         'ViewMyClassID',
         'refresh_view_my_class_table' => '$refresh',
         'Removed',
-        'RemovedActivityCategory'
+        'RemovedActivityCategory',
+        'RemovedFinalActivityCategory'
     ];
     
     public function ViewMyClassID($MyClassID)
@@ -44,7 +46,9 @@ class ViewMyClassForm extends Component
         return view('livewire.instructor-panel.my-class.view-my-class-form',[
             'ClassStudentData' =>   ClassStudent::where('my_class_id',$this->MyClassID)->get(),
             'ActivityCategoryData' =>   ActivityCategory::where('my_class_id',$this->MyClassID)->get(),
-            'Percentage'  =>  ActivityCategory::where('my_class_id',$this->MyClassID)->sum('percentage')
+            'FinalActivityCategoryData' =>   FinalActivityCategory::where('my_class_id',$this->MyClassID)->get(),
+            'Percentage'  =>  ActivityCategory::where('my_class_id',$this->MyClassID)->sum('percentage'),
+            'FinalPercentage'  =>  FinalActivityCategory::where('my_class_id',$this->MyClassID)->sum('percentage')
             ])->with('getStudent');
     }
     
@@ -60,16 +64,28 @@ class ViewMyClassForm extends Component
         $this->dispatch('AddActivityCategoryMyClassID',$this->MyClassID);
     }
     
+    public function OpenAddFinalActivityCategoryForm()
+    {
+        $this->dispatch('OpenAddFinalActivityCategoryModal');
+        $this->dispatch('AddFinalActivityCategoryMyClassID',$this->MyClassID);
+    }
+    
     public function OpenClassWorkMidTermForm($ClassWorkMidTermID)
     {
         $this->dispatch('OpenClassWorkMidTermModal');
         $this->dispatch('ClassWorkMidTermID',$ClassWorkMidTermID,$this->MyClassID);
     }
-
-    public function EditAddActivityCategoryForm($AddActivityCategoryID)
+    
+    public function OpenClassWorkFinalTermForm($ClassWorkFinalTermID)
     {
-        $this->dispatch('OpenAddActivityCategoryModal');
-        $this->dispatch('EditAddActivityCategory',$AddActivityCategoryID,$this->MyClassID);
+        $this->dispatch('OpenClassWorkFinalTermModal');
+        $this->dispatch('ClassWorkFinalTermID',$ClassWorkFinalTermID,$this->MyClassID);
+    }
+
+    public function EditAddFinalActivityCategoryForm($AddFinalActivityCategoryID)
+    {
+        $this->dispatch('OpenAddFinalActivityCategoryModal');
+        $this->dispatch('EditAddFinalActivityCategory',$AddFinalActivityCategoryID,$this->MyClassID);
     }
     
     public function Remove($ClassStudentID)
@@ -91,6 +107,17 @@ class ViewMyClassForm extends Component
     public function RemovedActivityCategory($ActivityCategoryID)
     {
         ActivityCategory::destroy($ActivityCategoryID);
+        $this->dispatch('alert_removed');
+    }
+    
+    public function RemoveFinalActivityCategory($FinalActivityCategoryID)
+    {
+        $this->dispatch('RemoveFinalActivityCategoryConfirm',$FinalActivityCategoryID);
+    }
+    
+    public function RemovedFinalActivityCategory($FinalActivityCategoryID)
+    {
+        FinalActivityCategory::destroy($FinalActivityCategoryID);
         $this->dispatch('alert_removed');
     }
     
