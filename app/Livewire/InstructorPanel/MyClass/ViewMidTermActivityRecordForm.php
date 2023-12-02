@@ -75,6 +75,9 @@ class ViewMidTermActivityRecordForm extends Component
         
         try {
             foreach ($this->Scores as $index => $Scores) {
+                    if($Scores['score']==""){
+                        $Scores['score']=null;
+                    }
                     $data = ([
                         'score'                         =>  $Scores['score'],
                     ]);

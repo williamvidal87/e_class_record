@@ -24,6 +24,7 @@ return new class extends Migration
             $table->foreign('semester_id')->references('id')->on('semesters');
             $table->foreign('instructor_id')->references('id')->on('users');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

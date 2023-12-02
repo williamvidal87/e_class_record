@@ -34,8 +34,8 @@
                                                                     <td>{{ $data->activity_name }}</td>
                                                                     <td>{{ $data->date }}</td>
                                                                     <td>{{ $data->maximum_score }}</td>
-                                                                    <td style="min-width:298px;">
-                                                                        <button wire:click="OpenViewRecordFinaltermActivityRecord({{$data->id}})" type="button" class="btn btn-glow btn-bg-gradient-x-blue-green btn-sm"><i class="ft-eye"></i> View Records</button>
+                                                                    <td style="min-width:318px;">
+                                                                        <button wire:click="OpenViewRecordFinaltermActivityRecord({{$data->id}})" type="button" class="btn btn-glow btn-bg-gradient-x-blue-green btn-sm"><i class="ft-sliders"></i> Manage Records</button>
                                                                         <button wire:click="EditFinaltermActivityForm({{$data->id}})" type="button" class="btn btn-glow btn-bg-gradient-x-purple-blue btn-sm"><i class="ft-edit"></i> Edit</button>
                                                                         <button wire:click="DeleteFinaltermActivity({{$data->id}})" type="button" class="btn btn-glow btn-bg-gradient-x-red-pink btn-sm"><i class="ft-trash-2"></i> Delete</button>
                                                                     </td>

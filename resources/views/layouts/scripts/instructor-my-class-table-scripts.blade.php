@@ -150,6 +150,14 @@
             $('#ViewFinaltermActivityRecordModal').modal('hide');
         });
         
+        @this.on('OpenViewClassRecordModal', (event) => {
+            $('#ViewClassRecordModal').modal('show');
+        });
+        
+        @this.on('CloseViewClassRecordModal', (event) => {
+            $('#ViewClassRecordModal').modal('hide');
+        });
+        
         @this.on('DeleteConfirm', (MyClassID) => {
         swal({
             title: 'Are you sure?',

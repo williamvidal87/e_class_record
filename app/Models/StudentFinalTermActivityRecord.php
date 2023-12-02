@@ -10,7 +10,7 @@ class StudentFinalTermActivityRecord extends Model
     use HasFactory;
 
     protected $fillable = [
-        'final_term_activity_id','student_id','score'
+        'final_activity_id','student_id','score'
     ];
     
     public function getUser()

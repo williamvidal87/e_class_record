@@ -3,6 +3,7 @@
 namespace App\Livewire\InstructorPanel\MyClass;
 
 use App\Models\MyClass;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class MyClassTable extends Component
@@ -17,7 +18,7 @@ class MyClassTable extends Component
     {
         $this->dispatch('DispatchTable');
         return view('livewire.instructor-panel.my-class.my-class-table',[
-            'MyClassData' =>   MyClass::all()
+            'MyClassData' =>   MyClass::where('instructor_id',Auth::user()->id)->get()
             ])->with('getSemester','getSubject');
     }
     
@@ -36,6 +37,12 @@ class MyClassTable extends Component
     {
         $this->dispatch('ViewMyClassID',$MyClassID);
         $this->dispatch('OpenViewMyClassModal');
+    }
+
+    public function ViewClassRecord($MyClassID)
+    {
+        $this->dispatch('ViewClassRecordID',$MyClassID);
+        $this->dispatch('OpenViewClassRecordModal');
     }
     
     public function DeleteMyClass($MyClassID)

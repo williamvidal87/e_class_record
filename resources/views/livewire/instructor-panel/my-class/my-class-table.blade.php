@@ -38,8 +38,9 @@
                                                             <td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:55px;">{{ $data->getSubject->subject }} - {{ $data->getSubject->description }}</td>
                                                             <td>{{ $data->section }}</td>
                                                             <td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:110px;">{{ $data->schedule }}</td>
-                                                            <td style="min-width:260px;">
-                                                                <button wire:click="ViewMyClass({{$data->id}})" type="button" class="btn btn-glow btn-bg-gradient-x-blue-green btn-sm"><i class="ft-eye"></i> Manage</button>
+                                                            <td style="min-width:342px;">
+                                                                <button wire:click="ViewClassRecord({{$data->id}})" type="button" class="btn btn-glow btn-secondary btn-sm"><i class="ft-eye"></i> View</button>
+                                                                <button wire:click="ViewMyClass({{$data->id}})" type="button" class="btn btn-glow btn-bg-gradient-x-blue-green btn-sm"><i class="ft-sliders"></i> Manage</button>
                                                                 <button wire:click="EditMyClass({{$data->id}})" type="button" class="btn btn-glow btn-bg-gradient-x-purple-blue btn-sm"><i class="ft-edit"></i> Edit</button>
                                                                 <button wire:click="DeleteMyClass({{$data->id}})" type="button" class="btn btn-glow btn-bg-gradient-x-red-pink btn-sm"><i class="ft-trash-2"></i> Delete</button>
                                                             </td>
@@ -142,6 +143,13 @@
     <div style="overflow-y: auto;z-index: 100001 !important;" class="modal fade text-left" id="ViewFinaltermActivityRecordModal" tabindex="-1" role="dialog" aria-labelledby="ViewFinaltermActivityRecordModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-lg" role="document" style="box-shadow: 0 0 500px 500px rgb(22, 22, 22, 0.185)">
             <livewire:instructor-panel.my-class.view-final-term-activity-record-form />
+        </div>
+    </div>
+
+    <!-- View Class Record  Modal -->
+    <div style="overflow-y: auto;z-index: 100001 !important;" class="modal fade text-left" id="ViewClassRecordModal" tabindex="-1" role="dialog" aria-labelledby="ViewClassRecordModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-xl" role="document" style="box-shadow: 0 0 500px 500px rgb(22, 22, 22, 0.185)">
+            <livewire:instructor-panel.class-record.view-class-record-form />
         </div>
     </div>
     

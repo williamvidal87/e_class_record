@@ -30,16 +30,16 @@ class ViewFinalTermActivityRecordForm extends Component
         $this->maximum_score=$data->maximum_score;
         $ClassStudentData=ClassStudent::where('my_class_id',$MyClassID)->get();
         foreach ($ClassStudentData as $data2) {
-            $CheckStudentExist=StudentFinalTermActivityRecord::where('final_term_activity_id',$this->ActivityID)->where('student_id',$data2->student_id)->get();
+            $CheckStudentExist=StudentFinalTermActivityRecord::where('final_activity_id',$this->ActivityID)->where('student_id',$data2->student_id)->get();
             if (count($CheckStudentExist)==0) {
                 $data3 = ([
-                    'final_term_activity_id'  => $this->ActivityID,
+                    'final_activity_id'  => $this->ActivityID,
                     'student_id'            => $data2->student_id,
                 ]);
                 StudentFinalTermActivityRecord::create($data3);
             }
         }
-        $StudentFinalTermActivityRecordData=StudentFinalTermActivityRecord::where('final_term_activity_id',$this->ActivityID)->get();
+        $StudentFinalTermActivityRecordData=StudentFinalTermActivityRecord::where('final_activity_id',$this->ActivityID)->get();
         foreach ($StudentFinalTermActivityRecordData as $data2) {
             $CheckClassStudentExist=ClassStudent::where('my_class_id',$MyClassID)->where('student_id',$data2->student_id)->get();
             if (count($CheckClassStudentExist)==0) {
@@ -47,7 +47,7 @@ class ViewFinalTermActivityRecordForm extends Component
             }
         }
         
-        $CountAllData=StudentFinalTermActivityRecord::where('final_term_activity_id',$this->ActivityID)->get();
+        $CountAllData=StudentFinalTermActivityRecord::where('final_activity_id',$this->ActivityID)->get();
         foreach ($CountAllData as $index => $countalldata){
             $this->Scores[$index] = [
             'id' => $countalldata->id,
@@ -60,7 +60,7 @@ class ViewFinalTermActivityRecordForm extends Component
     public function render()
     {
         return view('livewire.instructor-panel.my-class.view-final-term-activity-record-form',[
-            'FinalTermActivityData'   =>  StudentFinalTermActivityRecord::where('final_term_activity_id',$this->ActivityID)->get()
+            'FinalTermActivityData'   =>  StudentFinalTermActivityRecord::where('final_activity_id',$this->ActivityID)->get()
         ])->with('getUser');
     }
     
@@ -75,6 +75,9 @@ class ViewFinalTermActivityRecordForm extends Component
         
         try {
             foreach ($this->Scores as $index => $Scores) {
+                    if($Scores['score']==""){
+                        $Scores['score']=null;
+                    }
                     $data = ([
                         'score'                         =>  $Scores['score'],
                     ]);

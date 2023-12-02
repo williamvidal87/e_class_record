@@ -33,17 +33,16 @@
                                                     @foreach ($Scores as $index => $Scores)
                                                         <tr>
                                                             <td> {{$Scores['student_name']}} </td>
-                                                            <td style="min-width:260px;">
+                                                            <td style="width:190px" >
                                                                 <div class="row">
-                                                                    <div class="col-sm-4">
+                                                                    <div class="col-sm-7">
                                                                         <input type="number" wire:model="Scores.{{$index}}.score" class="form-control input-sm" style="width:90px;" onkeypress='return event.charCode >= 46 && event.charCode <= 57'>
                                                                     </div>
-                                                                    <div class="col-sm-8" style="width:60px;">
+                                                                    <div class="col-sm-5">
                                                                         <span style="color: green">/{{$this->maximum_score}}</span>
                                                                     </div>
                                                                 </div>
-                                                                
-                                                                        @error('Scores'.'.'.$index.'.'.'score') <span style="color: red">must be less than or equal to {{$this->maximum_score}}.</span> @enderror
+                                                                    @error('Scores'.'.'.$index.'.'.'score') <span style="color: red">must be less than or equal to {{$this->maximum_score}}.</span> @enderror
                                                             </td>
                                                         </tr>
                                                     @endforeach
