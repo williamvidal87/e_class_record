@@ -143,7 +143,7 @@
                                     <span class="avatar avatar-online">
                                         <img src="/storage/{{ Auth::user()->profile_photo_path ?? 'default-profile/admin-profile.png' }}"
                                             alt="{{ Auth::user()->name }}">
-                                        <span class="user-name text-bold-700 ml-1">{{ Auth::user()->name }}</span>
+                                        <span class="user-name text-bold-700 ml-1">{{ Auth::user()->getRule->rule_name }}</span>
                                     </span>
                                 </a>
                                 <div class="dropdown-divider">

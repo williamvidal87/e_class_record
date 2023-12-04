@@ -36,7 +36,7 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="id_number">ID Number</label>
-                                    <input type="text" wire:model="id_number" id="id_number" class="form-control" placeholder="ID Number">
+                                    <input disabled type="text" wire:model="id_number" id="id_number" class="form-control" placeholder="ID Number">
                                     <div class=" font-small-2 danger">@error('id_number') {{ $message }} @enderror</div>
                                 </div>
                                 @if(Auth::user()->rule_id==3)

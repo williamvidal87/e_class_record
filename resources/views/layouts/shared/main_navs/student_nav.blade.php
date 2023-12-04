@@ -1,10 +1,10 @@
 
 <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
     <li class=" nav-item">
-        <a href="student-dashboard">
+        <a href="student-home">
             <i class="ft-home">
             </i>
-            <span class="menu-title" data-i18n="">Dashboard</span>
+            <span class="menu-title" data-i18n="">Home</span>
         </a>
     </li>
 </ul>

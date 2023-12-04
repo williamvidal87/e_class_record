@@ -17,7 +17,7 @@ class CheckInstructor
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::user()->rule_id != 2) {
-            return redirect('student-dashboard');
+            return redirect('student-home');
         }
         return $next($request);
     }

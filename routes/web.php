@@ -57,6 +57,6 @@ Route::middleware([
     Route::get('/instructor-subject-table', SubjectTable::class)->name('instructor-subject-table')->middleware('checkinstructor');
     
     // student panel
-    Route::get('/student-dashboard', StudentDashboard::class)->name('student-dashboard')->middleware('checkstudent');
+    Route::get('/student-home', StudentDashboard::class)->name('student-home')->middleware('checkstudent');
     
 });

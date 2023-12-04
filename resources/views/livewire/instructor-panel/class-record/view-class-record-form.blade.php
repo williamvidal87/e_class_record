@@ -385,7 +385,7 @@
                                                         }
                                                     }
                                                     if($count2==0){
-                                                        {{-- echo "<th></th>"; --}}
+                                                        //echo "<th></th>";
                                                     }
                                                 }
                                                 echo "<td>".$totalGrade."</td>";
@@ -422,7 +422,7 @@
                                                         }
                                                     }
                                                     if($count2==0){
-                                                        {{-- echo "<th></th>"; --}}
+                                                        //echo "<th></th>";
                                                     }
                                                 }
                                                 echo "<td>".$totalGrade."</td>";
