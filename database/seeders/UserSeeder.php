@@ -24,8 +24,8 @@ class UserSeeder extends Seeder
             'course_id' => null,
             ],
             [ 
-            'id_number' => '12345678',
-            'name' => 'Instructor',
+            'id_number' => '2019LGD129G',
+            'name' => 'Lezel G. Dagudog',
             'email' => 'instructor@gmail.com',
             'phone_number' => '9212969669',
             'password' => bcrypt('instructor123'),
