@@ -360,6 +360,7 @@
                                             {{-- Start Mid Term Computation --}}
                                             <?php
                                                 $totalGrade=0;
+                                                $not_coplied_midterm=0;
                                                 foreach ($ActivityCategoryData as $data){
                                                     $totalActivity=0;
                                                     $totalMaximum=0;
@@ -368,6 +369,13 @@
                                                             foreach($StudentMidTermActivityRecordData as $data3){
                                                                 if($data2->id==$data3->mid_term_activity_id && $Data->student_id == $data3->student_id){
                                                                     $totalActivity+=$data3->score;
+                                                                    if($data3->score==""){
+                                                                        if($data2->maximum_score==1){
+                                                                            //
+                                                                        } else {
+                                                                        $not_coplied_midterm=1;
+                                                                        }
+                                                                    }
                                                                 }
                                                             }
                                                             $totalMaximum+=$data2->maximum_score;
@@ -396,6 +404,7 @@
                                             {{-- Start Final Term Computation --}}
                                             <?php
                                                 $totalGrade=0;
+                                                $not_coplied_finalterm=0;
                                                 foreach ($FinalActivityCategoryData as $data){
                                                     $totalActivity=0;
                                                     $totalMaximum=0;
@@ -404,6 +413,13 @@
                                                             foreach($StudentFinalTermActivityRecordData as $data3){
                                                                 if($data2->id==$data3->final_activity_id && $Data->student_id == $data3->student_id){
                                                                     $totalActivity+=$data3->score;
+                                                                    if($data3->score==""){
+                                                                        if($data2->maximum_score==1){
+                                                                            //
+                                                                        } else {
+                                                                        $not_coplied_finalterm=1;
+                                                                        }
+                                                                    }
                                                                 }
                                                             }
                                                             $totalMaximum+=$data2->maximum_score;
@@ -433,10 +449,14 @@
                                                 $SumGrade=$semesteralGrade/2;
                                                 echo "<th>".$SumGrade."</th>";
                                             ?>
-                                            @if ($SumGrade>=75)
-                                                <th style="color:green">Passed</th>
+                                            @if ($not_coplied_midterm==1 || $not_coplied_finalterm==1)
+                                                    <th style="color:red">INC</th>
                                             @else
-                                                <th style="color:red">Failed</th>
+                                                @if ($SumGrade>=75)
+                                                    <th style="color:green">Passed</th>
+                                                @else
+                                                    <th style="color:red">Failed</th>
+                                                @endif
                                             @endif
                                     </tr>
                                 @endforeach

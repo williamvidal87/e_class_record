@@ -25,7 +25,7 @@
                                                     <div class="heading-elements">
                                                         <ul class="list-inline mb-0">
                                                             <li>
-                                                                <button type="button" class="btn btn-sm btn-white {{$CardColor[$random_keys[0]]}} box-shadow-1 round btn-min-width pull-right">View <i class="ft-eye pl-1"></i></button>
+                                                                <button wire:click="ViewGrades({{$data->id}})" type="button" class="btn btn-sm btn-white {{$CardColor[$random_keys[0]]}} box-shadow-1 round btn-min-width pull-right">View Grades<i class="ft-eye pl-1"></i></button>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -57,4 +57,17 @@
             </div>
         </div>
     </div>
+
+    <!-- ViewGrade Modal -->
+    <div class="modal fade text-left" id="ViewGradeModal" tabindex="-1" role="dialog" aria-labelledby="ViewGradeModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog" role="document">
+            <livewire:student-panel.student-dashboard.view-grade-form />
+        </div>
+    </div>
+
 </div>
+
+@section('custom_script')
+    @include('layouts.scripts.student-dashboard-table-scripts'); 
+@endsection
+

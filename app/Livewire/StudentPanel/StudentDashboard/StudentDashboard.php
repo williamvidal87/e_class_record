@@ -22,4 +22,10 @@ class StudentDashboard extends Component
             'MyClassData' =>   MyClass::whereIn('id',$this->DataArray)->get()
         ])->with('getSemester');
     }
+
+    public function ViewGrades($GradeID)
+    {
+        $this->dispatch('ViewGradeID',$GradeID);
+        $this->dispatch('OpenViewGradeModal');
+    }
 }
