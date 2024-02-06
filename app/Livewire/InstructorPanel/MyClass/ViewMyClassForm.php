@@ -82,6 +82,12 @@ class ViewMyClassForm extends Component
         $this->dispatch('ClassWorkFinalTermID',$ClassWorkFinalTermID,$this->MyClassID);
     }
 
+    public function EditAddActivityCategoryForm($AddActivityCategoryID)
+    {
+        $this->dispatch('OpenAddActivityCategoryModal');
+        $this->dispatch('EditAddActivityCategory',$AddActivityCategoryID,$this->MyClassID);
+    }
+
     public function EditAddFinalActivityCategoryForm($AddFinalActivityCategoryID)
     {
         $this->dispatch('OpenAddFinalActivityCategoryModal');
