@@ -11,6 +11,7 @@ use App\Livewire\InstructorPanel\MyClass\MyClassTable;
 use App\Livewire\Profile\EditPassword;
 use App\Livewire\Profile\EditProfile;
 use App\Livewire\StudentPanel\StudentDashboard\StudentDashboard;
+use App\Livewire\StudentPanel\QrCode\QrCodeTable;
 use Illuminate\Support\Facades\Route;
 
 
@@ -58,5 +59,6 @@ Route::middleware([
     
     // student panel
     Route::get('/student-home', StudentDashboard::class)->name('student-home')->middleware('checkstudent');
+    Route::get('/student-qrcode', QrCodeTable::class)->name('student-qrcode')->middleware('checkstudent');
     
 });

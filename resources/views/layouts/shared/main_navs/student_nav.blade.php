@@ -7,6 +7,13 @@
             <span class="menu-title" data-i18n="">Home</span>
         </a>
     </li>
+    <li class=" nav-item">
+        <a href="student-qrcode">
+            <i class="ft-grid">
+            </i>
+            <span class="menu-title" data-i18n="">QR Code</span>
+        </a>
+    </li>
 </ul>
 
 

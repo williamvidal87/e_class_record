@@ -132,18 +132,18 @@
                     </li> --}}
                     <li class="dropdown dropdown-user nav-item">
                         <a class="dropdown-toggle nav-link dropdown-user-link" href="" data-toggle="dropdown">
-                            <span class="avatar avatar-online">
-                                <img src="/storage/{{ Auth::user()->profile_photo_path ?? 'default-profile/admin-profile.png' }}"
+                            <span style=" width: 40px;height: 40px;" class="avatar avatar-online">
+                                <img style="min-width: 100%; min-height: 100%;" src="/storage/{{ Auth::user()->profile_photo_path ?? 'default-profile/admin-profile.png' }}"
                                     alt="{{ Auth::user()->name }}">
                             </span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <div class="arrow_box_right">
                                 <a class="dropdown-item" href="dashboard">
-                                    <span class="avatar avatar-online">
-                                        <img src="/storage/{{ Auth::user()->profile_photo_path ?? 'default-profile/admin-profile.png' }}"
+                                    <span style=" width: 30px;height: 30px;" class="avatar avatar-online">
+                                        <img style="min-width: 100%; min-height: 100%;" src="/storage/{{ Auth::user()->profile_photo_path ?? 'default-profile/admin-profile.png' }}"
                                             alt="{{ Auth::user()->name }}">
-                                        <span class="user-name text-bold-700 ml-1"><?php $arr = explode(' ', trim(Auth::user()->name)); echo $arr[0]; ?></span>
+                                        <span class="user-name text-bold-700 ml-1"><?php $arr = explode(',', trim(Auth::user()->name)); echo $arr[0]; ?></span>
                                     </span>
                                 </a>
                                 <div class="dropdown-divider">

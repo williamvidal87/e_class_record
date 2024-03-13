@@ -35,8 +35,8 @@
                                                         <div class="media d-flex">
                                                             <div class="align-self-center width-100">
                                                                 <div id="Analytics-donut-chart" class="height-100 donutShadow">
-                                                                    <span class="avatar avatar-online" style="width:100%">
-                                                                        <img src="/storage/{{ $data->getUser->profile_photo_path ?? 'default-profile/admin-profile.png' }}" alt="Instructor">
+                                                                    <span class="avatar avatar-online" style=" width: 100px;height: 100px;">
+                                                                        <img style="min-width: 100%; min-height: 100%;" src="/storage/{{ $data->getUser->profile_photo_path ?? 'default-profile/admin-profile.png' }}" alt="Instructor">
                                                                     </span>
                                                                 </div>
                                                             </div>
