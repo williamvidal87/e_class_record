@@ -28,17 +28,14 @@
                             <div class=" font-small-2 danger">@error('percentage') {{ $message }} @enderror</div>
                         </div>
                         <div class="form-group">
-                            <label for="multiply">Computation</label>
-                            <div class="form-row">
-                                <div class="col-md-4 mb-3">
-                                    <input type="number" wire:model="multiply" id="multiply" class="form-control" placeholder="multiply" onkeypress='return event.charCode >= 46 && event.charCode <= 57'>
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <input type="number" wire:model="addition" id="addition" class="form-control" placeholder="add" onkeypress='return event.charCode >= 46 && event.charCode <= 57'>
-                                </div>
-                            </div>
-                            <div class=" font-small-2 danger">@error('multiply') {{ $message }} @enderror</div>
-                            <div class=" font-small-2 danger">@error('addition') {{ $message }} @enderror</div>
+                            <label for="computation">Computation</label>
+                            <select class="form-control" id="computation" wire:model="computation">
+                                        <option value={{ null }}>Select Computation</option>
+                                        <option value=1>Zero Based</option>
+                                        <option value=2>x50 +50</option>
+                                        <option value=3>x40 +60</option>
+                            </select>
+                            <div class=" font-small-2 danger">@error('computation') {{ $message }} @enderror</div>
                         </div>
                     </div>
                 </form>

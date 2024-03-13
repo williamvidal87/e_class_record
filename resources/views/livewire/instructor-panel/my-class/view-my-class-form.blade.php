@@ -100,7 +100,13 @@
                                                                             <tr>
                                                                                 <td>{{ $data->activity_category }}</td>
                                                                                 <td>{{ $data->percentage }}%</td>
-                                                                                <td>x{{ $data->multiply }} + {{ $data->addition }}</td>
+                                                                                <td>
+                                                                                    @if($data->addition!=0)
+                                                                                        {{ "x".$data->multiply." +".$data->addition }}
+                                                                                    @else
+                                                                                        {{ "Zero Based" }}
+                                                                                    @endif
+                                                                                </td>
                                                                                 <td style="min-width:349px;">
                                                                                     <button wire:click="OpenClassWorkMidTermForm({{$data->id}})" type="button" class="btn btn-glow btn-bg-gradient-x-blue-green btn-sm"><i class="ft-sliders"></i> Manage</button>
                                                                                     <button wire:click="EditAddActivityCategoryForm({{$data->id}})" type="button" class="btn btn-glow btn-bg-gradient-x-purple-blue btn-sm"><i class="ft-edit"></i> Edit</button>

@@ -28,15 +28,27 @@
                             <div class=" font-small-2 danger">@error('percentage') {{ $message }} @enderror</div>
                         </div>
                         <div class="form-group">
-                            <label for="multiply">Computation</label>
-                            <div class="form-row">
+                            <label for="computation">Computation</label>
+                            {{-- <div class="form-row">
                                 <div class="col-md-4 mb-3">
                                     <input type="number" wire:model="multiply" id="multiply" class="form-control" placeholder="multiply" onkeypress='return event.charCode >= 46 && event.charCode <= 57'>
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <input type="number" wire:model="addition" id="addition" class="form-control" placeholder="add" onkeypress='return event.charCode >= 46 && event.charCode <= 57'>
                                 </div>
-                            </div>
+                            </div> --}}
+
+
+                                <select class="form-control" id="computation" wire:model="computation">
+                                        <option value=0>Select Computation</option>
+                                        {{-- @foreach($StudentData as $data) --}}
+                                            <option value="SAMPLE">Zero Based</option>
+                                            <option value="SAMPLE">X50 +50</option>
+                                            <option value="SAMPLE">X40 +60</option>
+                                        {{-- @endforeach --}}
+                                </select>
+
+
                             <div class=" font-small-2 danger">@error('multiply') {{ $message }} @enderror</div>
                             <div class=" font-small-2 danger">@error('addition') {{ $message }} @enderror</div>
                         </div>
