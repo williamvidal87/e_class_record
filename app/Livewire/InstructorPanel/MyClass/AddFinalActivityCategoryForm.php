@@ -10,7 +10,8 @@ class AddFinalActivityCategoryForm extends Component
     public  $activity_category,
             $percentage,
             $multiply,
-            $addition;
+            $addition,
+            $computation;
     public  $my_class_id;
     public  $AddFinalActivityCategoryID;
     
@@ -34,6 +35,15 @@ class AddFinalActivityCategoryForm extends Component
         $this->percentage = $data->percentage;
         $this->multiply = $data->multiply;
         $this->addition = $data->addition;
+        if($this->multiply==100){
+            $this->computation=1;
+        }
+        if($this->multiply==50){
+            $this->computation=2;
+        }
+        if($this->multiply==40){
+            $this->computation=3;
+        }
     }
     
     public function render()
@@ -43,11 +53,22 @@ class AddFinalActivityCategoryForm extends Component
     
     public function Store()
     {
+        if($this->computation==1){
+            $this->multiply=100;
+            $this->addition=0;
+        }
+        if($this->computation==2){
+            $this->multiply=50;
+            $this->addition=50;
+        }
+        if($this->computation==3){
+            $this->multiply=40;
+            $this->addition=60;
+        }
         $this->validate([
             'activity_category' => 'required',
             'percentage'        => 'required',
-            'multiply'          => 'required',
-            'addition'          => 'required',
+            'computation'       => 'required',
         ]);
         
         $this->dispatch('CloseAddFinalActivityCategoryModal');

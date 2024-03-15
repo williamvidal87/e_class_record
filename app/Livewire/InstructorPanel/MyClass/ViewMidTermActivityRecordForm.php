@@ -63,6 +63,10 @@ class ViewMidTermActivityRecordForm extends Component
             'MidTermActivityData'   =>  StudentMidTermActivityRecord::where('mid_term_activity_id',$this->ActivityID)->get()
         ])->with('getUser');
     }
+
+    public function OpenScanner(){
+        $this->dispatch('OpenClassWorkFinalTermModal');
+    }
     
     public function Store()
     {
