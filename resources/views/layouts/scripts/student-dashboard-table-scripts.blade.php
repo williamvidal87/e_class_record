@@ -31,6 +31,14 @@
         @this.on('CloseViewGradeModal', (event) => {
             $('#ViewGradeModal').modal('hide');
         });
+        
+        @this.on('OpenJoinClassCodeModal', (event) => {
+            $('#JoinClassCodeModal').modal('show');
+        });
+        
+        @this.on('CloseJoinClassCodeModal', (event) => {
+            $('#JoinClassCodeModal').modal('hide');
+        });
 
     });
 </script>

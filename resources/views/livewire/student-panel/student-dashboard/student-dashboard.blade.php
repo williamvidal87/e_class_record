@@ -4,8 +4,9 @@
         <div class="content-wrapper">
             <div class="content-wrapper-before"></div>
             <div class="content-header row">
-                <div class="content-header-left col-md-4 col-12 mb-2">
-                    <h3 class="content-header-title">Home   </h3>
+                <div class="content-header-left col-md-12 col-12 mb-2">
+                    <h3 class="content-header-title float-left">Home   </h3>
+                    <button type="button" class="btn btn-secondary btn-min-width mr-1 mb-1 float-right" wire:click="OpenJoinClassCodeForm"><i class="ft-plus"></i> Join Class</button>
                 </div>
             </div>
             <div class="content-body"><!-- Revenue, Hit Rate & Deals -->
@@ -55,6 +56,13 @@
                 </div>
                 <!--/ Revenue, Hit Rate & Deals -->
             </div>
+        </div>
+    </div>
+
+    <!-- OpenJoinClassCode Modal -->
+    <div class="modal fade text-left" id="JoinClassCodeModal" tabindex="-1" role="dialog" aria-labelledby="JoinClassCodeModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog" role="document">
+            <livewire:student-panel.student-dashboard.join-class-code-form />
         </div>
     </div>
 

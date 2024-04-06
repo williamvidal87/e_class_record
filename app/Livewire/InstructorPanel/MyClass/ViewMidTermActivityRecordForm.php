@@ -16,6 +16,7 @@ class ViewMidTermActivityRecordForm extends Component
     public  $ActivityID;
     public  $Scores = [];
     protected $listeners = [
+        'refresh_view_mid_term_table' => '$refresh',
         'ViewMidtermActivity',
         'CloseViewMidtermActivityRecordForm'
     ];
@@ -47,6 +48,18 @@ class ViewMidTermActivityRecordForm extends Component
             }
         }
         
+        // $CountAllData=StudentMidTermActivityRecord::where('mid_term_activity_id',$this->ActivityID)->get();
+        // foreach ($CountAllData as $index => $countalldata){
+        //     $this->Scores[$index] = [
+        //     'id' => $countalldata->id,
+        //     'student_name'=>$countalldata->getUser->name,
+        //     'score'=>$countalldata->score,
+        //     ];
+        // }
+    }
+
+    public function render()
+    {
         $CountAllData=StudentMidTermActivityRecord::where('mid_term_activity_id',$this->ActivityID)->get();
         foreach ($CountAllData as $index => $countalldata){
             $this->Scores[$index] = [
@@ -55,17 +68,16 @@ class ViewMidTermActivityRecordForm extends Component
             'score'=>$countalldata->score,
             ];
         }
-    }
-
-    public function render()
-    {
+        
+        $this->dispatch('DispatchTable');
         return view('livewire.instructor-panel.my-class.view-mid-term-activity-record-form',[
             'MidTermActivityData'   =>  StudentMidTermActivityRecord::where('mid_term_activity_id',$this->ActivityID)->get()
         ])->with('getUser');
     }
 
     public function OpenScanner(){
-        $this->dispatch('OpenClassWorkFinalTermModal');
+        $this->dispatch('OpenScannerModal');
+        $this->dispatch('Scanner',$this->ActivityID,$this->maximum_score);
     }
     
     public function Store()

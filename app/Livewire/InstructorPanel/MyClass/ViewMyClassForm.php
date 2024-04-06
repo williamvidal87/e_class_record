@@ -8,6 +8,7 @@ use App\Models\FinalActivityCategory;
 use App\Models\MyClass;
 use App\Models\User;
 use Livewire\Component;
+use Illuminate\Support\Facades\Crypt;
 
 class ViewMyClassForm extends Component
 {
@@ -15,7 +16,8 @@ class ViewMyClassForm extends Component
             $school_year,
             $subject_id,
             $section,
-            $schedule;
+            $schedule,
+            $shortenedcode;
     public  $MyClassID;
     public  $ClassStudentID;
     public  $ActivityCategoryID;
@@ -38,6 +40,7 @@ class ViewMyClassForm extends Component
         $this->section = $data->section;
         $this->schedule = $data->schedule;
         $this->SubjectTitle=$data->getSubject->subject." ".$data->getSubject->description." - ".$this->section." (".$this->schedule.")";
+        $this->shortenedcode=Crypt::encryptString($this->MyClassID);
     }
     
     public function render()
@@ -50,6 +53,11 @@ class ViewMyClassForm extends Component
             'Percentage'  =>  ActivityCategory::where('my_class_id',$this->MyClassID)->sum('percentage'),
             'FinalPercentage'  =>  FinalActivityCategory::where('my_class_id',$this->MyClassID)->sum('percentage')
             ])->with('getStudent');
+    }
+
+    public function CopyclassCode()
+    {
+        $this->dispatch('alert_copy_code');
     }
     
     public function OpenAddStudentForm()

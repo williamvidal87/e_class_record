@@ -36,9 +36,12 @@
                                                     <div wire:ignore.self role="tabpanel" class="tab-pane active" id="tabIcon1" aria-expanded="true" aria-labelledby="baseIcon-tab1">
                                                         <div class="card-header d-flex justify-content-between" style="padding:0.3rem">
                                                             <div  style="padding-left:15px;">
-                                                            <a href="javascript:void(0)" style="text-decoration:none;display:block;" onclick="myFunction()">
-                                                                <span class="badge badge-pill badge-info float-right m-0"><i class="ft-copy"></i> Copy Class Code</span>
-                                                            </a>
+                                                                <fieldset class="form-row">
+                                                                    <input type="text" class="form-control input-sm col-md-4" id="textToCopy" readonly="readonly" value="{{$this->shortenedcode}}">
+                                                                    <a class="col-md-4" href="javascript:void(0)" wire:click="CopyclassCode">
+                                                                        <span class="badge badge-pill badge-info"><i class="ft-copy"></i> Copy Class Code</span>
+                                                                    </a>
+                                                                </fieldset>
                                                             </div>
                                                         </div>
                                                         <div class="card-header d-flex justify-content-between">

@@ -16,6 +16,7 @@
         @this.on('DispatchTable', (event) => {
             $('button').prop('disabled', false);
             setTimeout(function() {
+                    document.getElementById("InputScan").focus(); // for input type scanner
                     $('.multi-ordering').DataTable().destroy();
                     $(".multi-ordering").DataTable({
                     });
@@ -158,6 +159,14 @@
             $('#ViewClassRecordModal').modal('hide');
         });
         
+        @this.on('OpenScannerModal', (event) => {
+            $('#ScannerModal').modal('show');
+        });
+        
+        @this.on('CloseScannerModal', (event) => {
+            $('#ScannerModal').modal('hide');
+        });
+        
         @this.on('DeleteConfirm', (MyClassID) => {
         swal({
             title: 'Are you sure?',
@@ -283,6 +292,12 @@
         });
         @this.on('alert_removed', (event) => {
             toastr.error("successfully removed!");
+        });
+        @this.on('alert_copy_code', (event) => {
+            var textToCopy = document.getElementById("textToCopy");
+            textToCopy.select();
+            document.execCommand("copy");
+            alert("Text copied to clipboard!");
         });
     });
 </script>

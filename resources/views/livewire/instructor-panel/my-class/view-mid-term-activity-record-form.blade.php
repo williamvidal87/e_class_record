@@ -22,10 +22,9 @@
                                                 <h4 class="card-title">{{$this->activity_name}}</h4>
                                                 <h4 class="card-title">Date : {{$this->date}}</h4>
                                                 <h4 class="card-title">Maximum Score : {{$this->maximum_score}}</h4>
-                                                <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                                             </div>
                                             <div class="col-3">
-                                                <button wire:click="OpenScanner" type="button" class="btn btn-info btn-min-width mr-1 mb-1"><i class="ft-maximize"></i> Scan</button>
+                                                <button wire:click="OpenScanner" type="button" class="btn btn-info mr-1 mb-1"><i class="ft-maximize"></i> Scan</button>
                                             </div>
                                         </div>
 
