@@ -16,6 +16,7 @@ class ViewFinalTermActivityRecordForm extends Component
     public  $ActivityID;
     public  $Scores = [];
     protected $listeners = [
+        'refresh_view_final_term_table' => '$refresh',
         'ViewFinaltermActivity',
         'CloseViewFinaltermActivityRecordForm'
     ];
@@ -47,7 +48,24 @@ class ViewFinalTermActivityRecordForm extends Component
             }
         }
         
-        $CountAllData=StudentFinalTermActivityRecord::where('final_activity_id',$this->ActivityID)->get();
+        // $CountAllData=StudentFinalTermActivityRecord::where('final_activity_id',$this->ActivityID)->get();
+        // foreach ($CountAllData as $index => $countalldata){
+        //     $this->Scores[$index] = [
+        //     'id' => $countalldata->id,
+        //     'student_name'=>$countalldata->getUser->name,
+        //     'score'=>$countalldata->score,
+        //     ];
+        // }
+    }
+
+    public function render()
+    {
+        // $CountAllData=StudentFinalTermActivityRecord::where('final_activity_id',$this->ActivityID)->get();
+        $CountAllData=StudentFinalTermActivityRecord::join('users', 'student_final_term_activity_records.student_id', '=', 'users.id')
+        ->where('final_activity_id', $this->ActivityID)
+        ->orderBy('users.name', 'asc')
+        ->get();
+
         foreach ($CountAllData as $index => $countalldata){
             $this->Scores[$index] = [
             'id' => $countalldata->id,
@@ -55,13 +73,16 @@ class ViewFinalTermActivityRecordForm extends Component
             'score'=>$countalldata->score,
             ];
         }
-    }
-
-    public function render()
-    {
+        
+        $this->dispatch('DispatchTable');
         return view('livewire.instructor-panel.my-class.view-final-term-activity-record-form',[
             'FinalTermActivityData'   =>  StudentFinalTermActivityRecord::where('final_activity_id',$this->ActivityID)->get()
         ])->with('getUser');
+    }
+
+    public function OpenScannerFinalTerm(){
+        $this->dispatch('OpenScannerFinalTermModal');
+        $this->dispatch('ScannerFinalTerm',$this->ActivityID,$this->maximum_score);
     }
     
     public function Store()

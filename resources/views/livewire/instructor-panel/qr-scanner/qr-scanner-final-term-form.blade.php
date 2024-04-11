@@ -2,7 +2,7 @@
     <div class="modal-content">
         <div class="modal-header bg-info white">
             <h4 class="modal-title white" id="myModalLabel11">Scan Qr Code</h4>
-            <button wire:click="CloseScanner" type="button" class="btn close" aria-label="Close">
+            <button wire:click="CloseScannerFinalTerm" type="button" class="btn close" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
@@ -31,7 +31,7 @@
                                                             <div class="row">
                                                                 <div class="col-sm-12">
                                                                     <table id="users-contacts"
-                                                                        class="table table-white-space table-bordered table-striped row-grouping display no-wrap icheck table-middle dataTable no-footer"
+                                                                        class="table table-white-space table-bordered table-striped row-grouping display no-wrap icheck table-Finaldle dataTable no-footer"
                                                                         role="grid"
                                                                         aria-describedby="users-contacts_info">
                                                                         <thead>
@@ -41,7 +41,7 @@
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
-                                                                            @foreach ($StudentMidTermActivityRecordData as $data)
+                                                                            @foreach ($StudentFinalTermActivityRecordData as $data)
                                                                                 <tr role="row" class="odd">
                                                                                     <td>
                                                                                         <div class="media">
@@ -53,7 +53,7 @@
 
                                                                                             </div>
                                                                                             <div
-                                                                                                class="media-body media-middle">
+                                                                                                class="media-body media-Finaldle">
                                                                                                 <span class="media-heading text-bold-700">
                                                                                                     {{ $data->getUser->name ?? ''}}
                                                                                                 </span>
@@ -89,14 +89,14 @@
                                     <div style="box-shadow: 1px 0px 20px 20px rgba(62,57,107,.07);" class="card">
                                         <div class="card-head">
                                             <?php
-                                                foreach ($StudentMidTermActivityRecordData as $data2) {
+                                                foreach ($StudentFinalTermActivityRecordData as $data2) {
                                                     if($IdNumber==$data2->getUser->id_number){
                                                         $TempIdNumber=$IdNumber;
                                                         $TempPhoto=$data2->getUser->profile_photo_path;
                                                         $TempName=$data2->getUser->name;
                                                         $TempCourse=$data2->getUser->getCourse->description;
                                                         
-                                                        $this->dispatch('UpdateMidtermScore',$data2->id);
+                                                        $this->dispatch('UpdateFinalTermScore',$data2->id);
 
                                                         $this->IdNumber=null;
                                                     } else {
@@ -130,7 +130,7 @@
                                             <div class="card-body">
                                                 <div class="list-group">
                                                     <form onsubmit="return false;">
-                                                        <input wire:model.live="IdNumber" type="text" class="form-control" id="InputScan">
+                                                        <input wire:model.live="IdNumber" type="text" class="form-control" id="InputScannerFinalTerm">
                                                     </form>
 
                                                 </div>
@@ -149,7 +149,7 @@
             </div>
         </div>
         <div class="modal-footer justify-content-between">
-            <button wire:click="CloseScanner" type="button" class="btn grey btn-secondary"><i
+            <button wire:click="CloseScannerFinalTerm" type="button" class="btn grey btn-secondary"><i
                     class="ft-x"></i>Close</button>
         </div>
     </div>

@@ -39,6 +39,10 @@
         @this.on('CloseJoinClassCodeModal', (event) => {
             $('#JoinClassCodeModal').modal('hide');
         });
+        
+        @this.on('alert_joined', (event) => {
+            toastr.success("successfully joined!");
+        });
 
     });
 </script>

@@ -42,7 +42,7 @@ class JoinClassCodeForm extends Component
                 'student_id'        => Auth::user()->id,
             ]);
             ClassStudent::create($data);
-            $this->dispatch('alert_store');
+            $this->dispatch('alert_joined');
         }
         $this->dispatch('CloseJoinClassCodeForm');
     

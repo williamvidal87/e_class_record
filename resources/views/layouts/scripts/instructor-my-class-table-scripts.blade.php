@@ -17,6 +17,7 @@
             $('button').prop('disabled', false);
             setTimeout(function() {
                     document.getElementById("InputScan").focus(); // for input type scanner
+                    document.getElementById("InputScannerFinalTerm").focus(); // for input type scanner
                     $('.multi-ordering').DataTable().destroy();
                     $(".multi-ordering").DataTable({
                     });
@@ -165,6 +166,14 @@
         
         @this.on('CloseScannerModal', (event) => {
             $('#ScannerModal').modal('hide');
+        });
+        
+        @this.on('OpenScannerFinalTermModal', (event) => {
+            $('#ScannerFinalTermModal').modal('show');
+        });
+        
+        @this.on('CloseScannerFinalTermModal', (event) => {
+            $('#ScannerFinalTermModal').modal('hide');
         });
         
         @this.on('DeleteConfirm', (MyClassID) => {

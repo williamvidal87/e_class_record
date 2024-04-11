@@ -159,6 +159,13 @@
             <livewire:instructor-panel.qr-scanner.qr-scanner-form />
         </div>
     </div>
+
+    <!-- Qr Scanner Finan Term Form  Modal -->
+    <div style="overflow-y: auto;z-index: 100001 !important;" class="modal fade text-left" id="ScannerFinalTermModal" tabindex="-1" role="dialog" aria-labelledby="ScannerFinalTermModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-xl" role="document" style="box-shadow: 0 0 500px 500px rgb(22, 22, 22, 0.185)">
+            <livewire:instructor-panel.qr-scanner.qr-scanner-final-term-form />
+        </div>
+    </div>
     
 </div>
 

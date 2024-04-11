@@ -60,7 +60,12 @@ class ViewMidTermActivityRecordForm extends Component
 
     public function render()
     {
-        $CountAllData=StudentMidTermActivityRecord::where('mid_term_activity_id',$this->ActivityID)->get();
+        // $CountAllData=StudentMidTermActivityRecord::where('mid_term_activity_id',$this->ActivityID)->orderBy('email', 'asc')->get();
+        $CountAllData=StudentMidTermActivityRecord::join('users', 'student_mid_term_activity_records.student_id', '=', 'users.id')
+            ->where('mid_term_activity_id', $this->ActivityID)
+            ->orderBy('users.name', 'asc')
+            ->get();
+            
         foreach ($CountAllData as $index => $countalldata){
             $this->Scores[$index] = [
             'id' => $countalldata->id,

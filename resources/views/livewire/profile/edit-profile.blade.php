@@ -15,9 +15,9 @@
                         <div class="card-head">
                             <div class="align-self-center halfway-fab text-center p-1">
                                 @if($this->photo)
-                                    <span style=" width: 130px;height: 130px;" class="avatar avatar-lg avatar-online rounded-circle"><img style="min-width: 100%; height: 100%;" src="{{ $this->photo->temporaryUrl() }}" alt="{{ Auth::user()->name }}"></span>
+                                    <span style=" width: 130px;height: 130px;" class="avatar avatar-lg avatar-online rounded-circle"><img style="min-width: 100%; height: 100%; object-fit: cover;" src="{{ $this->photo->temporaryUrl() }}" alt="{{ Auth::user()->name }}"></span>
                                 @else
-                                    <span style=" width: 130px;height: 130px;" class="avatar avatar-lg avatar-online rounded-circle"><img style="min-width: 100%; height: 100%;" src="/storage/{{ Auth::user()->profile_photo_path ?? 'default-profile/admin-profile.png' }}" alt="{{ Auth::user()->name }}"></span>
+                                    <span style=" width: 130px;height: 130px;" class="avatar avatar-lg avatar-online rounded-circle"><img style="min-width: 100%; height: 100%; object-fit: cover;" src="/storage/{{ Auth::user()->profile_photo_path ?? 'default-profile/admin-profile.png' }}" alt="{{ Auth::user()->name }}"></span>
                                 @endif
                             </div>
                             <div class="align-self-center halfway-fab p-1">

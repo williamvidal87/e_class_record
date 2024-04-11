@@ -132,16 +132,16 @@
                     </li> --}}
                     <li class="dropdown dropdown-user nav-item">
                         <a class="dropdown-toggle nav-link dropdown-user-link" href="" data-toggle="dropdown">
-                            <span style=" width: 40px;height: 40px;" class="avatar avatar-online">
-                                <img style="min-width: 100%; height: 100%;" src="/storage/{{ Auth::user()->profile_photo_path ?? 'default-profile/admin-profile.png' }}"
+                            <span style="width: 40px;height: 40px;" class="avatar avatar-online">
+                                <img style="min-width: 100%; height: 100%; object-fit: cover;" src="/storage/{{ Auth::user()->profile_photo_path ?? 'default-profile/admin-profile.png' }}"
                                     alt="{{ Auth::user()->name }}">
                             </span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" style="min-width:22rem">
                             <div class="arrow_box_right">
                                 <a class="dropdown-item" href="dashboard">
-                                    <span style=" width: 30px;height: 30px;" class="avatar avatar-online">
-                                        <img style="min-width: 100%; height: 100%;" src="/storage/{{ Auth::user()->profile_photo_path ?? 'default-profile/admin-profile.png' }}"
+                                    <span style="width: 30px;height: 30px;" class="avatar avatar-online">
+                                        <img style="min-width: 100%; height: 100%; object-fit: cover;" src="/storage/{{ Auth::user()->profile_photo_path ?? 'default-profile/admin-profile.png' }}"
                                             alt="{{ Auth::user()->name }}">
                                         <span class="user-name text-bold-700 ml-1">{{ Auth::user()->name }}</span>
                                     </span>

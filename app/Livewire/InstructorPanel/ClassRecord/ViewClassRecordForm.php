@@ -40,7 +40,7 @@ class ViewClassRecordForm extends Component
     public function render()
     {
         return view('livewire.instructor-panel.class-record.view-class-record-form',[
-            'ClassStudentData' =>   ClassStudent::where('my_class_id',$this->MyClassID)->get(),
+            'ClassStudentData' =>   ClassStudent::join('users', 'class_students.student_id', '=', 'users.id')->where('my_class_id',$this->MyClassID)->orderBy('users.name', 'asc')->get(),
             'ActivityCategoryData' =>   ActivityCategory::where('my_class_id',$this->MyClassID)->get(),
             'MidTermActivityData' =>   MidTermActivity::all(),
             'StudentMidTermActivityRecordData' =>   StudentMidTermActivityRecord::all(),

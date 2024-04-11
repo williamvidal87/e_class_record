@@ -26,7 +26,7 @@
                                                     <div class="heading-elements">
                                                         <ul class="list-inline mb-0">
                                                             <li>
-                                                                <button wire:click="ViewGrades({{$data->id}})" type="button" class="btn btn-sm btn-white {{$CardColor[$random_keys[0]]}} box-shadow-1 round btn-min-width pull-right">View Grades<i class="ft-eye pl-1"></i></button>
+                                                                <button wire:click="ViewGrades({{$data->id}})" disabled type="button" class="btn btn-sm btn-white {{$CardColor[$random_keys[0]]}} box-shadow-1 round btn-min-width pull-right">View Grades<i class="ft-eye pl-1"></i></button>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -37,7 +37,7 @@
                                                             <div class="align-self-center width-100">
                                                                 <div id="Analytics-donut-chart" class="height-100 donutShadow">
                                                                     <span class="avatar avatar-online" style=" width: 100px;height: 100px;">
-                                                                        <img style="min-width: 100%; min-height: 100%;" src="/storage/{{ $data->getUser->profile_photo_path ?? 'default-profile/admin-profile.png' }}" alt="Instructor">
+                                                                        <img style="min-width: 100%; height: 100%;object-fit: cover;" src="/storage/{{ $data->getUser->profile_photo_path ?? 'default-profile/admin-profile.png' }}" alt="Instructor">
                                                                     </span>
                                                                 </div>
                                                             </div>
