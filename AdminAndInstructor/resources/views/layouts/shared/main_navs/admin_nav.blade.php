@@ -14,9 +14,9 @@
             <span class="menu-title" data-i18n="">Manage Users</span>
         </a>
         <ul class="menu-content">
-            <li>
+            {{-- <li>
                 <a class="menu-item" href="admin-table">Admin</a>
-            </li>
+            </li> --}}
             <li>
                 <a class="menu-item" href="instructor-table">Instructor</a>
             </li>

@@ -62,14 +62,15 @@ class ViewFinalTermActivityRecordForm extends Component
     {
         // $CountAllData=StudentFinalTermActivityRecord::where('final_activity_id',$this->ActivityID)->get();
         $CountAllData=StudentFinalTermActivityRecord::join('users', 'student_final_term_activity_records.student_id', '=', 'users.id')
-        ->where('final_activity_id', $this->ActivityID)
+        ->select('student_final_term_activity_records.id as record_id', 'users.id as user_id', 'users.name', 'student_final_term_activity_records.score')
+        ->where('student_final_term_activity_records.final_activity_id', $this->ActivityID)
         ->orderBy('users.name', 'asc')
         ->get();
 
         foreach ($CountAllData as $index => $countalldata){
             $this->Scores[$index] = [
-            'id' => $countalldata->id,
-            'student_name'=>$countalldata->getUser->name,
+            'id' => $countalldata->record_id,
+            'student_name'=>$countalldata->name,
             'score'=>$countalldata->score,
             ];
         }
