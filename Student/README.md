@@ -1,1 +1,0 @@
-# e_class_record
