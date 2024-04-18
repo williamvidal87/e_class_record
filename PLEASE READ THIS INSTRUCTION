@@ -12,3 +12,13 @@ php artisan route:cache
 php artisan clear-compiled
 php artisan optimize
 php artisan optimize:clear
+
+
+"Auto organize"
+Use Ctrl + K, Ctrl + F to format them.
+
+"Auto start xampp"
+registry editor
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+create string value "XAMPP"
+copy the path of "xampp-control.exe"

@@ -21,7 +21,7 @@ class StudentDashboard extends Component
         }
         $this->dispatch('DispatchTable');
         return view('livewire.student-panel.student-dashboard.student-dashboard',[
-            'MyClassData' =>   MyClass::whereIn('id',$this->DataArray)->get()
+            'MyClassData' =>   MyClass::whereIn('id',$this->DataArray)->orderBy('id', 'desc')->get()
         ])->with('getSemester');
     }
 
@@ -29,6 +29,7 @@ class StudentDashboard extends Component
     {
         $this->dispatch('OpenJoinClassCodeModal');
     }
+    
 
     public function ViewGrades($GradeID)
     {

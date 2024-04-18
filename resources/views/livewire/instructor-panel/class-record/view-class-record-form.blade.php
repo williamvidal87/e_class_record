@@ -470,7 +470,7 @@
         </div>
         <div class="modal-footer justify-content-between">
             <button wire:click="CloseViewClassRecordForm" type="button" class="btn grey btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-bg-gradient-x-orange-yellow"><i class="ft-printer"></i> Export</button>
+            <button wire:click="ExportGrade" type="button" class="btn btn-bg-gradient-x-orange-yellow"><i class="ft-printer"></i> Export</button>
         </div>
     </div>
 </div>

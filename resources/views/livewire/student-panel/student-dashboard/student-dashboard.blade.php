@@ -10,6 +10,7 @@
                 </div>
             </div>
             <div class="content-body"><!-- Revenue, Hit Rate & Deals -->
+
                 <div class="row">
                         @foreach ($MyClassData as $data)
                             <div class="col-lg-6 col-md-12">
@@ -26,7 +27,7 @@
                                                     <div class="heading-elements">
                                                         <ul class="list-inline mb-0">
                                                             <li>
-                                                                <button wire:click="ViewGrades({{$data->id}})" disabled type="button" class="btn btn-sm btn-white {{$CardColor[$random_keys[0]]}} box-shadow-1 round btn-min-width pull-right">View Grades<i class="ft-eye pl-1"></i></button>
+                                                                <button wire:click="ViewGrades({{$data->id}})" type="button" class="btn btn-sm btn-white {{$CardColor[$random_keys[0]]}} box-shadow-1 round btn-min-width pull-right">View Grades<i class="ft-eye pl-1"></i></button>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -54,6 +55,7 @@
                             </div>
                         @endforeach
                 </div>
+                
                 <!--/ Revenue, Hit Rate & Deals -->
             </div>
         </div>
@@ -68,7 +70,7 @@
 
     <!-- ViewGrade Modal -->
     <div class="modal fade text-left" id="ViewGradeModal" tabindex="-1" role="dialog" aria-labelledby="ViewGradeModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <livewire:student-panel.student-dashboard.view-grade-form />
         </div>
     </div>

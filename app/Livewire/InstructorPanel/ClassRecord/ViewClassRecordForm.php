@@ -11,6 +11,8 @@ use App\Models\MyClass;
 use App\Models\StudentFinalTermActivityRecord;
 use App\Models\StudentMidTermActivityRecord;
 use Livewire\Component;
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
+
 
 class ViewClassRecordForm extends Component
 {
@@ -49,6 +51,14 @@ class ViewClassRecordForm extends Component
             'FinalTermActivityData' =>   FinalTermActivity::all(),
             'StudentFinalTermActivityRecordData' =>   StudentFinalTermActivityRecord::all(),
             ])->with('getStudent');
+    }
+
+    public function ExportGrade()
+    {
+        
+        $pdfContent = PDF::loadView('livewire.instructor-panel.class-record.export-class-record',[
+            ])->setPaper('Legal', 'Portrait')->output();
+        return response()->streamDownload(fn () => print($pdfContent),"sample.pdf");
     }
 
     public function CloseViewClassRecordForm()
