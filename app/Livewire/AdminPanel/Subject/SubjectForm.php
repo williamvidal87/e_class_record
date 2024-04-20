@@ -8,7 +8,8 @@ use Livewire\Component;
 class SubjectForm extends Component
 {
     public  $subject,
-            $description;
+            $description,
+            $unit;
     public  $SubjectID;
     
     protected $listeners = [
@@ -21,6 +22,7 @@ class SubjectForm extends Component
         $data=Subject::find($SubjectID);
         $this->subject = $data['subject'];
         $this->description = $data['description'];
+        $this->unit = $data['unit'];
     }
     
     public function render()
@@ -33,13 +35,15 @@ class SubjectForm extends Component
         $this->validate([
             'subject'               => 'required',
             'description'           => 'required',
+            'unit'                  => 'required',
         ]);
         
         $this->dispatch('CloseSubjectModal');
         
         $data = ([
             'subject'               => $this->subject,
-            'description'           => $this->description
+            'description'           => $this->description,
+            'unit'                  => $this->unit
         ]);
         try {
             if($this->SubjectID){

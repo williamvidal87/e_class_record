@@ -17,10 +17,12 @@ class SubjectSeeder extends Seeder
             [
             'subject' => 'COMP 100',
             'description' => 'Computer Fundamentals',
+            'unit' => '3',
             ],
             [
             'subject' => 'COMP 301',
             'description' => 'Computer Programming for Mobile Applications',
+            'unit' => '3',
             ],
         ];
 

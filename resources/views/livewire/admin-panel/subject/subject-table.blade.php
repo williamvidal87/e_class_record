@@ -27,6 +27,7 @@
                                                         <th>Subject No</th>
                                                         <th>Subject</th>
                                                         <th>Description</th>
+                                                        <th>Units</th>
                                                         <th>Action</th>
                                                 </thead>
                                                 <tbody>
@@ -35,6 +36,7 @@
                                                             <td>SBJ{{ 220232+$data->id }}</td>
                                                             <td>{{ $data->subject }}</td>
                                                             <td  style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:200px;">{{ $data->description }}</td>
+                                                            <td>{{ $data->unit }}</td>
                                                             <td style="min-width:165px;">
                                                                 <button wire:click="EditSubject({{$data->id}})" type="button" class="btn btn-glow btn-bg-gradient-x-purple-blue btn-sm"><i class="ft-edit"></i> Edit</button>
                                                                 <button wire:click="DeleteSubject({{$data->id}})" type="button" class="btn btn-glow btn-bg-gradient-x-red-pink btn-sm"><i class="ft-trash-2"></i> Delete</button>

@@ -13,7 +13,7 @@ class MyClass extends Model
 
     
     protected $fillable = [
-        'semester_id','school_year','subject_id','section','schedule','instructor_id'
+        'semester_id','school_year','subject_id','section','schedule','time','instructor_id'
     ];
     
     public function getSemester()

@@ -21,7 +21,13 @@ class ViewClassRecordForm extends Component
             $subject_id,
             $section,
             $schedule,
-            $SubjectTitle;
+            $time,
+            $SubjectTitle,
+            $SemesterDescription,
+            $InstructorName,
+            $Units,
+            $Subject_Code,
+            $Subject_Description;
     public  $MyClassID;
     protected $listeners = [
         'ViewClassRecordID',
@@ -36,7 +42,13 @@ class ViewClassRecordForm extends Component
         $this->subject_id = $data->subject_id;
         $this->section = $data->section;
         $this->schedule = $data->schedule;
-        $this->SubjectTitle=$data->getSubject->subject." ".$data->getSubject->description." - ".$this->section." (".$this->schedule.")";
+        $this->time = $data->time;
+        $this->SemesterDescription=$data->getSemester->description;
+        $this->InstructorName=$data->getUser->name;
+        $this->Units=$data->getSubject->unit;
+        $this->Subject_Code=$data->getSubject->subject;
+        $this->Subject_Description=$data->getSubject->description;
+        $this->SubjectTitle=$data->getSubject->subject." ".$data->getSubject->description." - ".$this->section." (".$this->schedule." ".$this->time.")";
     }
 
     public function render()
@@ -49,7 +61,7 @@ class ViewClassRecordForm extends Component
 
             'FinalActivityCategoryData' =>   FinalActivityCategory::where('my_class_id',$this->MyClassID)->get(),
             'FinalTermActivityData' =>   FinalTermActivity::all(),
-            'StudentFinalTermActivityRecordData' =>   StudentFinalTermActivityRecord::all(),
+            'StudentFinalTermActivityRecordData' =>   StudentFinalTermActivityRecord::all()
             ])->with('getStudent');
     }
 
@@ -57,6 +69,23 @@ class ViewClassRecordForm extends Component
     {
         
         $pdfContent = PDF::loadView('livewire.instructor-panel.class-record.export-class-record',[
+            'ClassStudentData' =>   ClassStudent::join('users', 'class_students.student_id', '=', 'users.id')->where('my_class_id',$this->MyClassID)->orderBy('users.name', 'asc')->get(),
+            'ActivityCategoryData' =>   ActivityCategory::where('my_class_id',$this->MyClassID)->get(),
+            'MidTermActivityData' =>   MidTermActivity::all(),
+            'StudentMidTermActivityRecordData' =>   StudentMidTermActivityRecord::all(),
+
+            'FinalActivityCategoryData' =>   FinalActivityCategory::where('my_class_id',$this->MyClassID)->get(),
+            'FinalTermActivityData' =>   FinalTermActivity::all(),
+            'StudentFinalTermActivityRecordData' =>   StudentFinalTermActivityRecord::all(),
+            'SemesterDescription'  => $this->SemesterDescription,
+            'school_year'   =>  $this->school_year,
+            'InstructorName'    =>  $this->InstructorName,
+            'Units' =>  $this->Units,
+            'schedule'  =>  $this->schedule,
+            'time'  =>  $this->time,
+            'Subject_Code'  =>  $this->Subject_Code,
+            'Subject_Description'   =>  $this->Subject_Description,
+            'section'   =>  $this->section
             ])->setPaper('Legal', 'Portrait')->output();
         return response()->streamDownload(fn () => print($pdfContent),"sample.pdf");
     }

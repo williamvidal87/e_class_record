@@ -249,9 +249,9 @@
                                                                 <td>
                                                                     <span class="media-heading text-bold-700">Your Grade:</span>
                                                                 </td>
-                                                                <td><?php echo $midterm_grade; ?></td>
-                                                                <td><?php echo $finalterm_grade; ?></td>
-                                                                <th><?php echo ($midterm_grade+$finalterm_grade)/2; ?></th>
+                                                                <td><?php echo number_format($midterm_grade, 2, '.', ''); ?></td>
+                                                                <td><?php echo number_format($finalterm_grade, 2, '.', ''); ?></td>
+                                                                <th><?php echo number_format(($midterm_grade+$finalterm_grade)/2, 2, '.', ''); ?></th>
                                                                 @if ($not_coplied_midterm==true || $not_coplied_finalterm==true)
                                                                         <td style="color:red">INC</td>
                                                                 @else

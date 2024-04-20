@@ -17,6 +17,7 @@ class ViewMyClassForm extends Component
             $subject_id,
             $section,
             $schedule,
+            $time,
             $shortenedcode;
     public  $MyClassID;
     public  $ClassStudentID;
@@ -39,7 +40,8 @@ class ViewMyClassForm extends Component
         $this->subject_id = $data->subject_id;
         $this->section = $data->section;
         $this->schedule = $data->schedule;
-        $this->SubjectTitle=$data->getSubject->subject." ".$data->getSubject->description." - ".$this->section." (".$this->schedule.")";
+        $this->time = $data->time;
+        $this->SubjectTitle=$data->getSubject->subject." ".$data->getSubject->description." - ".$this->section." (".$this->schedule." ".$this->time.")";
         $this->shortenedcode=Crypt::encryptString($this->MyClassID);
     }
     

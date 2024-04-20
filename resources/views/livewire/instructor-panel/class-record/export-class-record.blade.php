@@ -1,11 +1,11 @@
 <div>
     <style>
         *{
-            font-family: serif;
-            font-size: 9pt;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10pt;
         }
         table, th, td {
-            border: 1px solid black;
+            border: 1.5px solid black;
             border-collapse: collapse;
         }
         @page { 
@@ -13,7 +13,7 @@
             margin-left: 0.25in;
             margin-right: 0.25in;
             margin-bottom: 0.25in;
-            size: 8.5in 14in;
+            size: 8.5in 13in;
         }
     
     </style>
@@ -21,161 +21,233 @@
     
     <div>
         <div style="text-align: center;">
-            <img src="image/logo/headerlogo.jpg" style="width:5in;">
+            <img src="image/header_logo.png" style="width:8in;">
         </div>
         <br>
         <div style="text-align: center;">
-            <strong><span style="font-size: 14pt;">PURHASE REQUEST</span></strong>
+            <strong><u><span>COLLEGE OF COMPUTER TECHNOLOGY</span></u></strong>
+        </div>
+        <div style="text-align: center;margin-top:0.05in">
+            <strong><span>GRADE SHEET</span></strong>
         </div>
         <div style="text-align: center;">
             <table style="width: 8in">
                     <tr>
-                        <td rowspan="2" colspan="2" style="text-align: center;">Department</td>
-                        <td rowspan="2" style="text-align: center"></td>
-                        <td width="7%" rowspan="2"style="vertical-align:top;">Section:</td>
-                        <td rowspan="2"></td>
-                        <td>PR No.:</td>
-                        <td colspan="2" style="text-align: center"></td>
+                        <th rowspan="2" style="text-align: center;">No.</th>
+                        <th rowspan="2" style="text-align: center">NAMES OF STUDENTS</th>
+                        <th style="text-align: center;">MIDTERM</th>
+                        <th style="text-align: center;">FINAL</th>
+                        <th colspan="2" style="text-align: center;">SEMESTRAL GRADE</th>
+                        <th rowspan="2" style="text-align: center">REMARKS</th>
                     </tr>
                     <tr>
                         
-                        
-                        
-                        
-                        <td>PR Date.:</td>
-                        <td  colspan="2" style="text-align: center"></td>
-                    </tr>
-                    <tr>
-                        <th width="6.5%" style="text-align: center">App Line Item No.</th>
-                        <th width="6.5%"  style="text-align: center">Unit of Measure</th>
-                        <th width="56%" colspan="3" style="text-align: center">Item Description</th>
-                        <th width="7%" style="text-align: center">Qty</th>
-                        <th width="12%" style="text-align: center">Estimated Unit Cost</th>
-                        <th width="12%" style="text-align: center">Estimated Total Cost</th>
-                    </tr>
-                    <tr>
-                        <td colspan="5">
-                            Please provide correct and accurate information required in this form. Accomplish this form in (4) copies.
-                        </td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    
-                    <tr>
-                        <th colspan="8" style="text-align: left;padding-left:.65in;height: 20px;"><span><i>  </i></span></th>
-                    </tr>
-                    <tr>
-                        <th colspan="8" style="text-align: left;padding-left:1.10in;height: 20px;">
-                            <span>
-                                <i>
-                                    {{--  --}}
-                                </i>
-                            </span>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th colspan="8" style="text-align: left;padding-left:1.10in;height: 20px;">
-                            <span>
-                                <i>
-                                    {{--  --}}
-                                </i>
-                            </span>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th colspan="7" style="text-align: right;padding-right:0.30in;height: 35px;">
-                            Total
-                        </th>
-                        <th style="text-align: center;">
-                        </th>
-                    </tr>
-                    <tr>
-                        <td colspan="8" style="text-align: left;height: 35px;">
-                            <div style="width: 1.1in;float:left">
-                                <strong>Purpose:</strong>
-                            </div>
-                            <div style="width: 6.90in;float:right">
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="8" style="text-align: left;height: 110px;vertical-align:top;">
-                            <div style="line-height: 10%;">
-                                <p>Name of Property (in case of repair) :__________________________________________________________</p>
-                                <p>Name of Procurement per APP :______________________________________________________________</p>
-                            </div>
-                            <br>
-                            <div style="width: 3in;float:left;padding-left:0.55in;line-height: 150%;">
-                                    <div>
-                                        The aforementioned is/are:
-                                    </div>
-                                    <div style="padding-left:0.15in;">
-                                        <img src="image/logo/circle.jpg" style="width:0.10in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lot purchase
-                                        <br>
-                                        <img src="image/logo/circle.jpg" style="width:0.10in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;per item purchase
-                                    </div>
-                            </div>
-                            <div style="width: 3in;float:right">
-                                APP Reference No(s).:_____________________________
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="8" style="text-align: left;height: 110px;vertical-align:top;">
-                            <div style="line-height: 30%;">
-                                <p><strong>CERTIFICATION OF REQUESTING PARTY:</strong></p>
-                                <p style="font-size: 8pt;">
-                                    1. The foregoing requisition has been reviewed for its technical sufficiency and price validity and has been found to be accurate and suitable for the procurement thereof.
-                                </p>
-                                <p style="font-size: 8pt;">
-                                    2. I hereby certify under the penalty of law that the items requested above are covered by any PR to the SPMO. Should the undersigned eventually learn of the existence of such
-                                </p> 
-                                <p style="font-size: 8pt;">
-                                    other request form requisitioned, the undersigned shall immediately advise the SPMO thereof. In case the above goods are already covered by the previous PR submitted to the
-                                </p>
-                                <p style="font-size: 8pt;">
-                                    SPMO and these goods are nevertheless purchased through this PR, I shall be responsible for paying the same to supplier. I shall reimburse the bid bonds and performance bonds
-                                </p>
-                                <p style="font-size: 8pt;">
-                                    of winning suppliers in case these goods are already subjected to the public bidding.
-                                </p>
-                                <p style="font-size: 8pt;">
-                                    3. Supplies requisitioned are necessary and will be used solely for purposes stated.
-                                </p>
 
-                            </div>
-                        </td>
+                        <th style="text-align: center;">GRADE</th>
+                        <th style="text-align: center;">GRADE</th>
+                        <th style="text-align: center;">Grade</th>
+                        <th style="text-align: center">Equiv</th>
                     </tr>
-                    
+                    @foreach($ClassStudentData as $index => $Data)
+                        <tr>
+                            <td> {{$index+1}} </td>
+                            <td> {{$Data->getStudent->name}} </td>
+                                <?php
+                                    $semesteralGrade=0;
+                                ?>
+                                {{-- Start Mid Term Computation --}}
+                                <?php
+                                    $totalGrade=0;
+                                    $not_coplied_midterm=0;
+                                    foreach ($ActivityCategoryData as $data){
+                                        $totalActivity=0;
+                                        $totalMaximum=0;
+                                        foreach ($MidTermActivityData as $data2){
+                                            if ($data->id==$data2->activity_category_id){
+                                                foreach($StudentMidTermActivityRecordData as $data3){
+                                                    if($data2->id==$data3->mid_term_activity_id && $Data->student_id == $data3->student_id){
+                                                        $totalActivity+=$data3->score;
+                                                        if($data3->score==""){
+                                                            if($data2->maximum_score==1){
+                                                                //
+                                                            } else {
+                                                            $not_coplied_midterm=1;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                $totalMaximum+=$data2->maximum_score;
+                                            }
+                                        }
+                                            if($totalMaximum==0){
+                                                $totalMaximum=1;
+                                            }
+                                            $totalGrade+=((($totalActivity/$totalMaximum)*$data->multiply)+$data->addition)*($data->percentage/100);
+
+                                        $count2=0;
+                                        foreach ($MidTermActivityData as $data2){
+                                            if ($data->id==$data2->activity_category_id){
+                                                $count2++;
+                                            }
+                                        }
+                                        if($count2==0){
+                                            //echo "<th></th>";
+                                        }
+                                    }
+                                    echo "<td style='text-align: center'>".number_format($totalGrade, 2, '.', '')."</td>";
+                                    $semesteralGrade+=$totalGrade;
+                                ?>
+                                {{-- End Mid Term Computation --}}
+
+                                {{-- Start Final Term Computation --}}
+                                <?php
+                                    $totalGrade=0;
+                                    $not_coplied_finalterm=0;
+                                    foreach ($FinalActivityCategoryData as $data){
+                                        $totalActivity=0;
+                                        $totalMaximum=0;
+                                        foreach ($FinalTermActivityData as $data2){
+                                            if ($data->id==$data2->activity_category_id){
+                                                foreach($StudentFinalTermActivityRecordData as $data3){
+                                                    if($data2->id==$data3->final_activity_id && $Data->student_id == $data3->student_id){
+                                                        $totalActivity+=$data3->score;
+                                                        if($data3->score==""){
+                                                            if($data2->maximum_score==1){
+                                                                //
+                                                            } else {
+                                                            $not_coplied_finalterm=1;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                $totalMaximum+=$data2->maximum_score;
+                                            }
+                                        }
+                                            if($totalMaximum==0){
+                                                $totalMaximum=1;
+                                            }
+                                            $totalGrade+=((($totalActivity/$totalMaximum)*$data->multiply)+$data->addition)*($data->percentage/100);
+                                        
+
+                                        $count2=0;
+                                        foreach ($FinalTermActivityData as $data2){
+                                            if ($data->id==$data2->activity_category_id){
+                                                $count2++;
+                                            }
+                                        }
+                                        if($count2==0){
+                                            //echo "<th></th>";
+                                        }
+                                    }
+                                    echo "<td style='text-align: center'>".number_format($totalGrade, 2, '.', '')."</td>";
+                                    $semesteralGrade+=$totalGrade;
+                                ?>
+                                {{-- End Final Term Computation --}}
+                                <?php
+                                    $SumGrade=$semesteralGrade/2;
+                                    echo "<td style='text-align: center;background-color:#c6efcd;color:#026105'>".number_format($SumGrade, 2, '.', '')."</td>";
+                                ?>
+                                <td></td>
+                                @if ($not_coplied_midterm==1 || $not_coplied_finalterm==1)
+                                        <td style="color:red;text-align: center">INC</td>
+                                @else
+                                    @if ($SumGrade>=75)
+                                        <td style="color:green;text-align: center">Passed</td>
+                                    @else
+                                        <td style="color:red;text-align: center">Failed</td>
+                                    @endif
+                                @endif
+                        </tr>
+                    @endforeach
                     <tr>
-                        <td colspan="2" style="text-align: left;">
-                            <br><br><br>
-                            Signature:
-                            <br>
-                            Printed Name:
-                            <br>
-                            Designation: 
-                        </td>
-                        <td colspan="6">
-                            <div style="width: 3in;float:left">
-                                Requested by: 
-                                    <br><br><br><br>
-                                    <div style="text-align: center;">
-                                        <strong></strong>
-                                        <br>
-                                    </div>
-                            </div>
-                            <div style="width: 2.50in;float:right"> 
-                                Approved by:
-                                <br><br><br><br>
-                                <div style="text-align: center;">
-                                    <strong>JOEL P. LIMSON, Ph.D.</strong>
-                                    <br>
-                                    University President
-                                </div>
+                        <td style="background-color:#bfbfbf;border: 2.5px solid black;color:#bfbfbf;" colspan="7">none</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" rowspan="12" style="vertical-align:top;height:180px;">
+                            <div style="vertical-align:top;height:180px;text-align: center;">
+                                <div style="font-size: 9pt;text-align: center;">{{$SemesterDescription}} of School Year {{$school_year}}</d>
+                                <div style="font-size: 9pt;text-align: left;padding-top:5px">Instructor: <span style="font-weight: 200;">{{$InstructorName}}</span></div>
+                                <div style="font-size: 9pt;text-align: left;padding-top:5px">Units: <span style="font-weight: 200;">{{$Units}}</span> Day: <span style="font-weight: 200;">{{$schedule}}</span> Time: <span style="font-weight: 200;">{{$time}}</span></div>
+                                <div style="font-size: 9pt;text-align: left;padding-top:5px">Subject: <span style="font-weight: 200;">{{$Subject_Code}} - {{$section}}</span></div>
+                                <div style="font-size: 9pt;text-align: left;padding-top:5px">Descriptive Title: <span style="font-weight: 200;">{{$Subject_Description}}</span></div>
+                                <div style="font-size: 9pt;text-align: center;padding-top:20px"><span style="font-weight: 200;">DR. MICHAEL P. BALDADO</span></div>
+                                <div style="font-size: 9pt;text-align: center;padding-top:5px">Dean of the College</div>
+                                <div style="font-size: 9pt;text-align: left;padding-top:5px">Received by:</div>
+                                <div style="font-size: 9pt;text-align: center;padding-top:5px"><span style="font-weight: 200;">REYMIL CADAPAN, MBA</span></div>
+                                <div style="font-size: 9pt;text-align: center;padding-top:5px">University Registrar</div>
+                                <div style="font-size: 9pt;text-align: left;margin-top:5px">Date Received:________________________________________</div>
                             </div>
                         </td>
+                        <th style="text-align: center;color:#03ae55">Grade</th>
+                        <th style="text-align: center;color:#03ae55">Equiv</th>
+                        <th style="text-align: center;color:#03ae55">Grade</th>
+                        <th style="text-align: center;color:#03ae55">Equiv</th>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;color:#0071c0">1.00</td>
+                        <td style="text-align: center;color:#0071c0">95 <i>above</i></td>
+                        <td style="text-align: center;color:#0071c0">2.10</td>
+                        <td style="text-align: center;color:#0071c0">84</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;color:#0071c0">1.10</td>
+                        <td style="text-align: center;color:#0071c0">94</td>
+                        <td style="text-align: center;color:#0071c0">2.20</td>
+                        <td style="text-align: center;color:#0071c0">83</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;color:#0071c0">1.20</td>
+                        <td style="text-align: center;color:#0071c0">93</td>
+                        <td style="text-align: center;color:#0071c0">2.30</td>
+                        <td style="text-align: center;color:#0071c0">82</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;color:#0071c0">1.30</td>
+                        <td style="text-align: center;color:#0071c0">92</td>
+                        <td style="text-align: center;color:#0071c0">2.40</td>
+                        <td style="text-align: center;color:#0071c0">81</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;color:#0071c0">1.40</td>
+                        <td style="text-align: center;color:#0071c0">91</td>
+                        <td style="text-align: center;color:#0071c0">2.50</td>
+                        <td style="text-align: center;color:#0071c0">80</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;color:#0071c0">1.50</td>
+                        <td style="text-align: center;color:#0071c0">90</td>
+                        <td style="text-align: center;color:#0071c0">2.60</td>
+                        <td style="text-align: center;color:#0071c0">79</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;color:#0071c0">1.60</td>
+                        <td style="text-align: center;color:#0071c0">89</td>
+                        <td style="text-align: center;color:#0071c0">2.70</td>
+                        <td style="text-align: center;color:#0071c0">78</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;color:#0071c0">1.70</td>
+                        <td style="text-align: center;color:#0071c0">88</td>
+                        <td style="text-align: center;color:#0071c0">2.80</td>
+                        <td style="text-align: center;color:#0071c0">77</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;color:#0071c0">1.80</td>
+                        <td style="text-align: center;color:#0071c0">87</td>
+                        <td style="text-align: center;color:#0071c0">2.90</td>
+                        <td style="text-align: center;color:#0071c0">76</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;color:#0071c0">1.90</td>
+                        <td style="text-align: center;color:#0071c0">86</td>
+                        <td style="text-align: center;color:#0071c0">3.00</td>
+                        <td style="text-align: center;color:#0071c0">75</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;color:#0071c0">2.00</td>
+                        <td style="text-align: center;color:#0071c0">85</td>
+                        <td style="text-align: center;color:#0071c0">5.00 </td>
+                        <td style="text-align: center;color:#0071c0"><i>below</i> 75</td>
                     </tr>
                     
             </table>

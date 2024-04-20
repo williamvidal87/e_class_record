@@ -121,7 +121,9 @@
                                                                         <tfoot>
                                                                             <tr>
                                                                                 <th class="d-flex justify-content-end"><span>TOTAL:</span></th>
-                                                                                <th colspan="3">{{ $Percentage }}%</th>
+                                                                                <th colspan="3">{{ $Percentage }}% 
+                                                                                    <span style="padding-left:10rem;color:red">Note: <i>Please remember that the total percentage grade criteria should sum up to <bold style="font-size: 9pt">100%</bold> from all category activity.<i></span>
+                                                                                </th>
                                                                         </tfoot>
                                                                     </table>
                                                                 </div>
@@ -172,7 +174,9 @@
                                                                         <tfoot>
                                                                             <tr>
                                                                                 <th class="d-flex justify-content-end"><span>TOTAL:</span></th>
-                                                                                <th colspan="3">{{ $FinalPercentage }}%</th>
+                                                                                <th colspan="3">{{ $FinalPercentage }}%
+                                                                                    <span style="padding-left:10rem;color:red">Note: <i>Please remember that the total percentage grade criteria should sum up to <bold style="font-size: 9pt">100%</bold> from all category activity.<i></span>
+                                                                                </th>
                                                                         </tfoot>
                                                                     </table>
                                                                 </div>

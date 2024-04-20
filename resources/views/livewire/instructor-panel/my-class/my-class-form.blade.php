@@ -45,9 +45,14 @@
                             <div class=" font-small-2 danger">@error('section') {{ $message }} @enderror</div>
                         </div>
                         <div class="form-group">
-                            <label for="schedule">Schedule</label>
-                            <input type="text" wire:model="schedule" id="schedule" class="form-control" placeholder="M-W-F 1:00-2:00 PM">
+                            <label for="schedule">Day</label>
+                            <input type="text" wire:model="schedule" id="schedule" class="form-control" placeholder="M-W-F">
                             <div class=" font-small-2 danger">@error('schedule') {{ $message }} @enderror</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Time</label>
+                            <input type="text" wire:model="time" id="time" class="form-control" placeholder="1:00-2:00 PM">
+                            <div class=" font-small-2 danger">@error('time') {{ $message }} @enderror</div>
                         </div>
                     </div>
                 </form>
