@@ -396,7 +396,7 @@
                                                         //echo "<th></th>";
                                                     }
                                                 }
-                                                echo "<td>".$totalGrade."</td>";
+                                                echo "<td>".number_format($totalGrade, 2, '.', '')."</td>";
                                                 $semesteralGrade+=$totalGrade;
                                             ?>
                                             {{-- End Mid Term Computation --}}
@@ -441,13 +441,13 @@
                                                         //echo "<th></th>";
                                                     }
                                                 }
-                                                echo "<td>".$totalGrade."</td>";
+                                                echo "<td>".number_format($totalGrade, 2, '.', '')."</td>";
                                                 $semesteralGrade+=$totalGrade;
                                             ?>
                                             {{-- End Final Term Computation --}}
                                             <?php
                                                 $SumGrade=$semesteralGrade/2;
-                                                echo "<th>".$SumGrade."</th>";
+                                                echo "<th>".number_format($SumGrade, 2, '.', '')."</th>";
                                             ?>
                                             @if ($not_coplied_midterm==1 || $not_coplied_finalterm==1)
                                                     <th style="color:red">INC</th>

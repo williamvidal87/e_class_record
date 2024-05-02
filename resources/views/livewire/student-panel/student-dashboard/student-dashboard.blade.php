@@ -43,7 +43,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="media-body text-center mt-1">
-                                                                <h4 class="white" style="font-size:16px">{{$data->getSubject->subject}} {{$data->getSubject->description}} - {{$data->section}} ({{$data->schedule}})</h4>
+                                                                <h4 class="white" style="font-size:16px">{{$data->getSubject->subject}} {{$data->getSubject->description}} - {{$data->section}} ({{$data->schedule}} {{$data->time}})</h4>
                                                                 <h6 class="mt-1"><span class="text-muted white">{{$data->getUser->name}}</span></h6>
                                                             </div>
                                                         </div>
@@ -70,7 +70,7 @@
 
     <!-- ViewGrade Modal -->
     <div class="modal fade text-left" id="ViewGradeModal" tabindex="-1" role="dialog" aria-labelledby="ViewGradeModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-dialog modal-xl" role="document">
             <livewire:student-panel.student-dashboard.view-grade-form />
         </div>
     </div>

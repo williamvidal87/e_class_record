@@ -14,7 +14,8 @@ class MyClassForm extends Component
             $school_year,
             $subject_id,
             $section,
-            $schedule;
+            $schedule,
+            $time;
     public  $MyClassID;
     
     protected $listeners = [
@@ -32,6 +33,7 @@ class MyClassForm extends Component
         $this->subject_id = $data['subject_id'];
         $this->section = $data['section'];
         $this->schedule = $data['schedule'];
+        $this->time = $data['time'];
         $this->dispatch('Refresh_semester_id',$this->semester_id);
         $this->dispatch('Refresh_subject_id',$this->subject_id);
     }
@@ -68,6 +70,7 @@ class MyClassForm extends Component
             'subject_id'        => 'required',
             'section'           => 'required',
             'schedule'          => 'required',
+            'time'              => 'required',
         ]);
         
         $this->dispatch('CloseMyClassModal');
@@ -78,6 +81,7 @@ class MyClassForm extends Component
             'subject_id'        => $this->subject_id,
             'section'           => $this->section,
             'schedule'          => $this->schedule,
+            'time'              => $this->time,
             'instructor_id'     => Auth::user()->id,
         ]);
         try {

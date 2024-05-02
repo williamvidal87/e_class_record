@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('subject_id');
             $table->string('section');
             $table->string('schedule');
+            $table->string('time');
             $table->unsignedBigInteger('instructor_id');
             
             $table->foreign('subject_id')->references('id')->on('subjects');

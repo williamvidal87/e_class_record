@@ -15,10 +15,10 @@ class SemesterSeeder extends Seeder
     {
         $semester = [
             [
-            'description' => 'FIRST SEMESTER',
+            'description' => 'First Semester',
             ],
             [
-            'description' => 'SECOND SEMESTER'
+            'description' => 'Second Semester'
             ],
         ];
 

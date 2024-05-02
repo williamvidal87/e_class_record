@@ -26,7 +26,7 @@ class ViewGradeForm extends Component
     {
         $this->MyClassID=$MyClassID;
         $MyClassData = MyClass::where('id',$this->MyClassID)->first();
-        $this->ClassDescription = $MyClassData->getSubject->subject." ".$MyClassData->getSubject->description." - ".$MyClassData->section." (".$MyClassData->schedule.")";
+        $this->ClassDescription = $MyClassData->getSubject->subject." ".$MyClassData->getSubject->description." - ".$MyClassData->section." (".$MyClassData->schedule." ".$MyClassData->time.")";
     }
 
     public function render()

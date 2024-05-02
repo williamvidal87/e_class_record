@@ -26,7 +26,8 @@
                                                         <th>School Year</th>
                                                         <th>Subject</th>
                                                         <th>Section</th>
-                                                        <th>Schedule</th>
+                                                        <th>Day</th>
+                                                        <th>Time</th>
                                                         <th>Action</th>
                                                 </thead>
                                                 <tbody>
@@ -37,7 +38,8 @@
                                                             <td>{{ $data->school_year }}</td>
                                                             <td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:55px;">{{ $data->getSubject->subject }} - {{ $data->getSubject->description }}</td>
                                                             <td>{{ $data->section }}</td>
-                                                            <td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:110px;">{{ $data->schedule }}</td>
+                                                            <td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:55px;">{{ $data->schedule }}</td>
+                                                            <td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:55px;">{{ $data->time }}</td>
                                                             <td style="min-width:342px;">
                                                                 <button wire:click="ViewClassRecord({{$data->id}})" type="button" class="btn btn-glow btn-secondary btn-sm"><i class="ft-eye"></i> View</button>
                                                                 <button wire:click="ViewMyClass({{$data->id}})" type="button" class="btn btn-glow btn-bg-gradient-x-blue-green btn-sm"><i class="ft-sliders"></i> Manage</button>

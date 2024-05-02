@@ -20,6 +20,11 @@
                             <input type="text" wire:model="description" id="description" class="form-control" placeholder="Description">
                             <div class=" font-small-2 danger">@error('description') {{ $message }} @enderror</div>
                         </div>
+                        <div class="form-group">
+                            <label for="unit">Units</label>
+                            <input type="text" wire:model="unit" id="unit" class="form-control" placeholder="Units">
+                            <div class=" font-small-2 danger">@error('unit') {{ $message }} @enderror</div>
+                        </div>
                     </div>
                 </form>
             </div>
