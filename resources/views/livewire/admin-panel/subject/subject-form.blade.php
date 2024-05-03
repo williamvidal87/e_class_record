@@ -11,7 +11,7 @@
                 <form class="form">
                     <div class="form-body">
                         <div class="form-group">
-                            <label for="subject">Abbreviation</label>
+                            <label for="subject">Subject Code</label>
                             <input type="text" wire:model="subject" id="subject" class="form-control" placeholder="Abbreviation">
                             <div class="font-small-2 danger">@error('subject') {{ $message }} @enderror</div>
                         </div>
