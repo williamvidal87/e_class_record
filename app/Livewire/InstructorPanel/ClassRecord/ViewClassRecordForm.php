@@ -68,6 +68,11 @@ class ViewClassRecordForm extends Component
             ])->with('getStudent');
     }
 
+    public function SendNotification()
+    {
+
+    }
+
     public function ExportGrade()
     {
         $pdfContent = PDF::loadView('livewire.instructor-panel.class-record.export-class-record',[

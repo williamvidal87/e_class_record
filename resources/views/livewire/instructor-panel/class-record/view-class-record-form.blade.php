@@ -7,7 +7,7 @@
             </button>
         </div>
         <div class="modal-body">
-            <ul class="nav nav-tabs">
+            <ul wire:ignore class="nav nav-tabs">
                 <li class="nav-item">
                     <a class="nav-link active" id="base-tab1" data-toggle="tab" aria-controls="tab1" href="#tab1" aria-expanded="true">Mid Term</a>
                 </li>
@@ -20,7 +20,7 @@
             </ul>
 
             <div class="tab-content px-1 pt-1">
-                <div role="tabpanel" class="tab-pane active" id="tab1" aria-expanded="true" aria-labelledby="base-tab1">
+                <div wire:ignore.self role="tabpanel" class="tab-pane active" id="tab1" aria-expanded="true" aria-labelledby="base-tab1">
                     
                     <div class="table-responsive">
                         <table style="font-size: 8pt" class="table table-bordered table-striped">
@@ -171,7 +171,7 @@
                     </div>
 
                 </div>
-                <div class="tab-pane" id="tab2" aria-labelledby="base-tab2">
+                <div wire:ignore.self class="tab-pane" id="tab2" aria-labelledby="base-tab2">
                     
                     <div class="table-responsive">
                         <table style="font-size: 8pt" class="table table-bordered table-striped">
@@ -321,7 +321,7 @@
                     </div>
 
                 </div>
-                <div class="tab-pane" id="tab3" aria-labelledby="base-tab3">
+                <div wire:ignore.self class="tab-pane" id="tab3" aria-labelledby="base-tab3">
                     
                     <div class="table-responsive">
                         <table style="font-size: 8pt" class="table table-bordered table-striped">
@@ -329,10 +329,24 @@
                                 <tr>
                                     @if (Auth::user()->rule_id==2)
                                         <th style="text-align: center;" rowspan="3">
-                                            <button type="button" class="btn btn-success btn-min-width mr-1 mb-1 btn-sm"><i class="ft-navigation"></i> Notify</button>
+                                            <button wire:click="SendNotification" type="button" class="btn btn-success btn-min-width mr-1 mb-1 btn-sm"><i class="ft-navigation"></i> Notify</button>
                                             <div style="text-align: center;" class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="checkall" wire:model="checkall">
+                                                <input type="checkbox" class="custom-control-input" id="checkall" wire:model.live="checkall">
                                                 <label class="custom-control-label" for="checkall"></label>
+                                                
+                                                <?php
+                                                    if ($this->checkall==true) {
+                                                        foreach ($ClassStudentData as $index =>$Data) {
+                                                            $this->Notify[$index]["checkbox"]=true;
+                                                            // $this->Notify[$index][$this->checkbox]=true;
+                                                        }
+                                                    } else {
+                                                        foreach ($ClassStudentData as $index =>$Data) {
+                                                            $this->Notify[$index]["checkbox"]=false;
+                                                            // $this->Notify[$index][$this->checkbox]=true;
+                                                        }
+                                                    }
+                                                ?>
                                             </div>
                                         </th>
                                     @endif
