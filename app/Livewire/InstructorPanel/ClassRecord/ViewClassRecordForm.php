@@ -89,7 +89,7 @@ class ViewClassRecordForm extends Component
             'Subject_Description'   =>  $this->Subject_Description,
             'section'   =>  $this->section
             ])->setPaper('Legal', 'Portrait')->output();
-        return response()->streamDownload(fn () => print($pdfContent),"sample.pdf");
+        return response()->streamDownload(fn () => print($pdfContent),$this->Subject_Code." ".$this->section.".pdf");
     }
 
     public function CloseViewClassRecordForm()

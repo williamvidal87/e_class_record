@@ -26,7 +26,7 @@
         </ul>
     </li>
     <li class=" nav-item">
-        <a href="course-table">
+        <a href="instructor-classes-table">
             <i class="icon-notebook">
             </i>
             <span class="menu-title" data-i18n="">Instructor Classes</span>

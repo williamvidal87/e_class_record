@@ -170,7 +170,9 @@
                                 <div style="font-size: 9pt;text-align: left;padding-top:5px">Units: <span style="font-weight: 200;">{{$Units}}</span> Day: <span style="font-weight: 200;">{{$schedule}}</span> Time: <span style="font-weight: 200;">{{$time}}</span></div>
                                 <div style="font-size: 9pt;text-align: left;padding-top:5px">Subject: <span style="font-weight: 200;">{{$Subject_Code}} - {{$section}}</span></div>
                                 <div style="font-size: 9pt;text-align: left;padding-top:5px">Descriptive Title: <span style="font-weight: 200;">{{$Subject_Description}}</span></div>
-                                <div style="font-size: 9pt;text-align: center;padding-top:20px"><span style="font-weight: 200;">DR. MICHAEL P. BALDADO</span></div>
+                                <div style="font-size: 9pt;text-align: center;padding-top:20px"><span style="font-weight: 200;">
+                                    {{-- DR. MICHAEL P. BALDADO --}}
+                                </span></div>
                                 <div style="font-size: 9pt;text-align: center;padding-top:5px">Dean of the College</div>
                                 <div style="font-size: 9pt;text-align: left;padding-top:5px">Received by:</div>
                                 <div style="font-size: 9pt;text-align: center;padding-top:5px"><span style="font-weight: 200;">REYMIL CADAPAN, MBA</span></div>
