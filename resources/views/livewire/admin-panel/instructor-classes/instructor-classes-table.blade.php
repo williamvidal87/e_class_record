@@ -34,7 +34,7 @@
                                                             <td>{{ $data->id_number }}</td>
                                                             <td>{{ $data->name }}</td>
                                                             <td style="min-width:165px;">
-                                                                <button wire:click="ViewInstructorClasses({{$data->id}})" type="button" class="btn btn-glow btn-secondary btn-sm"><i class="ft-eye"></i> View Classes</button>
+                                                                <button wire:click="ViewInstructorClasses({{$data->id}}, '{{$data->name}}')" type="button" class="btn btn-glow btn-secondary btn-sm"><i class="ft-eye"></i> View Classes</button>
                                                             </td>
                                                         </tr>
                                                     @endforeach

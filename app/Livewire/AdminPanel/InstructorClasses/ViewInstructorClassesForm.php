@@ -7,16 +7,18 @@ use Livewire\Component;
 
 class ViewInstructorClassesForm extends Component
 {
-    public $InstructorClassesID;
+    public  $InstructorClassesID,
+            $InstructorName;
 
     protected $listeners = [
         'InstructorClassesID',
         'refresh_my_class_table' => '$refresh',
     ];
 
-    public function InstructorClassesID($InstructorClassesID)
+    public function InstructorClassesID($InstructorClassesID,$InstructorName)
     {
         $this->InstructorClassesID=$InstructorClassesID;
+        $this->InstructorName=$InstructorName;
     }
 
     public function render()

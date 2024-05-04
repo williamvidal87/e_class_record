@@ -1,7 +1,7 @@
 <div>
     <div class="modal-content">
         <div class="modal-header bg-info white">
-            <h4 class="modal-title white" id="myModalLabel11">Instructor Classes</h4>
+            <h4 class="modal-title white" id="myModalLabel11">{{$this->InstructorName ?? ''}} Classes</h4>
             <button wire:click="CloseViewInstructorClassesForm" type="button" class="btn close" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>

@@ -19,9 +19,9 @@ class InstructorClassesTable extends Component
             ]);
     }
     
-    public function ViewInstructorClasses($InstructorClassesID)
+    public function ViewInstructorClasses($InstructorClassesID,$InstructorName)
     {
-        $this->dispatch('InstructorClassesID',$InstructorClassesID);
+        $this->dispatch('InstructorClassesID',$InstructorClassesID,$InstructorName);
         $this->dispatch('OpenViewInstructorClassesModal');
     }
 }
