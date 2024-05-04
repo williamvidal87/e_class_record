@@ -27,6 +27,20 @@
     </li>
     <li class=" nav-item">
         <a href="course-table">
+            <i class="icon-notebook">
+            </i>
+            <span class="menu-title" data-i18n="">Instructor Classes</span>
+        </a>
+    </li>
+    <li class=" nav-item">
+        <a href="course-table">
+            <i class="icon-folder-alt">
+            </i>
+            <span class="menu-title" data-i18n="">Student Classes</span>
+        </a>
+    </li>
+    <li class=" nav-item">
+        <a href="course-table">
             <i class="icon-docs">
             </i>
             <span class="menu-title" data-i18n="">Course</span>

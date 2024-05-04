@@ -29,6 +29,9 @@ class ViewClassRecordForm extends Component
             $Subject_Code,
             $Subject_Description;
     public  $MyClassID;
+    public  $checkall;
+    public  $Notify = [];
+    public  $checkbox=[];
     protected $listeners = [
         'ViewClassRecordID',
     ];
@@ -67,7 +70,6 @@ class ViewClassRecordForm extends Component
 
     public function ExportGrade()
     {
-        
         $pdfContent = PDF::loadView('livewire.instructor-panel.class-record.export-class-record',[
             'ClassStudentData' =>   ClassStudent::join('users', 'class_students.student_id', '=', 'users.id')->where('my_class_id',$this->MyClassID)->orderBy('users.name', 'asc')->get(),
             'ActivityCategoryData' =>   ActivityCategory::where('my_class_id',$this->MyClassID)->get(),

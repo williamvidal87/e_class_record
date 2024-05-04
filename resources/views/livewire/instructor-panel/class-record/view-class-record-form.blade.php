@@ -327,6 +327,13 @@
                         <table style="font-size: 8pt" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
+                                    <th style="text-align: center;" rowspan="3">
+                                        <button type="button" class="btn btn-success btn-min-width mr-1 mb-1 btn-sm"><i class="ft-navigation"></i> Notify</button>
+                                        <div style="text-align: center;" class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="checkall" wire:model="checkall">
+                                            <label class="custom-control-label" for="checkall"></label>
+                                        </div>
+                                    </th>
                                     <th colspan="2"></th>
                                     <th>Mid Term</th>
                                     <th>Final Term</th>
@@ -350,8 +357,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($ClassStudentData as $Data)
+                                @foreach($ClassStudentData as $index =>$Data)
                                     <tr>
+                                        <td style="text-align: center;">
+                                            <div style="text-align: center;" class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck{{$index}}" wire:model="Notify.{{$index}}.checkbox">
+                                                <label class="custom-control-label" for="customCheck{{$index}}"></label>
+                                            </div>
+                                        </td>
                                         <td> {{$Data->getStudent->id_number}} </td>
                                         <td> {{$Data->getStudent->name}} </td>
                                             <?php
@@ -430,7 +443,7 @@
                                                         }
                                                         $totalGrade+=((($totalActivity/$totalMaximum)*$data->multiply)+$data->addition)*($data->percentage/100);
                                                     
-
+                                                            
                                                     $count2=0;
                                                     foreach ($FinalTermActivityData as $data2){
                                                         if ($data->id==$data2->activity_category_id){
