@@ -59,10 +59,10 @@
         </div>
     </div>
 
-    <!-- View Class Record  Modal -->
-    <div style="overflow-y: auto;z-index: 100001 !important;" class="modal fade text-left" id="ViewClassRecordModal" tabindex="-1" role="dialog" aria-labelledby="ViewClassRecordModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-        <div class="modal-dialog modal-xl" role="document" style="box-shadow: 0 0 500px 500px rgb(22, 22, 22, 0.185)">
-            <livewire:instructor-panel.class-record.view-class-record-form />
+    <!-- ViewGrade Modal -->
+    <div class="modal fade text-left" id="ViewGradeModal" tabindex="-1" role="dialog" aria-labelledby="ViewGradeModal" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-xl" role="document">
+            <livewire:student-panel.student-dashboard.view-grade-form />
         </div>
     </div>
     

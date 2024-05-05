@@ -12,7 +12,7 @@ class ViewStudentClassesForm extends Component
 
     protected $listeners = [
         'StudentClassesID',
-        'refresh_my_class_table' => '$refresh',
+        'refresh_student_dashboard' => '$refresh',
     ];
 
     public function StudentClassesID($StudentClassesID,$StudentName)
@@ -29,9 +29,9 @@ class ViewStudentClassesForm extends Component
             ])->with('getMyClass');
     }
 
-    public function ViewStudentGrade($GradeID)
+    public function ViewStudentGrade($GradeID,$StudentID)
     {
-        $this->dispatch('ViewGradeID',$GradeID);
+        $this->dispatch('ViewGradeID',$GradeID,$StudentID);
         $this->dispatch('OpenViewGradeModal');
     }
     

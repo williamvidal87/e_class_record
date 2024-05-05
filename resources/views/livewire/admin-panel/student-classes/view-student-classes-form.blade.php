@@ -34,7 +34,7 @@
                                     <td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:55px;">{{ $data->getMyClass->time?? '' }}</td>
                                     <td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:55px;">{{ $data->getMyClass->getUser->name?? '' }}</td>
                                     <td>
-                                        <button wire:click="ViewStudentGrade({{$data->getMyClass->id}})" type="button" class="btn btn-glow btn-secondary btn-sm"><i class="ft-eye"></i> View</button>
+                                        <button wire:click="ViewStudentGrade({{$data->getMyClass->id}},'{{$data->student_id}}')" type="button" class="btn btn-glow btn-secondary btn-sm"><i class="ft-eye"></i> View</button>
                                     </td>
                                 </tr>
                             @endforeach

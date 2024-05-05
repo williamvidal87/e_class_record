@@ -17,13 +17,15 @@ class ViewGradeForm extends Component
     public  $MyClassID;
     public  $ClassDescription;
     public  $finalterm_grade=0;
+    public  $StudentID;
 
     protected $listeners = [
         'ViewGradeID'
     ];
 
-    public function ViewGradeID($MyClassID)
+    public function ViewGradeID($MyClassID,$StudentID)
     {
+        $this->StudentID=$StudentID;
         $this->MyClassID=$MyClassID;
         $MyClassData = MyClass::where('id',$this->MyClassID)->first();
         $this->ClassDescription = $MyClassData->getSubject->subject." ".$MyClassData->getSubject->description." - ".$MyClassData->section." (".$MyClassData->schedule." ".$MyClassData->time.")";
@@ -34,10 +36,10 @@ class ViewGradeForm extends Component
         return view('livewire.student-panel.student-dashboard.view-grade-form',[
             'ActivityCategoryData' =>   ActivityCategory::where('my_class_id',$this->MyClassID)->get(),
             'MidTermActivityData' =>   MidTermActivity::all(),
-            'StudentMidTermActivityRecordData' =>   StudentMidTermActivityRecord::where('student_id',Auth::user()->id)->get(),
+            'StudentMidTermActivityRecordData' =>   StudentMidTermActivityRecord::where('student_id',$this->StudentID)->get(),
             'FinalActivityCategoryData' =>   FinalActivityCategory::where('my_class_id',$this->MyClassID)->get(),
             'FinalTermActivityData' =>   FinalTermActivity::all(),
-            'StudentFinalTermActivityRecordData' =>   StudentFinalTermActivityRecord::where('student_id',Auth::user()->id)->get(),
+            'StudentFinalTermActivityRecordData' =>   StudentFinalTermActivityRecord::where('student_id',$this->StudentID)->get(),
         ]);
     }
 
