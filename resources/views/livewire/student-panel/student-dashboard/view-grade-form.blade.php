@@ -37,7 +37,7 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <?php $midterm_grade=0;$not_coplied_midterm=false; ?>
+                                                            <?php $midterm_grade=0;$not_coplied_midterm=false;$count_midterm_activity=0;$count_midterm_missed=0; ?>
                                                             @foreach ($ActivityCategoryData as $activitycategoryData)
                                                                 <tr>
                                                                     <td style="padding:0%">
@@ -98,10 +98,14 @@
                                                                         @foreach ($StudentMidTermActivityRecordData as $studentmidtermactivityRecordData)
                                                                             @if ($studentmidtermactivityRecordData->mid_term_activity_id==$midtermactivityData->id)
                                                                                 <tr style="color: <?php 
+                                                                                if ($midtermactivityData->maximum_score!=1) {
+                                                                                    $count_midterm_activity++;
+                                                                                }
                                                                                 if ($studentmidtermactivityRecordData->score=="") {
                                                                                     echo "red";
                                                                                     if ($midtermactivityData->maximum_score!=1) {
                                                                                         $not_coplied_midterm=true;
+                                                                                        $count_midterm_missed++;
                                                                                     }
                                                                                 } ?>" wire:ignore.self id="accordion{{$activitycategoryData->id}}" class="collapse" aria-labelledby="headingEOne" data-parent="#accordion{{$activitycategoryData->id}}">
                                                                                     <td>
@@ -135,7 +139,7 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <?php $finalterm_grade=0;$not_coplied_finalterm=false; ?>
+                                                            <?php $finalterm_grade=0;$not_coplied_finalterm=false;$count_finalterm_activity=0;$count_finalterm_missed=0; ?>
                                                             @foreach ($FinalActivityCategoryData as $finalactivitycategoryData)
                                                                 <tr>
                                                                     <td style="padding:0%">
@@ -197,10 +201,14 @@
                                                                         @foreach ($StudentFinalTermActivityRecordData as $studentfinaltermactivityRecordData)
                                                                             @if ($studentfinaltermactivityRecordData->final_activity_id==$finaltermactivityData->id)
                                                                                 <tr style="color: <?php 
+                                                                                if ($finaltermactivityData->maximum_score!=1) {
+                                                                                    $count_finalterm_activity++;
+                                                                                }
                                                                                 if ($studentfinaltermactivityRecordData->score=="") {
                                                                                     echo "red";
                                                                                     if ($finaltermactivityData->maximum_score!=1) {
                                                                                         $not_coplied_finalterm=true;
+                                                                                        $count_finalterm_missed++;
                                                                                     }
                                                                                 } ?>" wire:ignore.self id="accordionB{{$finalactivitycategoryData->id}}" class="collapse" aria-labelledby="headingEOne" data-parent="#accordionB{{$finalactivitycategoryData->id}}">
                                                                                     <td>
@@ -252,15 +260,19 @@
                                                                 <td><?php echo number_format($midterm_grade, 2, '.', ''); ?></td>
                                                                 <td><?php echo number_format($finalterm_grade, 2, '.', ''); ?></td>
                                                                 <th><?php echo number_format(($midterm_grade+$finalterm_grade)/2, 2, '.', ''); ?></th>
-                                                                @if ($not_coplied_midterm==true || $not_coplied_finalterm==true)
-                                                                        <td style="color:red">INC</td>
-                                                                @else
                                                                     @if ((($midterm_grade+$finalterm_grade)/2)>=75)
                                                                         <td style="color:green">Passed</td>
                                                                     @else
-                                                                        <td style="color:red">Failed</td>
+                                                                        @if ($not_coplied_midterm==true || $not_coplied_finalterm==true)
+                                                                            @if ($count_midterm_activity==$count_midterm_missed && $count_finalterm_activity==$count_finalterm_missed)
+                                                                                <td style="color:red">Failed</td>
+                                                                            @else
+                                                                                <td style="color:red">INC</td>
+                                                                            @endif
+                                                                        @else
+                                                                            <td style="color:red">Failed</td>
+                                                                        @endif
                                                                     @endif
-                                                                @endif
                                                             </tr>
                                                             
                                                         </tbody>

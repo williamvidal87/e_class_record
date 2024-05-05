@@ -5,6 +5,7 @@ use App\Livewire\AdminPanel\InstructorClasses\InstructorClassesTable;
 use App\Livewire\AdminPanel\ManageUser\AdminTable;
 use App\Livewire\AdminPanel\ManageUser\InstructorTable;
 use App\Livewire\AdminPanel\ManageUser\StudentTable;
+use App\Livewire\AdminPanel\StudentClasses\StudentClassesTable;
 use App\Livewire\AdminPanel\Subject\SubjectTable;
 use App\Livewire\Dashboard\Dashboard;
 use App\Livewire\InstructorPanel\InstructorDashboard\InstructorDashboard;
@@ -50,6 +51,7 @@ Route::middleware([
     Route::get('/instructor-table', InstructorTable::class)->name('instructor-table')->middleware('checkadmin');
     Route::get('/student-table', StudentTable::class)->name('student-table')->middleware('checkadmin');
     Route::get('/instructor-classes-table', InstructorClassesTable::class)->name('instructor-classes-table')->middleware('checkadmin');
+    Route::get('/student-classes-table', StudentClassesTable::class)->name('student-classes-table')->middleware('checkadmin');
     Route::get('/course-table', CourseTable::class)->name('course-table')->middleware('checkadmin');
     Route::get('/subject-table', SubjectTable::class)->name('subject-table')->middleware('checkadmin');
     

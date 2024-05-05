@@ -33,7 +33,7 @@
         </a>
     </li>
     <li class=" nav-item">
-        <a href="course-table">
+        <a href="student-classes-table">
             <i class="icon-folder-alt">
             </i>
             <span class="menu-title" data-i18n="">Student Classes</span>
