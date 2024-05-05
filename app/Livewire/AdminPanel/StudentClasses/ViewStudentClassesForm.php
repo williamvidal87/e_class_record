@@ -26,13 +26,13 @@ class ViewStudentClassesForm extends Component
         $this->dispatch('DispatchTable');
         return view('livewire.admin-panel.student-classes.view-student-classes-form',[
             'ClassStudentData' =>   ClassStudent::where('student_id',$this->StudentClassesID)->get()
-            ]);
+            ])->with('getMyClass');
     }
 
-    public function ViewClassRecord($ClassStudentID)
+    public function ViewStudentGrade($GradeID)
     {
-        $this->dispatch('ViewClassRecordID',$ClassStudentID);
-        $this->dispatch('OpenViewClassRecordModal');
+        $this->dispatch('ViewGradeID',$GradeID);
+        $this->dispatch('OpenViewGradeModal');
     }
     
     public function CloseViewStudentClassesForm()

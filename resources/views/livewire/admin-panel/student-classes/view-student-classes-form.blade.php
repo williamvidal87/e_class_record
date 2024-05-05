@@ -19,20 +19,22 @@
                                 <th>Section</th>
                                 <th>Day</th>
                                 <th>Time</th>
+                                <th>Instructor</th>
                                 <th>Action</th>
                         </thead>
                         <tbody>
                             @foreach($ClassStudentData as $data)
                                 <tr>
-                                    <td>CLS{{ 120231+$data->id }}</td>
-                                    <td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:70px;">{{ $data->getSemester->description?? '' }}</td>
-                                    <td>{{ $data->school_year }}</td>
-                                    <td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:55px;">{{ $data->getSubject->subject?? '' }} - {{ $data->getSubject->description?? '' }}</td>
-                                    <td>{{ $data->section }}</td>
-                                    <td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:55px;">{{ $data->schedule?? '' }}</td>
-                                    <td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:55px;">{{ $data->time?? '' }}</td>
+                                    <td>CLS{{ 120231+$data->getMyClass->id }}</td>
+                                    <td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:70px;">{{ $data->getMyClass->getSemester->description?? '' }}</td>
+                                    <td>{{ $data->getMyClass->school_year }}</td>
+                                    <td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:55px;">{{ $data->getMyClass->getSubject->subject?? '' }} - {{ $data->getSubject->description?? '' }}</td>
+                                    <td>{{ $data->getMyClass->section }}</td>
+                                    <td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:55px;">{{ $data->getMyClass->schedule?? '' }}</td>
+                                    <td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:55px;">{{ $data->getMyClass->time?? '' }}</td>
+                                    <td style="white-space: nowrap; text-overflow:ellipsis; overflow: hidden; max-width:55px;">{{ $data->getMyClass->getUser->name?? '' }}</td>
                                     <td>
-                                        <button wire:click="ViewClassRecord({{$data->id}})" type="button" class="btn btn-glow btn-secondary btn-sm"><i class="ft-eye"></i> View</button>
+                                        <button wire:click="ViewStudentGrade({{$data->getMyClass->id}})" type="button" class="btn btn-glow btn-secondary btn-sm"><i class="ft-eye"></i> View</button>
                                     </td>
                                 </tr>
                             @endforeach
