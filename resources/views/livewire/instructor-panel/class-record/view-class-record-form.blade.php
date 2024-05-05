@@ -392,6 +392,8 @@
                                             <?php
                                                 $totalGrade=0;
                                                 $not_coplied_midterm=0;
+                                                $count_midterm_activity=0;
+                                                $count_midterm_missed=0;
                                                 foreach ($ActivityCategoryData as $data){
                                                     $totalActivity=0;
                                                     $totalMaximum=0;
@@ -400,11 +402,15 @@
                                                             foreach($StudentMidTermActivityRecordData as $data3){
                                                                 if($data2->id==$data3->mid_term_activity_id && $Data->student_id == $data3->student_id){
                                                                     $totalActivity+=$data3->score;
+                                                                    if ($data2->maximum_score!=1) {
+                                                                        $count_midterm_activity++;
+                                                                    }
                                                                     if($data3->score==""){
                                                                         if($data2->maximum_score==1){
                                                                             //
                                                                         } else {
-                                                                        $not_coplied_midterm=1;
+                                                                            $not_coplied_midterm=1;
+                                                                            $count_midterm_missed++;
                                                                         }
                                                                     }
                                                                 }
@@ -436,6 +442,8 @@
                                             <?php
                                                 $totalGrade=0;
                                                 $not_coplied_finalterm=0;
+                                                $count_finalterm_activity=0;
+                                                $count_finalterm_missed=0;
                                                 foreach ($FinalActivityCategoryData as $data){
                                                     $totalActivity=0;
                                                     $totalMaximum=0;
@@ -444,11 +452,15 @@
                                                             foreach($StudentFinalTermActivityRecordData as $data3){
                                                                 if($data2->id==$data3->final_activity_id && $Data->student_id == $data3->student_id){
                                                                     $totalActivity+=$data3->score;
+                                                                    if ($data2->maximum_score!=1) {
+                                                                        $count_finalterm_activity++;
+                                                                    }
                                                                     if($data3->score==""){
                                                                         if($data2->maximum_score==1){
                                                                             //
                                                                         } else {
                                                                         $not_coplied_finalterm=1;
+                                                                        $count_finalterm_missed++;
                                                                         }
                                                                     }
                                                                 }
@@ -480,15 +492,19 @@
                                                 $SumGrade=$semesteralGrade/2;
                                                 echo "<th>".number_format($SumGrade, 2, '.', '')."</th>";
                                             ?>
-                                            @if ($not_coplied_midterm==1 || $not_coplied_finalterm==1)
-                                                    <th style="color:red">INC</th>
-                                            @else
                                                 @if ($SumGrade>=75)
                                                     <th style="color:green">Passed</th>
                                                 @else
-                                                    <th style="color:red">Failed</th>
+                                                    @if ($not_coplied_midterm==1 || $not_coplied_finalterm==1)
+                                                        @if ($count_midterm_activity==$count_midterm_missed && $count_finalterm_activity==$count_finalterm_missed)
+                                                            <th style="color:red">Failed</th>
+                                                        @else 
+                                                            <th style="color:red">INC</th>
+                                                        @endif
+                                                    @else 
+                                                        <th style="color:red">Failed</th>
+                                                    @endif
                                                 @endif
-                                            @endif
                                     </tr>
                                 @endforeach
                             </tbody>
