@@ -41,12 +41,12 @@
             $('#StudentClassesModal').modal('hide');
         });
         
-        @this.on('OpenViewClassRecordModal', (event) => {
-            $('#ViewClassRecordModal').modal('show');
+        @this.on('OpenViewGradeModal', (event) => {
+            $('#ViewGradeModal').modal('show');
         });
         
-        @this.on('CloseViewClassRecordModal', (event) => {
-            $('#ViewClassRecordModal').modal('hide');
+        @this.on('CloseViewGradeModal', (event) => {
+            $('#ViewGradeModal').modal('hide');
         });
 
         
