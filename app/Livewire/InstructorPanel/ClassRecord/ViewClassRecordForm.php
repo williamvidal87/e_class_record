@@ -29,6 +29,9 @@ class ViewClassRecordForm extends Component
             $Subject_Code,
             $Subject_Description;
     public  $MyClassID;
+    public  $checkall;
+    public  $Notify = [];
+    public  $checkbox=[];
     protected $listeners = [
         'ViewClassRecordID',
     ];
@@ -65,9 +68,13 @@ class ViewClassRecordForm extends Component
             ])->with('getStudent');
     }
 
+    public function SendNotification()
+    {
+
+    }
+
     public function ExportGrade()
     {
-        
         $pdfContent = PDF::loadView('livewire.instructor-panel.class-record.export-class-record',[
             'ClassStudentData' =>   ClassStudent::join('users', 'class_students.student_id', '=', 'users.id')->where('my_class_id',$this->MyClassID)->orderBy('users.name', 'asc')->get(),
             'ActivityCategoryData' =>   ActivityCategory::where('my_class_id',$this->MyClassID)->get(),
@@ -87,7 +94,7 @@ class ViewClassRecordForm extends Component
             'Subject_Description'   =>  $this->Subject_Description,
             'section'   =>  $this->section
             ])->setPaper('Legal', 'Portrait')->output();
-        return response()->streamDownload(fn () => print($pdfContent),"sample.pdf");
+        return response()->streamDownload(fn () => print($pdfContent),$this->Subject_Code." ".$this->section.".pdf");
     }
 
     public function CloseViewClassRecordForm()

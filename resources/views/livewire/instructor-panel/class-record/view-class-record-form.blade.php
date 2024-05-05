@@ -7,7 +7,7 @@
             </button>
         </div>
         <div class="modal-body">
-            <ul class="nav nav-tabs">
+            <ul wire:ignore class="nav nav-tabs">
                 <li class="nav-item">
                     <a class="nav-link active" id="base-tab1" data-toggle="tab" aria-controls="tab1" href="#tab1" aria-expanded="true">Mid Term</a>
                 </li>
@@ -20,7 +20,7 @@
             </ul>
 
             <div class="tab-content px-1 pt-1">
-                <div role="tabpanel" class="tab-pane active" id="tab1" aria-expanded="true" aria-labelledby="base-tab1">
+                <div wire:ignore.self role="tabpanel" class="tab-pane active" id="tab1" aria-expanded="true" aria-labelledby="base-tab1">
                     
                     <div class="table-responsive">
                         <table style="font-size: 8pt" class="table table-bordered table-striped">
@@ -171,7 +171,7 @@
                     </div>
 
                 </div>
-                <div class="tab-pane" id="tab2" aria-labelledby="base-tab2">
+                <div wire:ignore.self class="tab-pane" id="tab2" aria-labelledby="base-tab2">
                     
                     <div class="table-responsive">
                         <table style="font-size: 8pt" class="table table-bordered table-striped">
@@ -321,12 +321,35 @@
                     </div>
 
                 </div>
-                <div class="tab-pane" id="tab3" aria-labelledby="base-tab3">
+                <div wire:ignore.self class="tab-pane" id="tab3" aria-labelledby="base-tab3">
                     
                     <div class="table-responsive">
                         <table style="font-size: 8pt" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
+                                    @if (Auth::user()->rule_id==2)
+                                        <th style="text-align: center;" rowspan="3">
+                                            <button wire:click="SendNotification" type="button" class="btn btn-success btn-min-width mr-1 mb-1 btn-sm"><i class="ft-navigation"></i> Notify</button>
+                                            <div style="text-align: center;" class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="checkall" wire:model.live="checkall">
+                                                <label class="custom-control-label" for="checkall"></label>
+                                                
+                                                <?php
+                                                    if ($this->checkall==true) {
+                                                        foreach ($ClassStudentData as $index =>$Data) {
+                                                            $this->Notify[$index]["checkbox"]=true;
+                                                            // $this->Notify[$index][$this->checkbox]=true;
+                                                        }
+                                                    } else {
+                                                        foreach ($ClassStudentData as $index =>$Data) {
+                                                            $this->Notify[$index]["checkbox"]=false;
+                                                            // $this->Notify[$index][$this->checkbox]=true;
+                                                        }
+                                                    }
+                                                ?>
+                                            </div>
+                                        </th>
+                                    @endif
                                     <th colspan="2"></th>
                                     <th>Mid Term</th>
                                     <th>Final Term</th>
@@ -350,8 +373,16 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($ClassStudentData as $Data)
+                                @foreach($ClassStudentData as $index =>$Data)
                                     <tr>
+                                        @if (Auth::user()->rule_id==2)
+                                            <td style="text-align: center;">
+                                                <div style="text-align: center;" class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheck{{$index}}" wire:model="Notify.{{$index}}.checkbox">
+                                                    <label class="custom-control-label" for="customCheck{{$index}}"></label>
+                                                </div>
+                                            </td>
+                                        @endif
                                         <td> {{$Data->getStudent->id_number}} </td>
                                         <td> {{$Data->getStudent->name}} </td>
                                             <?php
@@ -430,7 +461,7 @@
                                                         }
                                                         $totalGrade+=((($totalActivity/$totalMaximum)*$data->multiply)+$data->addition)*($data->percentage/100);
                                                     
-
+                                                            
                                                     $count2=0;
                                                     foreach ($FinalTermActivityData as $data2){
                                                         if ($data->id==$data2->activity_category_id){

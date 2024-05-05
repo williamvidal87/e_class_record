@@ -19,7 +19,7 @@ class MyClassTable extends Component
         $this->dispatch('DispatchTable');
         return view('livewire.instructor-panel.my-class.my-class-table',[
             'MyClassData' =>   MyClass::where('instructor_id',Auth::user()->id)->get()
-            ])->with('getSemester','getSubject');
+            ])->with('getSemester','getInstructorClasses');
     }
     
     public function OpenMyClassForm()
