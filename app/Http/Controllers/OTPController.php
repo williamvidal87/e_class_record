@@ -63,7 +63,7 @@ class OTPController extends Controller
         } catch (ApiException $apiException) {
             dd($apiException);
         }
-
+        
         return redirect()->route('otp.verify');
     }
 }
