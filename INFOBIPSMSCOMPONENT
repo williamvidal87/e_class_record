@@ -1,0 +1,36 @@
+
+        $configuration = new Configuration(
+            host: 'https://89ljgr.api.infobip.com',
+            apiKey: '1079dd4ca6061011c676b31082f71093-5dc7cff6-784a-4f7d-be9e-02c73760068e'
+        );
+        $sendSmsApi = new SmsApi(config: $configuration);
+        $message = new SmsTextualMessage(
+            destinations: [
+                new SmsDestination(to: '639212969669')
+            ],
+            from: 'Lezel',
+            text: '
+            
+            "Hello [Student's Name],
+
+            This is [Instructor's Name] from [Subject/Class Name]. 
+            I wanted to inform you that you have a missing activity, assignment, and project.
+            For more details, please check your e-class account.
+            It's important to address these promptly to stay on track with your studies.
+            If you need any assistance or clarification, feel free to reach out to me.
+
+            Best regards,
+            [Instructor's Name]"
+            
+            '
+        );
+        $request = new SmsAdvancedTextualRequest(messages: [$message]);
+        try {
+            $smsResponse = $sendSmsApi->sendSmsMessage($request);
+        } catch (ApiException $apiException) {
+            dd($apiException);
+        }   
+
+
+
+        

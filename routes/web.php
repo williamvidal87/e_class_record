@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OTPController;
 use App\Livewire\AdminPanel\Course\CourseTable;
 use App\Livewire\AdminPanel\InstructorClasses\InstructorClassesTable;
 use App\Livewire\AdminPanel\ManageUser\AdminTable;
@@ -41,28 +42,31 @@ Route::middleware([
     // Route::get('/dashboard', function () {
     //     return view('dashboard');
     // })->name('dashboard');
-    
-    Route::get('/edit-profile', EditProfile::class)->name('edit-profile');
-    Route::get('/edit-password', EditPassword::class)->name('edit-password');
-    
-    // admin panel
-    Route::get('/dashboard', Dashboard::class)->name('dashboard')->middleware('checkadmin');
-    Route::get('/admin-table', AdminTable::class)->name('admin-table')->middleware('checkadmin');
-    Route::get('/instructor-table', InstructorTable::class)->name('instructor-table')->middleware('checkadmin');
-    Route::get('/student-table', StudentTable::class)->name('student-table')->middleware('checkadmin');
-    Route::get('/instructor-classes-table', InstructorClassesTable::class)->name('instructor-classes-table')->middleware('checkadmin');
-    Route::get('/student-classes-table', StudentClassesTable::class)->name('student-classes-table')->middleware('checkadmin');
-    Route::get('/course-table', CourseTable::class)->name('course-table')->middleware('checkadmin');
-    Route::get('/subject-table', SubjectTable::class)->name('subject-table')->middleware('checkadmin');
-    
-    // instructor panel
-    Route::get('/instructor-dashboard', InstructorDashboard::class)->name('instructor-dashboard')->middleware('checkinstructor');
-    Route::get('/instructor-my-class-table', MyClassTable::class)->name('instructor-my-class-table')->middleware('checkinstructor');
-    Route::get('/instructor-student-table', StudentTable::class)->name('instructor-student-table')->middleware('checkinstructor');
-    Route::get('/instructor-subject-table', SubjectTable::class)->name('instructor-subject-table')->middleware('checkinstructor');
-    
-    // student panel
-    Route::get('/student-home', StudentDashboard::class)->name('student-home')->middleware('checkstudent');
-    Route::get('/student-qrcode', QrCodeTable::class)->name('student-qrcode')->middleware('checkstudent');
-    
+    Route::get('otp/verify', [OTPController::class, 'showVerifyForm'])->name('otp.verify');
+    Route::post('otp/verify', [OTPController::class, 'verify'])->name('otp.verify.post');
+
+    Route::group(['middleware' => ['auth', 'otp.verified']], function () {
+        Route::get('/edit-profile', EditProfile::class)->name('edit-profile');
+        Route::get('/edit-password', EditPassword::class)->name('edit-password');
+
+        // admin panel
+        Route::get('/dashboard', Dashboard::class)->name('dashboard')->middleware('checkadmin');
+        Route::get('/admin-table', AdminTable::class)->name('admin-table')->middleware('checkadmin');
+        Route::get('/instructor-table', InstructorTable::class)->name('instructor-table')->middleware('checkadmin');
+        Route::get('/student-table', StudentTable::class)->name('student-table')->middleware('checkadmin');
+        Route::get('/instructor-classes-table', InstructorClassesTable::class)->name('instructor-classes-table')->middleware('checkadmin');
+        Route::get('/student-classes-table', StudentClassesTable::class)->name('student-classes-table')->middleware('checkadmin');
+        Route::get('/course-table', CourseTable::class)->name('course-table')->middleware('checkadmin');
+        Route::get('/subject-table', SubjectTable::class)->name('subject-table')->middleware('checkadmin');
+
+        // instructor panel
+        Route::get('/instructor-dashboard', InstructorDashboard::class)->name('instructor-dashboard')->middleware('checkinstructor');
+        Route::get('/instructor-my-class-table', MyClassTable::class)->name('instructor-my-class-table')->middleware('checkinstructor');
+        Route::get('/instructor-student-table', StudentTable::class)->name('instructor-student-table')->middleware('checkinstructor');
+        Route::get('/instructor-subject-table', SubjectTable::class)->name('instructor-subject-table')->middleware('checkinstructor');
+
+        // student panel
+        Route::get('/student-home', StudentDashboard::class)->name('student-home')->middleware('checkstudent');
+        Route::get('/student-qrcode', QrCodeTable::class)->name('student-qrcode')->middleware('checkstudent');
+    });
 });

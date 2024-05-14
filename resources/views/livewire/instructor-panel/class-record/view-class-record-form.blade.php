@@ -379,6 +379,10 @@
                                             <td style="text-align: center;">
                                                 <div style="text-align: center;" class="custom-control custom-checkbox">
                                                     <input type="checkbox" class="custom-control-input" id="customCheck{{$index}}" wire:model="Notify.{{$index}}.checkbox">
+                                                    <?php
+                                                        $this->Notify[$index]['student_id']=$Data->student_id;
+                                                        $this->Notify[$index]['student_id']=$Data->student_id;
+                                                    ?>
                                                     <label class="custom-control-label" for="customCheck{{$index}}"></label>
                                                 </div>
                                             </td>

@@ -12,7 +12,12 @@ use App\Models\StudentFinalTermActivityRecord;
 use App\Models\StudentMidTermActivityRecord;
 use Livewire\Component;
 use Barryvdh\DomPDF\Facade\Pdf as PDF;
-
+use Infobip\Api\SmsApi;
+use Infobip\Configuration;
+use Infobip\ApiException;
+use Infobip\Model\SmsAdvancedTextualRequest;
+use Infobip\Model\SmsDestination;
+use Infobip\Model\SmsTextualMessage;
 
 class ViewClassRecordForm extends Component
 {
@@ -31,7 +36,7 @@ class ViewClassRecordForm extends Component
     public  $MyClassID;
     public  $checkall;
     public  $Notify = [];
-    public  $checkbox=[];
+
     protected $listeners = [
         'ViewClassRecordID',
     ];
@@ -70,7 +75,17 @@ class ViewClassRecordForm extends Component
 
     public function SendNotification()
     {
+        $checkMidCategory=ActivityCategory::where('my_class_id',$this->MyClassID)->get();
+        $checkMidActivity=MidTermActivity::all();
+        foreach ($this->Notify as $index => $notify_data) {
+            if ($notify_data['checkbox']==true) {
+                $checkMidRecord=StudentMidTermActivityRecord::where('student_id',$notify_data['student_id'])->get();
+                foreach ($checkMidRecord as $MidRecord) {
+                        dd($MidRecord);
+                    }
+            }
 
+        }
     }
 
     public function ExportGrade()

@@ -25,7 +25,7 @@
         </div>
         <br>
         <div style="text-align: center;">
-            <strong><u><span>COLLEGE OF COMPUTER TECHNOLOGY</span></u></strong>
+            <strong><u><span>COLLEGE OF INDUSTRIAL TECHNOLOGY</span></u></strong>
         </div>
         <div style="text-align: center;margin-top:0.05in">
             <strong><span>GRADE SHEET</span></strong>
@@ -192,8 +192,8 @@
                                 </span></div>
                                 <div style="font-size: 9pt;text-align: center;padding-top:5px">Dean of the College</div>
                                 <div style="font-size: 9pt;text-align: left;padding-top:5px">Received by:</div>
-                                <div style="font-size: 9pt;text-align: center;padding-top:5px"><span style="font-weight: 200;">REYMIL CADAPAN, MBA</span></div>
-                                <div style="font-size: 9pt;text-align: center;padding-top:5px">University Registrar</div>
+                                <div style="font-size: 9pt;text-align: center;padding-top:5px"><span style="font-weight: 200;">ENGR. PETMAR M. SAING, MSIT-CS</span></div>
+                                <div style="font-size: 9pt;text-align: center;padding-top:5px">Campus Registrar</div>
                                 <div style="font-size: 9pt;text-align: left;margin-top:5px">Date Received:________________________________________</div>
                             </div>
                         </td>

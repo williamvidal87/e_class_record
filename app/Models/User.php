@@ -26,7 +26,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'id_number','course_id','name', 'email', 'password','rule_id','last_seen','course_name','phone_number','profile_photo_path'
+        'id_number','course_id','name', 'email', 'password','rule_id','last_seen','course_name','phone_number','profile_photo_path','is_otp_verified '
     ];
     
     public function getRule()
