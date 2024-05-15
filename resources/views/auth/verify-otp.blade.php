@@ -94,7 +94,7 @@
                                 </div>
                                 <div class="card-footer border-0 p-0">
                                     <p class="float-sm-center text-center">
-                                        <a href="{{route('login')}}" class="card-link">Resend</a>
+                                        <a href="{{route('dashboard')}}" class="card-link">Resend</a>
                                     </p>
                                 </div>
                             </div>

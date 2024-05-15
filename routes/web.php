@@ -42,10 +42,10 @@ Route::middleware([
     // Route::get('/dashboard', function () {
     //     return view('dashboard');
     // })->name('dashboard');
-    Route::get('otp/verify', [OTPController::class, 'showVerifyForm'])->name('otp.verify');
-    Route::post('otp/verify', [OTPController::class, 'verify'])->name('otp.verify.post');
+    Route::get('otp/verify', [OTPController::class, 'showVerifyForm'])->name('otp.verify')->middleware('checkdoneotp');
+    Route::post('otp/verify', [OTPController::class, 'verify'])->name('otp.verify.post')->middleware('checkdoneotp');
 
-    // Route::group(['middleware' => ['auth', 'otp.verified']], function () {
+    Route::group(['middleware' => ['auth', 'otp.verified']], function () {
         Route::get('/edit-profile', EditProfile::class)->name('edit-profile');
         Route::get('/edit-password', EditPassword::class)->name('edit-password');
 
@@ -68,5 +68,5 @@ Route::middleware([
         // student panel
         Route::get('/student-home', StudentDashboard::class)->name('student-home')->middleware('checkstudent');
         Route::get('/student-qrcode', QrCodeTable::class)->name('student-qrcode')->middleware('checkstudent');
-    // });
+    });
 });

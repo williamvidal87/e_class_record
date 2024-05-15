@@ -38,8 +38,8 @@ class OTPController extends Controller
 
     public function sendOTP()
     {
-        $otp = rand(100000, 999999);
-        // $otp = 12345;
+        // $otp = rand(100000, 999999);
+        $otp = 123456;
         session(['otp_code' => $otp]);
 
         $user = Auth::user();
@@ -57,13 +57,13 @@ class OTPController extends Controller
             from: 'E-class',
             text: "E-Class: ".$otp." is your security code. Don't share your code."
         );
-        $request = new SmsAdvancedTextualRequest(messages: [$message]);
+        // $request = new SmsAdvancedTextualRequest(messages: [$message]);
         try {
-            $smsResponse = $sendSmsApi->sendSmsMessage($request);
+            // $smsResponse = $sendSmsApi->sendSmsMessage($request);
         } catch (ApiException $apiException) {
             dd($apiException);
         }
-        
+
         return redirect()->route('otp.verify');
     }
 }

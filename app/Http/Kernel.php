@@ -59,6 +59,7 @@ class Kernel extends HttpKernel
         'checkadmin' => \App\Http\Middleware\CheckAdmin::class,
         'checkinstructor' => \App\Http\Middleware\CheckInstructor::class,
         'checkstudent' => \App\Http\Middleware\CheckStudent::class,
+        'checkdoneotp' => \App\Http\Middleware\CheckDoneOtp::class,
         'otp.verified' => \App\Http\Middleware\OTPVerified::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,
