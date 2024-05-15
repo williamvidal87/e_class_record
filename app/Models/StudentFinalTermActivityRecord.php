@@ -17,4 +17,9 @@ class StudentFinalTermActivityRecord extends Model
     {
         return $this->belongsTo(User::class,'student_id');
     }
+    
+    public function getFinalTermActivity()
+    {
+        return $this->belongsTo(FinalTermActivity::class,'final_activity_id');
+    }
 }

@@ -14,4 +14,9 @@ class MidTermActivity extends Model
     protected $fillable = [
         'activity_category_id','activity_name','date','maximum_score'
     ];
+    
+    public function getMidTermCategory()
+    {
+        return $this->belongsTo(ActivityCategory::class,'activity_category_id');
+    }
 }

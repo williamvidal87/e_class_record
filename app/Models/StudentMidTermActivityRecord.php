@@ -17,4 +17,9 @@ class StudentMidTermActivityRecord extends Model
     {
         return $this->belongsTo(User::class,'student_id');
     }
+    
+    public function getMidTermActivity()
+    {
+        return $this->belongsTo(MidTermActivity::class,'mid_term_activity_id');
+    }
 }

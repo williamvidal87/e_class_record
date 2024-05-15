@@ -10,6 +10,7 @@ use App\Models\MidTermActivity;
 use App\Models\MyClass;
 use App\Models\StudentFinalTermActivityRecord;
 use App\Models\StudentMidTermActivityRecord;
+use App\Models\User;
 use Livewire\Component;
 use Barryvdh\DomPDF\Facade\Pdf as PDF;
 use Infobip\Api\SmsApi;
@@ -78,13 +79,120 @@ class ViewClassRecordForm extends Component
         $checkMidCategory=ActivityCategory::where('my_class_id',$this->MyClassID)->get();
         $checkMidActivity=MidTermActivity::all();
         foreach ($this->Notify as $index => $notify_data) {
-            if ($notify_data['checkbox']==true) {
-                $checkMidRecord=StudentMidTermActivityRecord::where('student_id',$notify_data['student_id'])->get();
-                foreach ($checkMidRecord as $MidRecord) {
-                        dd($MidRecord);
-                    }
-            }
 
+            if ($notify_data['checkbox']==true) {
+                $StudentName=User::where('id',$notify_data['student_id'])->first();
+                $firts_name = explode(',', $StudentName->name);
+                // Convert the entire string to lowercase
+                $lastnameLower = strtolower($firts_name[0]);
+                // Capitalize the first letter
+                $lastnameProper = ucfirst($lastnameLower);
+                $message = "Hello ".$lastnameProper.",
+                
+This is ".$this->InstructorName." from ".$this->Subject_Description.". I wanted to inform you that you have a missing ";
+                //start if for midterm message or finalterm message
+                $check_has_mid=0;
+                $checkMidRecord=StudentMidTermActivityRecord::where('student_id',$notify_data['student_id'])->get();
+                $checkMidterActivity=ActivityCategory::where('my_class_id',$this->MyClassID)->get();
+                foreach ($checkMidterActivity as $checkmidteractivity) {
+                    $count_missing = 0;
+                    foreach ($checkMidRecord as $MidRecord) {
+                        if ($MidRecord->getMidTermActivity->getMidTermCategory->id==$checkmidteractivity->id) {
+                            if ($MidRecord->score==null) {
+                                $check_has_mid++;
+                            }
+                        }
+                    }
+                }
+                //end check if for midterm message or finalterm message
+
+                //start if for midterm message or finalterm message
+                $check_has_final=0;
+                $checkFinalRecord=StudentFinalTermActivityRecord::where('student_id',$notify_data['student_id'])->get();
+                $checkFinalterActivity=FinalActivityCategory::where('my_class_id',$this->MyClassID)->get();
+                foreach ($checkFinalterActivity as $checkmidteractivity) {
+                    foreach ($checkFinalRecord as $FinalRecord) {
+                        if ($FinalRecord->getFinalTermActivity->getFinalTermCategory->id==$checkmidteractivity->id) {
+                            if ($FinalRecord->score==null) {
+                                $check_has_final++;
+                            }
+                        }
+                    }
+                }
+                //end check if for midterm message or finalterm message
+
+                
+                if($check_has_mid!=0){
+                    $checkMidRecord=StudentMidTermActivityRecord::where('student_id',$notify_data['student_id'])->get();
+                    $checkMidterActivity=ActivityCategory::where('my_class_id',$this->MyClassID)->get();
+                    foreach ($checkMidterActivity as $checkmidteractivity) {
+                        $count_missing = 0;
+                        foreach ($checkMidRecord as $MidRecord) {
+                            if ($MidRecord->getMidTermActivity->getMidTermCategory->id==$checkmidteractivity->id) {
+                                if ($MidRecord->score==null) {
+                                    $count_missing++;
+                                }
+                            }
+                        }
+                        if($count_missing!=0) {
+                            $message.="(".$count_missing.") ".$checkmidteractivity->activity_category.", ";
+                        }
+                    }
+                    $message=substr($message, 0, -2);
+                    $message.=" in Midterm";
+                }
+                
+                if($check_has_final!=0&&$check_has_mid!=0) {
+                    $message.=" and ";
+                }
+
+                if($check_has_final!=0){
+                    $checkFinalRecord=StudentFinalTermActivityRecord::where('student_id',$notify_data['student_id'])->get();
+                    $checkFinalterActivity=FinalActivityCategory::where('my_class_id',$this->MyClassID)->get();
+                    foreach ($checkFinalterActivity as $checkmidteractivity) {
+                        $count_missing = 0;
+                        foreach ($checkFinalRecord as $FinalRecord) {
+                            if ($FinalRecord->getFinalTermActivity->getFinalTermCategory->id==$checkmidteractivity->id) {
+                                if ($FinalRecord->score==null) {
+                                    $count_missing++;
+                                }
+                            }
+                        }
+                        if($count_missing!=0) {
+                            $message.="(".$count_missing.") ".$checkmidteractivity->activity_category.", ";
+                        }
+                    }
+                    $message=substr($message, 0, -2);
+                    $message.=" in Finalterm";
+                }
+                $message.=". For more details, please check your e-class account. It's important to address these promptly to stay on track with your studies. If you need any assistance or clarification, feel free to reach out to me.
+
+Best regards,
+".$this->InstructorName;
+
+                if($check_has_final!=0||$check_has_mid!=0){
+                    $configuration = new Configuration(
+                        host: 'https://89ljgr.api.infobip.com',
+                        apiKey: '1079dd4ca6061011c676b31082f71093-5dc7cff6-784a-4f7d-be9e-02c73760068e'
+                    );
+                    $sendSmsApi = new SmsApi(config: $configuration);
+                    $message = new SmsTextualMessage(
+                        destinations: [
+                            new SmsDestination(to: '63'.$StudentName->phone_number)
+                        ],
+                        from: 'E-class',
+                        text: $message
+                    );
+                    $request = new SmsAdvancedTextualRequest(messages: [$message]);
+                    try {
+                        $smsResponse = $sendSmsApi->sendSmsMessage($request);
+                    } catch (ApiException $apiException) {
+                        // dd($apiException);
+                    }
+                }
+
+            }
+            
         }
     }
 
