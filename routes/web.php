@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\OTPController;
+use App\Livewire\AdminPanel\ComputationGrade\ComputationGradeTable;
 use App\Livewire\AdminPanel\Course\CourseTable;
 use App\Livewire\AdminPanel\InstructorClasses\InstructorClassesTable;
 use App\Livewire\AdminPanel\ManageUser\AdminTable;
@@ -58,6 +59,7 @@ Route::middleware([
         Route::get('/student-classes-table', StudentClassesTable::class)->name('student-classes-table')->middleware('checkadmin');
         Route::get('/course-table', CourseTable::class)->name('course-table')->middleware('checkadmin');
         Route::get('/subject-table', SubjectTable::class)->name('subject-table')->middleware('checkadmin');
+        Route::get('/computation-grade-table', ComputationGradeTable::class)->name('computation-grade-table')->middleware('checkadmin');
 
         // instructor panel
         Route::get('/instructor-dashboard', InstructorDashboard::class)->name('instructor-dashboard')->middleware('checkinstructor');

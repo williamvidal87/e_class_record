@@ -183,9 +183,9 @@ Best regards,
                         from: 'E-class',
                         text: $message
                     );
-                    $request = new SmsAdvancedTextualRequest(messages: [$message]);
+                    // $request = new SmsAdvancedTextualRequest(messages: [$message]);
                     try {
-                        $smsResponse = $sendSmsApi->sendSmsMessage($request);
+                        // $smsResponse = $sendSmsApi->sendSmsMessage($request);
                     } catch (ApiException $apiException) {
                         // dd($apiException);
                     }

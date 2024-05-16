@@ -53,6 +53,14 @@
             <span class="menu-title" data-i18n="">Subject</span>
         </a>
     </li>
+    <li class=" nav-item">
+        <a href="computation-grade-table">
+            <i class="ft-activity">
+            </i>
+            <span class="menu-title" data-i18n="">Computation</span>
+            <span class="menu-title" data-i18n="">of Grades</span>
+        </a>
+    </li>
 </ul>
 
 

@@ -31,9 +31,9 @@
                             <label for="computation">Computation</label>
                             <select class="form-control" id="computation" wire:model="computation">
                                         <option value={{ null }}>Select Computation</option>
-                                        <option value=1>Zero Based</option>
-                                        <option value=2>x50 +50</option>
-                                        <option value=3>x40 +60</option>
+                                        @foreach ($ComputationGradeData as $data)
+                                            <option value={{$data->id}}>{{$data->computation_name}}</option>
+                                        @endforeach
                             </select>
                             <div class=" font-small-2 danger">@error('computation') {{ $message }} @enderror</div>
                         </div>
