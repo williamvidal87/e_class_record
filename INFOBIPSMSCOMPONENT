@@ -33,4 +33,32 @@
 
 
 
+        lezel sms infobid
+        a9f7d86a970aaa274ed553c9ef5a38cf-d3e0d13f-8cc1-4f0b-9ee1-e3520b8a4293
+        w1z6d1.api.infobip.com
+
+
+
+        "SMSCHEF"- VIVO
         
+                    $apiSecret = "8674b65c85d896de6b4cfa89f6670546163be261";
+                    $deviceId = "00000000-0000-0000-3229-b4d8b3f7a96f";
+                    $phone = '+639212969669';
+                    $messageContent = 'Hello! messy programmer, sending from PHP';
+                    $messageData = array(
+                        "secret" => $apiSecret,
+                        "mode" => "devices",
+                        "device" => $deviceId,
+                        "sim" => 2,
+                        "priority" => 1,
+                        "phone" => $phone,
+                        "message" => $messageContent
+                    );
+                    $ch = curl_init();
+                    curl_setopt($ch, CURLOPT_URL, "https://www.cloud.smschef.com/api/send/sms");
+                    curl_setopt($ch, CURLOPT_POST, true);
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($messageData));
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                    $response = curl_exec($ch);
+                    curl_close($ch);
+                    $result = json_decode($response, true);
