@@ -22,3 +22,16 @@ registry editor
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
 create string value "XAMPP"
 copy the path of "xampp-control.exe"
+
+
+
+"Run dot bat php artisan serve"
+@echo off
+REM Change to the directory of your Laravel project
+cd /d "C:\xampp\htdocs\e_class_record"
+
+REM Run the Laravel development server in a new minimized command prompt window
+start /min "" php artisan serve
+
+REM Exit the batch file
+exit

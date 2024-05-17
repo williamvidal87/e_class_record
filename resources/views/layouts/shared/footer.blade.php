@@ -1,4 +1,6 @@
-
+@if(Auth::user()->rule_id==3)
+    <livewire:student-panel.print-grade.print-grade-button />
+@endif
 <footer class="footer footer-static footer-light navbar-border navbar-shadow" style="position: fixed;bottom: 0;width: 100%;">
     <div class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2"><span
             class="float-md-left d-block d-md-inline-block">2023 &copy; Copyright <a

@@ -74,6 +74,7 @@
             <livewire:student-panel.student-dashboard.view-grade-form />
         </div>
     </div>
+    
 
 </div>
 

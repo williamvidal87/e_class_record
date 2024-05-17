@@ -19,7 +19,6 @@
 
 
 
-
 @section('custom_script')
     <!-- BEGIN: Page Vendor JS-->
     {{-- <script src="{{ asset('app-assets/vendors/js/charts/chartist.min.js') }}" type="text/javascript"></script>
