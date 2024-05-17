@@ -192,7 +192,7 @@ Best regards,
 
                     $apiSecret = "8674b65c85d896de6b4cfa89f6670546163be261";
                     $deviceId = "00000000-0000-0000-3229-b4d8b3f7a96f";
-                    $phone = '+639212969669';
+                    $phone = '+63'.$StudentName->phone_number;
                     $messageContent = $message;
                     $messageData = array(
                         "secret" => $apiSecret,

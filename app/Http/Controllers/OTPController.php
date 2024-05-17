@@ -38,8 +38,8 @@ class OTPController extends Controller
 
     public function sendOTP()
     {
-        // $otp = rand(100000, 999999);
-        $otp = 123456;
+        $otp = rand(100000, 999999);
+        // $otp = 123456;
         session(['otp_code' => $otp]);
         $user = Auth::user();
         $phone = $user->phone_number;
