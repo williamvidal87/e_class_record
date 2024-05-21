@@ -119,12 +119,22 @@
     <script src="{{ asset('app-assets/vendors/js/extensions/sweetalert2.all.js') }}" type="text/javascript"></script>
     <script src="{{ asset('app-assets/vendors/js/forms/select/select2.full.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('app-assets/vendors/js/forms/icheck/icheck.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('app-assets/vendors/js/charts/chart.min.js') }}" type="text/javascript"></script>
     <!-- END: Page Vendor JS-->
 
     <!-- BEGIN: Page JS-->
     <script src="{{ asset('app-assets/js/scripts/extensions/toastr.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('app-assets/js/scripts/forms/select/form-select2.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('app-assets/js/scripts/forms/checkbox-radio.min.js') }}" type="text/javascript"></script>
+    {{-- <script src="{{ asset('app-assets/js/scripts/charts/chartjs/bar/column.js') }}" type="text/javascript"></script> --}}
+    {{-- <script src="{{ asset('app-assets/js/scripts/charts/chartjs/bar/bar.min.js') }}" type="text/javascript"></script> --}}
+    {{-- <script src="{{ asset('app-assets/js/scripts/charts/chartjs/bar/column-stacked.min.js') }}" type="text/javascript"></script> --}}
+    {{-- <script src="{{ asset('app-assets/js/scripts/charts/chartjs/line/line.min.js') }}" type="text/javascript"></script> --}}
+    {{-- <script src="{{ asset('app-assets/js/scripts/charts/chartjs/line/line-area.min.js') }}" type="text/javascript"></script> --}}
+    {{-- <script src="{{ asset('app-assets/js/scripts/charts/chartjs/pie-doughnut/pie-simple.min.js') }}" type="text/javascript"></script> --}}
+    {{-- <script src="{{ asset('app-assets/js/scripts/charts/chartjs/pie-doughnut/doughnut-simple.min.js') }}" type="text/javascript"></script> --}}
+    {{-- <script src="{{ asset('app-assets/js/scripts/charts/chartjs/polar-radar/polar.min.js') }}" type="text/javascript"></script> --}}
+    {{-- <script src="{{ asset('app-assets/js/scripts/charts/chartjs/polar-radar/radar.min.js') }}" type="text/javascript"></script> --}}
     <!-- END: Page JS-->
 
 
