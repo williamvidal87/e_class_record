@@ -63,7 +63,7 @@
                         label: "Failed Students",
                         data: total_failed,
                         backgroundColor: "#d02828",
-                        hoverBackgroundColor: "rgb(255, 0, 0)",
+                        hoverBackgroundColor: "#FF4961",
                         borderColor: "transparent"
                     }]
                 }
@@ -135,7 +135,7 @@
                         label: "Passed Students",
                         data: total_passed,
                         backgroundColor: "#28D094",
-                        hoverBackgroundColor: "rgb(0, 255, 0)",
+                        hoverBackgroundColor: "#28D094",
                         borderColor: "transparent"
                     }]
                 }
