@@ -135,13 +135,36 @@
                         label: "Passed Students",
                         data: total_passed,
                         backgroundColor: "#28D094",
-                        hoverBackgroundColor: "rgba(40,208,148,.9)",
+                        hoverBackgroundColor: "rgb(0, 255, 0)",
                         borderColor: "transparent"
                     }]
                 }
             })
         });
         // end for passed
+
+
+
+        $(window).on("load", function() {
+            var a = $("#simple-doughnut-chart");
+            new Chart(a,{
+                type: "doughnut",
+                options: {
+                    responsive: !0,
+                    maintainAspectRatio: !1,
+                    responsiveAnimationDuration: 500
+                },
+                data: {
+                    labels: ["Total Students Failed:", "Total Students Passed"],
+                    datasets: [{
+                        label: "Class Data",
+                        data: [<?php echo $this->overallTotalFailed; ?>, <?php echo $this->overallTotalPassed; ?>],
+                        backgroundColor: ["#FF4961","#28D094"]
+                    }]
+                }
+            })
+        });
+
         
 
         

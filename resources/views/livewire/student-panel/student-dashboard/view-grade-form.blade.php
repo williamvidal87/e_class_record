@@ -109,7 +109,7 @@
                                                                                     }
                                                                                 } ?>" wire:ignore.self id="accordion{{$activitycategoryData->id}}" class="collapse" aria-labelledby="headingEOne" data-parent="#accordion{{$activitycategoryData->id}}">
                                                                                     <td>
-                                                                                        {{ $midtermactivityData->activity_name }}
+                                                                                        {{ $midtermactivityData->activity_name }} ({{ $midtermactivityData->date }})
                                                                                     </td>
                                                                                     <td style="padding-left:0%">{{$studentmidtermactivityRecordData->score ?? "0"}}<span style="color: green">/{{ $midtermactivityData->maximum_score }}</span></td>
                                                                                 </tr>
@@ -212,7 +212,7 @@
                                                                                     }
                                                                                 } ?>" wire:ignore.self id="accordionB{{$finalactivitycategoryData->id}}" class="collapse" aria-labelledby="headingEOne" data-parent="#accordionB{{$finalactivitycategoryData->id}}">
                                                                                     <td>
-                                                                                        {{ $finaltermactivityData->activity_name }}
+                                                                                        {{ $finaltermactivityData->activity_name }} ({{ $finaltermactivityData->date }})
                                                                                     </td>
                                                                                     <td style="padding-left:0%">{{$studentfinaltermactivityRecordData->score ?? "0"}}<span style="color: green">/{{ $finaltermactivityData->maximum_score }}</span></td>
                                                                                 </tr>

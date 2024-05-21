@@ -20,6 +20,8 @@ class Dashboard extends Component
     public $passed_Data=[];
     public $numElementsofFailed;
     public $numElementsofPassed;
+    public $overallTotalFailed;
+    public $overallTotalPassed;
     public function render()
     {
         $ClassStudentData =   ClassStudent::join('users', 'class_students.student_id', '=', 'users.id')->orderBy('users.name', 'asc')->get();
@@ -148,7 +150,13 @@ class Dashboard extends Component
                 }
             }
         }
+
         //start for failed
+        $overallTotalFailed = 0;
+        foreach ($failed_subject as $subject) {
+            $overallTotalFailed += $subject['total_failed'];
+        }
+        $this->overallTotalFailed=$overallTotalFailed;
         $failedSubjects = array_filter($failed_subject, function($subject) {
             return $subject['total_failed'] > 0;
         });
@@ -161,6 +169,11 @@ class Dashboard extends Component
         //end for failed
 
         //start for passed
+        $overallTotalPassed = 0;
+        foreach ($passed_subject as $subject) {
+            $overallTotalPassed += $subject['total_passed'];
+        }
+        $this->overallTotalPassed=$overallTotalPassed;
         $passedSubjects = array_filter($passed_subject, function($subject) {
             return $subject['total_passed'] > 0;
         });
