@@ -25,14 +25,17 @@ class GenerateButton extends Component
 
     public function GenerateReport()
     {
+        
+        // $ClassStudentData =   ClassStudent::join('users', 'class_students.student_id', '=', 'users.id')->orderBy('users.name', 'asc')->get();
+        // dd($ClassStudentData);
         $pdfContent = PDF::loadView('livewire.admin-panel.generate-report.generate-pdf', [
             'TotalNumberOfSubject'  =>  Subject::all(),
             'TotalNumberOfStudent'  =>  User::where('rule_id',3)->get(),
             'ClassData'  =>  MyClass::all(),
             'SubjectNameData'  =>  Subject::all(),
-            'ClassStudentData'  =>  ClassStudent::all(),
+            'ClassStudentData2'  =>  ClassStudent::all(),
 
-            // 'ClassStudentData' =>   ClassStudent::join('users', 'class_students.student_id', '=', 'users.id')->orderBy('users.name', 'asc')->get(),
+            'ClassStudentData' =>   ClassStudent::join('users', 'class_students.student_id', '=', 'users.id')->orderBy('users.name', 'asc')->get(),
             'ActivityCategoryData' =>   ActivityCategory::all(),
             'MidTermActivityData' =>   MidTermActivity::all(),
             'StudentMidTermActivityRecordData' =>   StudentMidTermActivityRecord::all(),
@@ -40,6 +43,7 @@ class GenerateButton extends Component
             'FinalActivityCategoryData' =>   FinalActivityCategory::all(),
             'FinalTermActivityData' =>   FinalTermActivity::all(),
             'StudentFinalTermActivityRecordData' =>   StudentFinalTermActivityRecord::all(),
+
 
         ])->setPaper('Legal', 'Portrait')->output();
         return response()->streamDownload(fn () => print($pdfContent), "Academic Performance Report.pdf");
